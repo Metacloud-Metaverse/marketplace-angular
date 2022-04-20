@@ -4,7 +4,7 @@
     <header>
       <div class="row">
         <h1>World events</h1>
-        <button mat-icon-button><mat-icon>search</mat-icon></button>
+        <button mat-icon-button matTooltip="Search"><mat-icon>search</mat-icon></button>
         <button mat-flat-button color="primary">SUBMIT EVENT</button>
       </div>
       <div class="separate-line">
@@ -12,5 +12,43 @@
       </div>
     </header>
 
+    <section class="section1">
+      <drag-scroll #sectionBigCards [scrollbar-hidden]="true">
+        <div drag-scroll-item *ngFor="let item of events.slice(0, 4)">
+          <app-big-card></app-big-card>
+        </div>
+      </drag-scroll>
+      <div class="indicators">
+        <div *ngFor="let item of events.slice(0, 4)"></div>
+      </div>
+      <div class="navigators">
+        <button mat-icon-button matTooltip="Prev" (click)="moveLeft()"><mat-icon>arrow_back</mat-icon></button>
+        <button mat-icon-button matTooltip="Next" (click)="moveRight()"><mat-icon>arrow_forward</mat-icon></button>
+      </div>
+    </section>
+
+    <section class="section2">
+      <h2>Trending</h2>
+      <div class="layout">
+        <div class="trending-card" *ngFor="let item of events.slice(0, 9)">
+          <app-event-card [isTrendingCard]="true"></app-event-card>
+        </div>
+      </div>
+    </section>
+
+    <section class="section3">
+      <h2>Upcoming Events</h2>
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip [ngClass]="{'active': filterActive == 0}" (click)="filterActive = 0">APRIL</mat-chip>
+        <mat-chip [ngClass]="{'active': filterActive == 1}" (click)="filterActive = 1">MAY</mat-chip>
+        <mat-chip [ngClass]="{'active': filterActive == 2}" (click)="filterActive = 2">JUNE</mat-chip>
+        <mat-chip [ngClass]="{'active': filterActive == 3}" (click)="filterActive = 3">JULY</mat-chip>
+      </mat-chip-list>
+      <div class="layout">
+        <div class="event-card" *ngFor="let item of events.slice(0, 9)">
+          <app-event-card></app-event-card>
+        </div>
+      </div>
+    </section>
   </div>
 </div>

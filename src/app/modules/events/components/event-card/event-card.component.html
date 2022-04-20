@@ -1,0 +1,24 @@
+<div class="event-card" [ngClass]="{'trending-card': isTrendingCard}">
+
+  <a [routerLink]="['/routePath']" class="image-container">
+    <img [src]="image" alt="Image - {{ title }}" onerror="this.src='/assets/img/image-not-found.svg';" />
+    <div class="viewers">+129</div>
+    <div class="date" [ngClass]="{'is-live': isLive}">
+      <span *ngIf="isLive">LIVE</span>
+      <span *ngIf="!isLive">in 4 hours</span>
+      <!-- <span *ngIf="!isLive">in 1 day</span> -->
+      <!-- <span *ngIf="!isLive">in 2 months</span> -->
+    </div>
+  </a>
+
+  <div class="body">
+    <div class="row">
+      <div class="date">NOW</div>
+      <button mat-flat-button class="coordinates">-67,101 <mat-icon>chevron_right</mat-icon></button>
+    </div>
+    <h3><a [routerLink]="['/event']" class="animated">Unboxing of the One Plus 10 Pro 5G in the Metaverse</a></h3>
+
+    <app-buttons-action-share-element></app-buttons-action-share-element>
+  </div>
+
+</div>

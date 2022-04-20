@@ -1,0 +1,10 @@
+<div class="buttons row">
+  <button mat-raised-button color="primary" class="btn-primary">JUMP IN</button>
+  <button mat-stroked-button color="primary" matTooltip="Share" [matMenuTriggerFor]="share" class="btn-icon"><mat-icon>share</mat-icon></button>
+</div>
+
+<mat-menu #share="matMenu">
+  <button style="display: flex; align-items: center; justify-content: center;" mat-menu-item matTooltipPosition="right" matTooltip="Copy link"><mat-icon style="margin-right: 0;">link</mat-icon></button>
+  <button style="display: flex; align-items: center; justify-content: center;" mat-menu-item matTooltipPosition="right" matTooltip="Facebook"><img src="/assets/img/icons/facebook-icon.svg" alt="Facebook" style="width: 20px;" /></button>
+  <button style="display: flex; align-items: center; justify-content: center;" mat-menu-item matTooltipPosition="right" matTooltip="Twitter"><img src="/assets/img/icons/twitter-icon.svg" alt="Twitter" style="width: 20px;" /></button>
+</mat-menu>

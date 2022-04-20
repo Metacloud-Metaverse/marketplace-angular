@@ -1,0 +1,21 @@
+@import "../../../../../assets/styles/vars";
+
+.buttons{
+  gap: 1em;
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  .btn-primary{
+    width: 100%;
+    height: 50px;
+  }
+
+  .btn-icon{
+    width: 50px;
+    min-width: 50px;
+    padding: 0;
+    height: 50px;
+  }
+}

@@ -1,0 +1,40 @@
+<div class="big-card">
+
+  <a [routerLink]="['/event']" class="image-container">
+    <img [src]="image" alt="Image - {{ title }}" onerror="this.src='/assets/img/image-not-found.svg';" />
+  </a>
+
+  <div class="body">
+    <div class="head row">
+      <div class="date">
+        <p><small>Apr</small></p>
+        <p>16</p>
+      </div>
+      <div class="texts">
+        <h2><a [routerLink]="['/event']" class="animated">{{ title }}</a></h2>
+        <p>
+          <span *ngIf="status == 0">Public</span>
+          <span *ngIf="status == 1">Private?</span>
+          , Organized by <a [routerLink]="['/routePath']" class="link hover-linear">{{ organized }}</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="section row">
+      <p><mat-icon class="icon">schedule</mat-icon> &nbsp; Starts in 9 days</p>
+      <button mat-flat-button>Add to calendar</button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="section row">
+      <p><mat-icon class="icon">location_on</mat-icon> &nbsp; {{ creator }}</p>
+      <button mat-flat-button>{{ coordinates }} <mat-icon>chevron_right</mat-icon></button>
+    </div>
+
+    <app-buttons-action-share-element></app-buttons-action-share-element>
+
+  </div>
+
+</div>
+

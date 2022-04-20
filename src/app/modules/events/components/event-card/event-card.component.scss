@@ -1,0 +1,105 @@
+@import "../../../../../assets/styles/vars";
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #202335;
+  border-radius: 0.5em;
+  overflow: hidden;
+
+  .image-container {
+    display: block;
+    position: relative;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .viewers {
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      border-radius: 200px;
+      background-color: black;
+      color: white;
+      font-size: 0.9em;
+      font-weight: 600;
+      padding: 0 0.5em;
+    }
+
+    .date {
+      position: absolute;
+      top: 0.5em;
+      left: 0.5em;
+      color: white;
+      background-color: black;
+      padding: 0.2em 1em;
+      font-weight: 600;
+      border-radius: 200px;
+    }
+
+    .is-live {
+      background-color: #fc0918;
+    }
+  }
+
+  .body {
+    padding: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #a3a3a3;
+
+      .coordinates {
+        background-color: white;
+        color: black;
+        padding: 0 0.5em;
+        padding-right: 0;
+        line-height: 1.5;
+      }
+    }
+
+    h3 {
+      font-size: 1.25em;
+      margin-bottom: 0;
+      a {
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        &:hover {
+          color: $color_primary_500;
+        }
+      }
+    }
+  }
+}
+
+.trending-card {
+  flex-direction: row;
+
+  .image-container {
+    width: 30%;
+  }
+
+  .body {
+    width: 70%;
+
+    h3 {
+      font-size: 1em;
+    }
+  }
+
+  app-buttons-action-share-element,
+  .date {
+    display: none;
+  }
+}

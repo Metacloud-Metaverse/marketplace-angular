@@ -1,23 +1,127 @@
-@import '../../../../../assets/styles/vars';
+@import "../../../../../assets/styles/vars";
 
-.events{
+.events {
+  header {
+    margin-bottom: 2em;
 
-  header{
-    .row{
+    .row {
       display: flex;
       align-items: center;
       gap: 1em;
 
-      h1{
+      h1 {
         margin: 0;
         margin-right: auto;
       }
     }
 
-    .separate-line{
+    .separate-line {
+      margin-top: 1em;
       height: 1px;
-      background-color: white;
-      opacity: 0.1;
+      background-color: rgba($color: white, $alpha: 0.1);
+      border-radius: 200px;
+
+      .active-line {
+        width: 280px;
+        height: 4px;
+        background: linear-gradient(to right, #be00f2, #6d32ea, #a1f6fa);
+        border-radius: 200px;
+        position: relative;
+        top: -2px;
+      }
+    }
+  }
+
+  .section1 {
+    position: relative;
+
+    div {
+      width: 100%;
+    }
+
+    .navigators {
+      position: absolute;
+      top: 45%;
+      left: -5%;
+      transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      pointer-events: none;
+      display: flex;
+      justify-content: space-between;
+      width: 110%;
+      z-index: 11;
+
+      button {
+        pointer-events: all;
+      }
+    }
+
+    .indicators {
+      margin-top: 2em;
+      display: flex;
+      justify-content: center;
+      gap: 0.5em;
+
+      div {
+        width: 30px;
+        height: 4px;
+        border-radius: 200px;
+        background-color: white;
+        opacity: 0.2;
+      }
+      .active {
+        opacity: 1 !important;
+        background-color: $color_primary_500;
+      }
+    }
+  }
+
+  .section2 {
+    margin-top: 4em;
+
+    h2{
+      font-family: $font_title !important;
+    }
+
+    .layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+
+      .trending-card {
+        width: calc(33.3% - 1em);
+      }
+    }
+  }
+
+  .section3 {
+    margin-top: 6em;
+
+    h2{
+      font-family: $font_title !important;
+    }
+
+    mat-chip{
+      cursor: pointer;
+    }
+
+    .active{
+      background-color: $color_primary_500;
+      color: white;
+    }
+
+    .layout {
+      margin-top: 2em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+
+      .event-card {
+        width: calc(33.3% - 1em);
+      }
     }
   }
 }
