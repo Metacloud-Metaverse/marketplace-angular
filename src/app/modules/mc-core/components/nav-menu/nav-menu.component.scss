@@ -1,0 +1,453 @@
+@import "../../../../../assets/styles/vars";
+
+@keyframes intro {
+  0% {
+    filter: blur(200px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(120px);
+    opacity: 0.4;
+  }
+}
+@-o-keyframes intro {
+  0% {
+    filter: blur(200px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(120px);
+    opacity: 0.4;
+  }
+}
+@-webkit-keyframes intro {
+  0% {
+    filter: blur(200px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(120px);
+    opacity: 0.4;
+  }
+}
+@-moz-keyframes intro {
+  0% {
+    filter: blur(200px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(120px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes introBackground {
+  0% {
+    filter: blur(100px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@-o-keyframes introBackground {
+  0% {
+    filter: blur(100px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes introBackground {
+  0% {
+    filter: blur(100px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@-moz-keyframes introBackground {
+  0% {
+    filter: blur(100px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes introVideos {
+  0% {
+    filter: blur(30px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@-o-keyframes introVideos {
+  0% {
+    filter: blur(30px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes introVideos {
+  0% {
+    filter: blur(30px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@-moz-keyframes introVideos {
+  0% {
+    filter: blur(30px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.background-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 78px;
+  background-color: white;
+  opacity: 1;
+  animation: introNav 1s linear;
+  z-index: 7;
+  @include xs {
+    height: 56px;
+  }
+
+  @keyframes introNav {
+    from,
+    50% {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes introNav {
+    from,
+    50% {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes introNav {
+    from,
+    50% {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes introNav {
+    from,
+    50% {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.nav-menu {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .content {
+    overflow: hidden;
+    padding: 8em 3em;
+    position: relative;
+    z-index: 6;
+    /* border: 1px solid rgba($color: white, $alpha: 0.5); */
+    border-radius: 8px;
+    width: 70vw;
+    margin: auto;
+    transition: $animation;
+    -o-transition: $animation;
+    -moz-transition: $animation;
+    -webkit-transition: $animation;
+    background-color: transparent;
+    /* background: radial-gradient(
+      rgba($color: white, $alpha: 0),
+      rgba($color: white, $alpha: 0.5)
+    ); */
+
+    @include xs {
+      padding-top: 6em;
+      padding-left: 2em;
+      padding-right: 2em;
+      width: 90vw;
+    }
+
+    .btn-exploring {
+      display: none;
+      padding: 0.3em 2em;
+      margin-bottom: 1.5em;
+      width: 100%;
+      transition: $animation;
+      -o-transition: $animation;
+      -moz-transition: $animation;
+      -webkit-transition: $animation;
+      pointer-events: none;
+      &::ng-deep .mat-button-wrapper {
+        display: flex;
+        width: 100%;
+      }
+      app-coming-soon-element {
+        position: relative;
+        top: 2px;
+        &::ng-deep b {
+          font-size: 19px;
+          color: #e9c338;
+          text-shadow: 0 0px 100px, 0 0 2px, 0 0 1em #bd00f2, 0 0 0.5em #bd00f2,
+            0 2px 3px #49005e, 0px 0px 7px #fff;
+        }
+      }
+      &:hover {
+        background-color: $color_primary_700;
+      }
+      @include xs {
+        display: block;
+      }
+    }
+
+    .btn-private-sell{
+      display: none;
+      padding: 0.3em 2em;
+      margin-bottom: 1.5em;
+      width: 100%;
+      background-color: $color_primary_900;
+      color: white;
+      transition: $animation;
+      -o-transition: $animation;
+      -moz-transition: $animation;
+      -webkit-transition: $animation;
+      font-weight: 600;
+      &::ng-deep .mat-button-wrapper {
+        display: flex;
+        width: 100%;
+      }
+      app-coming-soon-element{
+        position: relative;
+        top: 2px;
+        &::ng-deep b{
+          font-size: 19px;
+          color: #e9c338;
+          text-shadow: 0 0px 100px, 0 0 2px, 0 0 1em #bd00f2;
+        }
+      }
+      @include xs {
+        display: block;
+      }
+    }
+
+    h1 {
+      display: flex;
+      gap: 0.4em;
+      a {
+        text-decoration: none;
+        color: $black_high_emphasis;
+        &:hover {
+          color: $color_primary_500;
+        }
+      }
+    }
+
+    .link {
+      color: $black_high_emphasis;
+    }
+
+    .router-link-active {
+      color: $color_primary_500 !important;
+    }
+
+    .coming-soon {
+      pointer-events: none;
+      a {
+        color: #7a7a7a;
+      }
+      .neon-effect {
+        b {
+          text-shadow: 0 0px 100px, 0 0 2px;
+        }
+      }
+    }
+
+    mat-divider {
+      display: none;
+      margin-bottom: 2em;
+      @include xs {
+        display: block;
+      }
+    }
+
+    .more-link {
+      margin-bottom: 3em;
+      h5 {
+        margin: 0;
+      }
+      .link {
+        font-weight: 600;
+        color: $black_medium_emphasis;
+      }
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      @include xs {
+        /* flex-direction: column; */
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+    }
+
+    .social-media {
+      margin-left: auto;
+      margin-bottom: 3em;
+      display: none;
+      @include xs {
+        display: block;
+        margin: 0;
+      }
+
+      h5 {
+        margin-bottom: 0;
+      }
+
+      a {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: $animation;
+          -o-transition: $animation;
+          -moz-transition: $animation;
+          -webkit-transition: $animation;
+          border-radius: 200px;
+          background-color: rgba($color: #ffffff, $alpha: 0.5);
+          z-index: 1;
+        }
+        img {
+          width: 22px;
+          position: relative;
+          z-index: 2;
+        }
+        &:hover {
+          &::before {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    .videos {
+      margin-top: 2.2em;
+      position: fixed;
+      bottom: 2em;
+      right: 2em;
+      @include xs {
+        bottom: 0;
+        left: 0;
+        position: relative;
+      }
+
+      h5 {
+        display: none;
+        @include lt-md {
+          display: block;
+        }
+      }
+
+      .videos-row {
+        display: flex;
+        gap: 1.5em;
+        @include xs {
+          margin-top: 1em;
+          flex-direction: column;
+        }
+        @include sm {
+          margin-top: 1em;
+          position: relative;
+          bottom: 0;
+          left: 0;
+          app-video-element {
+            max-width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .background {
+    background: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    animation: introBackground 0.4s linear;
+  }
+}
+
+.nav-menu-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.blink-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 20000;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}

@@ -1,0 +1,23 @@
+@import '../../../../../assets/styles/vars';
+
+.events{
+
+  header{
+    .row{
+      display: flex;
+      align-items: center;
+      gap: 1em;
+
+      h1{
+        margin: 0;
+        margin-right: auto;
+      }
+    }
+
+    .separate-line{
+      height: 1px;
+      background-color: white;
+      opacity: 0.1;
+    }
+  }
+}
