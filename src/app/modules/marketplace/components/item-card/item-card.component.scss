@@ -1,0 +1,107 @@
+@import "../../../../../assets/styles/vars";
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
+  overflow: hidden;
+  background-color: #202335;
+  white-space: normal;
+  padding: 1em;
+  position: relative;
+  top: 0;
+  text-decoration: none;
+  color: white;
+
+  .image-container {
+    display: block;
+    height: 200px;
+    border-radius: 1em;
+    overflow: hidden;
+    margin-bottom: 1em;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .body {
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1em;
+      margin-bottom: 1em;
+    }
+
+    h3 {
+      font-size: 1em;
+      margin: 0;
+      font-weight: 600;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      a{
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+        &:hover{
+          color: $color_primary_500;
+        }
+      }
+    }
+
+    .token {
+      margin: 0;
+      white-space: nowrap;
+      img {
+        width: 20px;
+        margin-right: 0.5em;
+        position: relative;
+        top: 5px;
+      }
+      span{
+
+      }
+    }
+
+    .rarity{
+      span{
+        color: white;
+        border-radius: 4px;
+        padding: 0.25em 0.5em;
+        font-size: 0.9em;
+
+        &:nth-of-type(0) { background: red; } //Regular
+        &:nth-of-type(1) { background: green; } //Regular
+        &:nth-of-type(2) { background: yellow; } //Regular
+        &:nth-of-type(3) { background: orange; } //Regular
+        &:nth-of-type(4) { background: violet; } //Regular
+        &:nth-of-type(5) { background: blue; } //Regular
+        &:nth-of-type(6) { background: salmon; } //Regular
+        &:nth-of-type(7) { background: pink; } //Regular
+        &:nth-of-type(8) { background: brown; } //Regular
+      }
+    }
+
+    .genre{
+      mat-icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba($color: white, $alpha: 0.1);
+        color: white;
+        border-radius: 0.25em;
+        height: 32px;
+        width: 32px;
+      }
+    }
+  }
+
+  &:hover{
+    top: -10px;
+  }
+}

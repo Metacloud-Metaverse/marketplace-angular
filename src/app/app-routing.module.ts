@@ -9,8 +9,9 @@ const routes: Routes = [
     children: [
       /* { path: '', loadChildren: () => import('./modules/intro/intro.module').then(m => m.IntroModule), data: { preload: true }}, */
       { path: 'events', loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule), data: { preload: true }},
+      { path: 'marketplace', loadChildren: () => import('./modules/marketplace/marketplace.module').then(m => m.MarketplaceModule), data: { preload: true }}
     ]
-  }
+  },
   /* { path: '', redirectTo: '', pathMatch: 'full' }, */
   /* { path: 'page-not-found', loadChildren: () => import('./modules/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule), data: { preload: true }}, */
   /* { path: '**', redirectTo: 'page-not-found', pathMatch: 'full' }, */

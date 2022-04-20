@@ -1,0 +1,45 @@
+<a [routerLink]="['/']" class="item-card component-animation animated">
+
+  <a [routerLink]="['/']" class="image-container">
+    <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" />
+  </a>
+
+  <div class="body">
+    <div class="row">
+      <h3><a [routerLink]="['/']" class="animated"> {{ item.title }} </a></h3>
+      <div class="token">
+        <img src="/assets/img/logos/icon.svg" alt="" />
+        <span>54</span>
+      </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 0;">
+      <div class="rarity">
+        <span *ngIf="item.rarity == 0">MYTHIC</span>
+        <span *ngIf="item.rarity == 1">UNIQUE</span>
+        <span *ngIf="item.rarity == 2">LEGENDARY</span>
+        <span *ngIf="item.rarity == 3">EPIC</span>
+        <span *ngIf="item.rarity == 4">UNUSUAL</span>
+        <span *ngIf="item.rarity == 5">ODD</span>
+        <span *ngIf="item.rarity == 6">REGULAR</span>
+        <span *ngIf="item.rarity == 7">RARE</span>
+        <span *ngIf="item.rarity == 8">UNCOMMON</span>
+      </div>
+
+      <div class="coordinates">
+
+      </div>
+
+      <div class="category">
+        <img *ngIf="item.category == 0" src="" alt="asd" matTooltip="Pants" />
+        <img *ngIf="item.category == 1" src="" alt="asd" matTooltip="Pants" />
+      </div>
+
+      <div class="genre">
+        <mat-icon *ngIf="item.genre == 0" matTooltip="Female">female</mat-icon>
+        <mat-icon *ngIf="item.genre == 1" matTooltip="Male">male</mat-icon>
+      </div>
+    </div>
+  </div>
+
+</a>

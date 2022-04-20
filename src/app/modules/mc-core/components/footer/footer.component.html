@@ -1,5 +1,57 @@
 <footer>
-    <div class="container">
-      footer works!
+
+  <div class="container main-content">
+    <div class="left">
+      <a [routerLink]="['/routePath']" class="logo">
+        <img src="/assets/img/logos/logo-white.svg" alt="Metacloud" />
+      </a>
+      <hr>
+      <div class="social-media">
+        <a href="https://twitter.com/themetacloud" target="_blank" mat-icon-button matTooltip="Twitter"><img src="/assets/img/icons/twitter-icon.svg" alt="Twitter"></a>
+        <a href="" target="_blank" mat-icon-button matTooltip="Instagram"><img src="/assets/img/icons/instagram-icon.svg" alt="Instagram"></a>
+        <a href="https://medium.com/@themetacloud" target="_blank" mat-icon-button matTooltip="Medium"><img src="/assets/img/icons/medium-icon.svg" alt="Medium"></a>
+        <a href="http://discord.gg/metacloud" target="_blank" mat-icon-button matTooltip="Discord"><img src="/assets/img/icons/discord-icon.svg" alt="Discord"></a>
+        <a href="https://t.me/themetacloud" target="_blank" mat-icon-button matTooltip="Main chat Telegram"><img src="/assets/img/icons/telegram-icon.svg" alt="Telegram"></a>
+        <a href="" target="_blank" mat-icon-button matTooltip="Reddit"><img src="/assets/img/icons/reddit-icon.svg" alt="Reddit"></a>
+        <a href="" target="_blank" mat-icon-button matTooltip="Facebook"><img src="/assets/img/icons/facebook-icon.svg" alt="Facebook"></a>
+        <a href="" target="_blank" mat-icon-button matTooltip="TikTok"><img src="/assets/img/icons/tiktok-icon.svg" alt="TikTok"></a>
+      </div>
     </div>
+
+    <div class="right">
+      <div class="links">
+        <div class="column">
+          <a class="link hover-linear" [routerLink]="['/']" routerLinkActive="router-link-active">Home</a> <br><br>
+          <a class="link hover-linear" [routerLink]="['/routePath']" routerLinkActive="router-link-active">Events</a>
+        </div>
+        <div class="column">
+          <a class="link hover-linear" [routerLink]="['/routePath']" routerLinkActive="router-link-active">Marketplace</a> <br><br>
+          <a class="link hover-linear" [routerLink]="['/company/about-us']" routerLinkActive="router-link-active">DAO</a>
+        </div>
+        <div class="column">
+          <a class="link hover-linear" [routerLink]="['/routePath']" routerLinkActive="router-link-active">Builder</a> <br><br>
+          <a class="link hover-linear" [routerLink]="['/routePath']" routerLinkActive="router-link-active">Blog</a>
+        </div>
+        <div class="column">
+          <a class="link hover-linear" [routerLink]="['/routePath']" routerLinkActive="router-link-active">Docs</a> <br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container sub-footer">
+    <div class="left">
+      <p><small>Metacloud. © 2022 All Right reserved</small></p>
+    </div>
+    <div class="right">
+      <a class="link hover-linear" [routerLink]="['/legals/privacy-policy']" routerLinkActive="router-link-active"><small>Privacy Policy </small></a>
+      <div class="separate-line-vert"></div>
+      <a class="link hover-linear" [routerLink]="['/legals/terms-of-service']" routerLinkActive="router-link-active"><small>Terms of Use</small></a>
+      <div class="separate-line-vert"></div>
+      <a class="link hover-linear" [routerLink]="['/legals/terms-of-service']" routerLinkActive="router-link-active"><small>Content Policy</small></a>
+      <div class="separate-line-vert"></div>
+      <a class="link hover-linear" [routerLink]="['/legals/terms-of-service']" routerLinkActive="router-link-active"><small>Code of Ethnics</small></a>
+    </div>
+  </div>
+
 </footer>
