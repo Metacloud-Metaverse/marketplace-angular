@@ -1,1 +1,80 @@
-<p>item-detail-page works!</p>
+<div class="item-detail-page intro-component-animation">
+
+  <nav>
+    <a mat-button [routerLink]="['/routePath']" routerLinkActive="active" class="active">Land</a>
+    <a mat-button [routerLink]="['/routePath']" routerLinkActive="active">Collectibles</a>
+    <a mat-button [routerLink]="['/routePath']" routerLinkActive="active">My Store</a>
+  </nav>
+
+  <div class="container">
+    <div class="column-left">
+      <a [routerLink]="['/marketplace']" mat-icon-button matTooltip="Back"><mat-icon>arrow_back</mat-icon></a>
+    </div>
+
+    <div class="column-right">
+      <header>
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" />
+        </div>
+      </header>
+
+      <section>
+        <div class="row">
+          <h1>JEWELS Power75</h1>
+          <h2><img src="/assets/img/logos/icon.svg" alt="$Cloud" /> 54</h2>
+        </div>
+
+        <div class="tags">
+          <div class="rarity tag">
+            <span class="mythic item-center">MYTHIC</span>
+          </div>
+
+          <div class="category tag" matTooltip="Uppderbody">
+            <mat-icon>checkroom</mat-icon>
+          </div>
+
+          <div class="genre tag" matTooltip="Female">
+            <mat-icon>female</mat-icon>
+          </div>
+        </div>
+
+        <div class="row texts">
+          <div class="left">
+            <mat-list>
+              <mat-list-item>
+                <div mat-line>Description</div>
+                <div mat-line>Two Golden Orange Bracelets</div>
+              </mat-list-item>
+              <mat-list-item>
+                <div mat-line>Price</div>
+                <div mat-line>56 $CLOUD</div>
+              </mat-list-item>
+              <mat-list-item >
+                <img mat-list-icon src="/assets/img/avatar.png" />
+                <div mat-line>Creator</div>
+                <div mat-line><a [routerLink]="['/routePath']" class="link hover-linear">SHAWNDA0505LYDS</a></div>
+              </mat-list-item>
+              <mat-list-item>
+                <div mat-line>Stock</div>
+                <div mat-line>100/100</div>
+              </mat-list-item>
+              <mat-list-item>
+                <img mat-list-icon src="/assets/img/collection-icon.png" />
+                <div mat-line>Collection</div>
+                <div mat-line>Bracelets Paradice</div>
+              </mat-list-item>
+              <mat-list-item>
+                <div mat-line>Expires in 10 days</div>
+              </mat-list-item>
+            </mat-list>
+          </div>
+
+          <div class="right">
+            <button mat-flat-button>BID</button>
+            <button mat-flat-button color="primary">BUY</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

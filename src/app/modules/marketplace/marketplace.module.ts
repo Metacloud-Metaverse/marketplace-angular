@@ -10,6 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+
 
 // Pages
 import { ItemDetailPageComponent } from './pages/item-detail-page/item-detail-page.component';
@@ -36,6 +38,7 @@ import { ItemCardComponent } from './components/item-card/item-card.component';
     MatIconModule,
     MatTooltipModule,
     MatMenuModule,
+    MatListModule,
   ]
 })
 export class MarketplaceModule { }
