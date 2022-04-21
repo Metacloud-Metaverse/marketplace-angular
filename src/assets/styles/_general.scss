@@ -274,12 +274,15 @@
 }
 
 .mat-flat-button.mat-primary {
+  color: white;
+  font-weight: 600;
+  background: linear-gradient(to bottom right, #BE00F2, #6D32EA, #A1F6FA);
   transition: $animation;
   -moz-transition: $animation;
   -o-transition: $animation;
   -webkit-transition: $animation;
   &:hover {
-    background-color: $color_primary_700;
+    background: linear-gradient(to bottom right, #8d00b4, #4b21a5, #5c9da0);
   }
 }
 

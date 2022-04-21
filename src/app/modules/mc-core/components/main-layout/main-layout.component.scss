@@ -1,10 +1,61 @@
 @import "../../../../../assets/styles/vars";
 
+
+
+
 .main-layout {
   overflow: hidden;
   min-height: 100vh;
   position: relative;
   background-color: transparent;
+
+  .background-container{
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+
+    .background-noise {
+      background-image: url("/assets/img/patterns/pattern-noise.png");
+      background-repeat: repeat;
+      mix-blend-mode: soft-light;
+      opacity: 0.3;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .background-color{
+      position: absolute;
+      width: 130%;
+      left: -30%;
+      height: 100vh;
+      min-height: 4000px;
+      top: 0;
+      background: radial-gradient(#9E95D3, #FFF2EA, #F5CABB 90%);
+    }
+
+    .background-circle-1{
+      background: radial-gradient(#792AEB, rgba($color: #792AEB, $alpha: 0.0) 70%);
+      opacity: 0.15;
+      position: fixed;
+      top: -100px;
+      left: -100px;
+      width: 420px;
+      height: 520px;
+    }
+  }
+
+  .content-layout{
+    position: relative;
+    z-index: 2;
+  }
 
   nav {
     display: flex;
@@ -199,20 +250,29 @@
 
       .nav-item {
         .nav-link {
-          color: white;
+          color: $black_high_emphasis;
           opacity: 0.5;
           text-decoration: none;
-          font-size: 1em;
+          font-size: 0.9em;
+          font-weight: 600;
           &:hover {
             opacity: 0.75;
           }
         }
       }
 
+      .btn-primary{
+        .nav-link{
+          color: white;
+          font-weight: 600;
+          opacity: 1 !important;
+          padding: 0.1em 2em;
+        }
+      }
+
       .router-link-active {
         .nav-link {
-          font-weight: 800;
-          color: white;
+          font-weight: 700;
           opacity: 1 !important;
         }
       }
