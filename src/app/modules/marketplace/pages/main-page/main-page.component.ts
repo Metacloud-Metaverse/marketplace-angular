@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { Item } from '../../entities/item';
 
 @Component({
@@ -133,9 +134,16 @@ export class MainPageComponent implements OnInit {
     },
   ] */
 
-  constructor() { }
+  constructor(
+    private titleService: Title,
+    private metaTagService: Meta,
+  ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Marketplace | metacloud');
+    this.metaTagService.updateTag(
+      { name: 'description', content: 'Pornland is the first metaverse designed to provide safe, secure and private virtual-reality venues for adult entertainment and real-life sexual fun.' }
+    );
   }
 
 }

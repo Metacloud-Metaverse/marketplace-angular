@@ -14,7 +14,7 @@
       </div>
 
       <div class="layout">
-        <drag-scroll [scrollbar-hidden]="false">
+        <drag-scroll>
           <div drag-scroll-item *ngFor="let card of items.slice(0, 12)">
             <div class="card">
               <app-item-card [item]="card"></app-item-card>
