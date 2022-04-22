@@ -1,0 +1,56 @@
+@import "../../../../../assets/styles/vars";
+
+.marketplace-page{
+
+  header{
+    padding: 3em 0;
+    text-align: center;
+    p{
+      font-size: 1.25em;
+    }
+  }
+
+  section{
+    margin-bottom: 3em;
+
+    .row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h3{
+        margin: 0;
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+
+      a{
+        font-size: 1em;
+        padding-right: 0.3em;
+      }
+    }
+
+    .layout{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+
+      .card{
+        padding-top: 1em;
+        padding-bottom: 1em;
+        min-width: 240px;
+        width: 240px;
+        margin-right: 1em;
+      }
+    }
+  }
+
+  .parcels-estates{
+    .layout{
+      .card{
+        min-width: 320px;
+        width: 320px;
+      }
+    }
+  }
+}

@@ -1,96 +1,12 @@
 <div class="main-page intro-component-animation">
-  <div class="container">
 
-    <header>
-      <h1>Marketplace</h1>
-      <p>Welcome to the virtual world’s one-stop-shop for the top rated digital attractions.</p>
-      <button mat-flat-button color="primary">START BROWSING</button>
-    </header>
+  <nav>
+    <a mat-button [routerLink]="['land']" routerLinkActive="active">Land</a>
+    <a mat-button [routerLink]="['search']" routerLinkActive="active">Collectibles</a>
+    <a mat-button [routerLink]="['my-store']" routerLinkActive="active">My Store</a>
+  </nav>
 
-    <section>
-      <div class="row">
-        <h3>Newest on the Market!</h3>
-        <a mat-button color="primary">view all <mat-icon>chevron_right</mat-icon></a>
-      </div>
-
-      <div class="layout">
-        <drag-scroll>
-          <div drag-scroll-item *ngFor="let card of items.slice(0, 12)">
-            <div class="card">
-              <app-item-card [item]="card"></app-item-card>
-            </div>
-          </div>
-        </drag-scroll>
-      </div>
-    </section>
-
-    <section>
-      <div class="row">
-        <h3>Latest Sales</h3>
-        <a mat-button color="primary">view all <mat-icon>chevron_right</mat-icon></a>
-      </div>
-
-      <div class="layout">
-        <drag-scroll [scrollbar-hidden]="false">
-          <div drag-scroll-item *ngFor="let card of items.slice(0, 12)">
-            <div class="card">
-              <app-item-card [item]="card"></app-item-card>
-            </div>
-          </div>
-        </drag-scroll>
-      </div>
-    </section>
-
-    <section>
-      <div class="row">
-        <h3>Latest Listings</h3>
-        <a mat-button color="primary">view all <mat-icon>chevron_right</mat-icon></a>
-      </div>
-
-      <div class="layout">
-        <drag-scroll [scrollbar-hidden]="false">
-          <div drag-scroll-item *ngFor="let card of items.slice(0, 12)">
-            <div class="card">
-              <app-item-card [item]="card"></app-item-card>
-            </div>
-          </div>
-        </drag-scroll>
-      </div>
-    </section>
-
-    <section class="parcels-estates">
-      <div class="row">
-        <h3>Parcels and Estates</h3>
-        <a mat-button color="primary">view all <mat-icon>chevron_right</mat-icon></a>
-      </div>
-
-      <div class="layout">
-        <drag-scroll [scrollbar-hidden]="false">
-          <div drag-scroll-item *ngFor="let card of items.slice(0, 12)">
-            <div class="card">
-              <app-item-card [item]="card"></app-item-card>
-            </div>
-          </div>
-        </drag-scroll>
-      </div>
-    </section>
-
-    <section>
-      <div class="row">
-        <h3>Names</h3>
-        <a mat-button color="primary">view all <mat-icon>chevron_right</mat-icon></a>
-      </div>
-
-      <div class="layout">
-        <drag-scroll [scrollbar-hidden]="false">
-          <div drag-scroll-item *ngFor="let card of items.slice(0, 12)">
-            <div class="card">
-              <app-item-card [item]="card"></app-item-card>
-            </div>
-          </div>
-        </drag-scroll>
-      </div>
-    </section>
-
+  <div class="layout">
+    <router-outlet></router-outlet>
   </div>
 </div>

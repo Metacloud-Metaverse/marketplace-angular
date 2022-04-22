@@ -1,0 +1,156 @@
+<div class="search-page intro-component-animation">
+  <div class="container">
+
+    <div class="left">
+      <mat-action-list>
+        <p>TYPE</p>
+        <button mat-list-item [ngClass]="{'active': filterType == 0}" (click)="filterType = 0"> <div mat-line>STORE</div> <div mat-line>Items available for minting</div> </button>
+        <button mat-list-item [ngClass]="{'active': filterType == 1}" (click)="filterType = 1"> <div mat-line>LISTINGS</div> <div mat-line>Items being resold</div> </button>
+      </mat-action-list>
+
+      <mat-action-list>
+        <p>CATEGORIES</p>
+
+        <mat-expansion-panel *ngFor="let category of categories; let i = index" [expanded]="filterCategory == i" (click)="filterCategory = i" hideToggle>
+
+          <mat-expansion-panel-header>
+            <mat-panel-title><mat-icon>{{ category.icon }}</mat-icon> {{ category.title }}</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <ng-container *ngFor="let link of category.links">
+            <a *ngIf="link.type == 0" (click)="filterCategory = i">{{ link.title }}</a>
+
+            <mat-expansion-panel *ngIf="link.type == 1" class="expasion-two" (click)="filterCategory = i">
+              <mat-expansion-panel-header>
+                <mat-panel-title>{{ link.title }}</mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <ng-container *ngFor="let link2 of link.links">
+                <a *ngIf="link2.type == 0">{{ link2.title }}</a>
+              </ng-container>
+
+            </mat-expansion-panel>
+          </ng-container>
+
+        </mat-expansion-panel>
+
+
+        <!-- <mat-expansion-panel *ngFor="let category of categories" [expanded]="category.isExpanded">
+
+          <mat-expansion-panel-header>
+            <mat-panel-title><mat-icon>{{ category.icon }}</mat-icon> {{ category.title }}</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <ng-container *ngFor="let link of category.links">
+
+            <a *ngIf="link.type == 0" [routerLink]="link.url" routerLinkActive="active">{{ link.title }}</a>
+            <a *ngIf="link.type == 2" class="link-disable">{{ link.title }} (Coming soon!)</a>
+
+            <mat-expansion-panel *ngIf="link.type == 1" class="expasion-two">
+              <mat-expansion-panel-header>
+                <mat-panel-title>{{ link.title }}</mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <ng-container *ngFor="let link2 of link.links">
+                <a *ngIf="link2.type == 0" [routerLink]="link2.url" routerLinkActive="active">{{ link2.title }}</a>
+                <a *ngIf="link2.type == 2" class="link-disable">{{ link2.title }} (Coming soon!)</a>
+
+                <mat-expansion-panel *ngIf="link2.type == 1">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>{{ link2.title }}</mat-panel-title>
+                  </mat-expansion-panel-header>
+
+                  <ng-container *ngFor="let link3 of link2.links">
+                    <a *ngIf="link3.type == 0" [routerLink]="link3.url" routerLinkActive="active">{{ link3.title }}</a>
+                    <a *ngIf="link3.type == 2" class="link-disable">{{ link3.title }} (Coming soon!)</a>
+                  </ng-container>
+                </mat-expansion-panel>
+              </ng-container>
+
+            </mat-expansion-panel>
+
+          </ng-container>
+
+        </mat-expansion-panel> -->
+      </mat-action-list>
+    </div>
+
+    <div class="right">
+
+      <div class="row">
+        <mat-form-field appearance="outline" class="search">
+          <input matInput type="text" placeholder="Search" />
+          <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+
+        <button mat-flat-button class="animated" [matMenuTriggerFor]="sortByMenu" class="sort-by">
+          <span *ngIf="sortBy == 0">NEWEST</span>
+          <span *ngIf="sortBy == 1">RECENTLY LISTED</span>
+          <span *ngIf="sortBy == 2">RECENTLY SOLD</span>
+          <span *ngIf="sortBy == 3">CHEAPEST</span>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+
+        <mat-slide-toggle class="animated">ON SALE</mat-slide-toggle>
+      </div>
+
+      <div class="filters">
+        <div class="row">
+          <mat-form-field appearance="outline" class="collection">
+            <mat-label>COLLECTION</mat-label>
+            <mat-select value="0">
+              <mat-option value="0">ALL COLLECTIONS</mat-option>
+              <mat-option value="1">COATS?</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="genre">
+            <mat-label>GENDER</mat-label>
+            <div class="row">
+              <button mat-stroked-button [ngClass]="{'active': filterGenreFemale}" (click)="filterGenreFemale = !filterGenreFemale;">FEMALE</button>
+              <button mat-stroked-button [ngClass]="{'active': filterGenreMale}" (click)="filterGenreMale = !filterGenreMale">MALE</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="rarity">
+          <p>Rarity</p>
+          <mat-chip-list class="rarity">
+            <mat-chip [ngClass]="{'active': rarityRegultarActive}" (click)="rarityRegultarActive = !rarityRegultarActive">REGULAR</mat-chip>
+            <mat-chip [ngClass]="{'active': rarityLegendaryActive}" (click)="rarityLegendaryActive = !rarityLegendaryActive">LEGENDARY</mat-chip>
+            <mat-chip [ngClass]="{'active': rarityOddActive}" (click)="rarityOddActive = !rarityOddActive">ODD</mat-chip>
+            <mat-chip [ngClass]="{'active': rarityEpicActive}" (click)="rarityEpicActive = !rarityEpicActive">EPIC</mat-chip>
+            <mat-chip [ngClass]="{'active': rarityMythicActive}" (click)="rarityMythicActive = !rarityMythicActive">MYTHIC</mat-chip>
+            <mat-chip [ngClass]="{'active': rarityUnusualActive}" (click)="rarityUnusualActive = !rarityUnusualActive">UNUSUAL</mat-chip>
+            <mat-chip [ngClass]="{'active': rarityUniqueActive}" (click)="rarityUniqueActive = !rarityUniqueActive">UNIQUE</mat-chip>
+            <mat-chip> RESET FILTERS <mat-icon matChipRemove>cancel</mat-icon></mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+
+      <div class="layout-items" @componentAnimation>
+        <app-loading *ngIf="isLoading"></app-loading>
+
+        <ng-container *ngIf="!isLoading">
+          <div class="item component-animation" *ngFor="let item of items">
+            <app-item-card [item]="item"></app-item-card>
+          </div>
+        </ng-container>
+
+        <button *ngIf="!isLoading && items.length > itemSlice" mat-flat-button color="primary" (click)="loadMoreItems()">LOAD MORE</button>
+
+        <div *ngIf="!isLoading && items.length <= 0" class="empty-screen">
+          <p>No results</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<mat-menu #sortByMenu="matMenu">
+  <button mat-menu-item (click)="sortBy = 0">NEWEST</button>
+  <button mat-menu-item (click)="sortBy = 1">RECENTLY LISTED</button>
+  <button mat-menu-item (click)="sortBy = 2">RECENTLY SOLD</button>
+  <button mat-menu-item (click)="sortBy = 3">CHEAPEST</button>
+</mat-menu>

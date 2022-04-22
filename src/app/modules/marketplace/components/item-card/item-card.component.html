@@ -1,13 +1,13 @@
-<a [routerLink]="['item-detail']" class="item-card component-animation animated">
+<a [routerLink]="['/marketplace/main/item-detail']" class="item-card component-animation animated">
 
-  <a [routerLink]="['item-detail']" class="image-container">
+  <a [routerLink]="['/marketplace/main/item-detail']" class="image-container">
     <img *ngIf="item.image" src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" />
     <span *ngIf="item.name">di CAPRIO</span>
   </a>
 
   <div class="body">
     <div class="row">
-      <h3><a [routerLink]="['item-detail']" class="animated"> {{ item.title }} </a></h3>
+      <h3><a [routerLink]="['/marketplace/main/item-detail']" class="animated"> {{ item.title }} </a></h3>
       <div class="token">
         <img src="/assets/img/logos/icon.svg" alt="" />
         <span>54</span>

@@ -1,11 +1,5 @@
 <div class="item-detail-page intro-component-animation">
 
-  <nav>
-    <a mat-button [routerLink]="['/routePath']" routerLinkActive="active" class="active">Land</a>
-    <a mat-button [routerLink]="['/routePath']" routerLinkActive="active">Collectibles</a>
-    <a mat-button [routerLink]="['/routePath']" routerLinkActive="active">My Store</a>
-  </nav>
-
   <div class="container">
     <div class="column-left">
       <a [routerLink]="['/marketplace']" mat-icon-button matTooltip="Back"><mat-icon>arrow_back</mat-icon></a>
@@ -14,7 +8,8 @@
     <div class="column-right">
       <header>
         <div class="image-container">
-          <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" />
+          <img *ngIf="true" src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" />
+          <span *ngIf="false">COCOPark</span>
         </div>
       </header>
 
@@ -44,6 +39,21 @@
               <mat-list-item>
                 <div mat-line>Description</div>
                 <div mat-line>Two Golden Orange Bracelets</div>
+              </mat-list-item>
+              <mat-list-item *ngIf="false">
+                <mat-icon mat-list-icon>home</mat-icon>
+                <div mat-line>Plaza</div>
+                <div mat-line>2 Parcels Away</div>
+              </mat-list-item>
+              <mat-list-item *ngIf="false">
+                <mat-icon mat-list-icon>home</mat-icon>
+                <div mat-line>ROAD</div>
+                <div mat-line>5 Parcels Away</div>
+              </mat-list-item>
+              <mat-list-item *ngIf="false">
+                <mat-icon mat-list-icon>home</mat-icon>
+                <div mat-line>DISTRIC</div>
+                <div mat-line>Adjacent</div>
               </mat-list-item>
               <mat-list-item>
                 <div mat-line>Price</div>
