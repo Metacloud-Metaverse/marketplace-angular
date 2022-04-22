@@ -1,0 +1,27 @@
+<div class="my-store-layout intro-component-animation">
+  <div class="container">
+
+    <div class="left">
+      <mat-action-list>
+        <p>ASSETS</p>
+        <a routerLinkActive="active" mat-list-item [routerLink]="['/routepath']"> Lands <mat-icon>arrow_drop_down</mat-icon> </a>
+        <a routerLinkActive="active" mat-list-item [routerLink]="['/routepath']"> Wearables </a>
+        <a routerLinkActive="active" mat-list-item [routerLink]="['/routepath']"> Items </a>
+        <a routerLinkActive="active" mat-list-item [routerLink]="['/routepath']"> Names </a>
+      </mat-action-list>
+
+      <mat-action-list>
+        <p>STORE</p>
+        <a routerLinkActive="active" mat-list-item [routerLink]="['onsale']"> On Sale </a>
+        <a routerLinkActive="active" mat-list-item [routerLink]="['sales']"> Sales </a>
+        <a routerLinkActive="active" mat-list-item [routerLink]="['bids']"> Bids </a>
+        <a routerLinkActive="active" mat-list-item [routerLink]="['settings']"> Settings </a>
+      </mat-action-list>
+    </div>
+
+    <div class="right">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="my-sales-page intro-component-animation">
+
+  <h2><b>Stats</b></h2>
+
+  <div class="stats-layout">
+
+    <div class="box">
+      <mat-icon>home</mat-icon>
+      <div class="texts">
+        <h3>0</h3>
+        <p>Total Sales</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <mat-icon>home</mat-icon>
+      <div class="texts">
+        <h3>0</h3>
+        <p>Total Earnings</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <mat-icon>home</mat-icon>
+      <div class="texts">
+        <h3>0</h3>
+        <p>Royalty Earnings</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <img src="/assets/img/logos/icon.svg" alt="Cloud Icon" />
+      <div class="texts">
+        <h3>0</h3>
+        <p>Cloud Earnings</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="activity">
+    <h2><b>Activity</b></h2>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="item">
+        <th mat-header-cell *matHeaderCellDef> Item </th>
+        <td mat-cell *matCellDef="let element"> {{element.item}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef> Time </th>
+        <td mat-cell *matCellDef="let element"> {{element.time | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="buyer">
+        <th mat-header-cell *matHeaderCellDef> Buyer </th>
+        <td mat-cell *matCellDef="let element"> {{element.buyer}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> <img src="/assets/img/logos/icon.svg" /> <b>{{element.price}}</b> </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="5">No Results</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
