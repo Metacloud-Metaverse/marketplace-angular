@@ -1,0 +1,46 @@
+<div class="settings-page intro-component-animation">
+  <div class="container">
+
+    <p>ADDRESS</p>
+    <div class="address">
+      <div class="row">
+        <div class="image-container">
+          <img src="asd" onerror="this.src='/assets/img/image-not-found.svg';" />
+        </div>
+        <div class="texts">
+          <h4>0x6a61bdd78b726adb89e4cd3b0d879c49b12623dd</h4>
+          <p [cdkCopyToClipboard]="'0x6a61bdd78b726adb89e4cd3b0d879c49b12623dd'" class="link hover-linear" (click)="tooltip1.show()">
+            COPY ADDRESS
+            <span matTooltip="Copied!" #tooltip1="matTooltip"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <p>AUTHORIZATIONS</p>
+    <div class="authorizations">
+      <p><small>For Buying</small></p>
+
+      <div class="item" [ngClass]="{'active': isAuthorizate}">
+        <mat-spinner (click)="onClickAuthorization()" class="animated" diameter="30" strokeWidth="5" value="0" [mode]="mode"></mat-spinner>
+        <p (click)="onClickAuthorization()"><b>MANA</b></p>
+        <p><small>Authorize the <a href="https://etherscan.io/address/0x8e5660b4ab70168b5a6feea0e0315cb49c8cd539" target="_blank" class="link hover-linear">Marketplace</a> contract to operate CLOUD on your behalf on Binance Smart Chain.</small></p>
+      </div>
+
+      <div class="item" [ngClass]="{'active': isAuthorizate}">
+        <mat-spinner (click)="onClickAuthorization()" class="animated" diameter="30" strokeWidth="5" value="0" [mode]="mode"></mat-spinner>
+        <p (click)="onClickAuthorization()"><b>CLOUD</b></p>
+        <p><small>Authorize the <a href="https://etherscan.io/address/0x8e5660b4ab70168b5a6feea0e0315cb49c8cd539" target="_blank" class="link hover-linear">MarketplaceAdapter</a> contract to operate CLOUD on your behalf on Binance Smart Chain.</small></p>
+      </div>
+
+      <p><small>For Bidding</small></p>
+
+      <div class="item" [ngClass]="{'active': isAuthorizate}">
+        <mat-spinner (click)="onClickAuthorization()" class="animated" diameter="30" strokeWidth="5" value="0" [mode]="mode"></mat-spinner>
+        <p (click)="onClickAuthorization()"><b>CLOUD</b></p>
+        <p><small>Authorize the <a href="https://etherscan.io/address/0x8e5660b4ab70168b5a6feea0e0315cb49c8cd539" target="_blank" class="link hover-linear">Bids</a> contract to operate CLOUD on your behalf on Binance Smart Chain.</small></p>
+      </div>
+    </div>
+  </div>
+</div>

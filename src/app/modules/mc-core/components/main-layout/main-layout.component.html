@@ -51,6 +51,11 @@
         <div class="nav-item btn-primary" routerLinkActive="router-link-active">
           <a mat-flat-button color="primary" [routerLink]="['/auth/login']" class="nav-link animated">SIGN IN</a>
         </div>
+        <div class="nav-item btn-primary avatar animated" matTooltip="[Name User]" [matMenuTriggerFor]="menuUser">
+          <button mat-icon-button>
+            <img src="/assets/img/avatar.png" alt="[Name_user]" onerror="this.src='/assets/img/user-avatar-empty.svg';" />
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -83,4 +88,15 @@
     <img style="position: relative; top: 5px; margin-right: 10px;" width="22px" height="22px" src="/assets/img/icons/twitter-icon-black.svg" alt="Twitter" />
     <b><span>Twitter</span></b>
   </a>
+</mat-menu>
+
+<mat-menu #menuUser="matMenu">
+  <div style="display: flex; align-items: center; padding: 0.5em 1em;">
+    <div class="avatar" style="margin-right: 1em;"><img src="/assets/img/avatar.png" alt="[Name_user]" onerror="this.src='/assets/img/user-avatar-empty.svg';" /></div>
+    <span><b>Axel#23dd</b></span>
+  </div>
+  <mat-divider></mat-divider>
+  <a mat-menu-item [routerLink]="['/profile/account']" routerLinkActive="router-link-active" ><mat-icon>account_circle</mat-icon> Account</a>
+  <a mat-menu-item [routerLink]="['/profile/settings']" routerLinkActive="router-link-active" ><mat-icon>settings</mat-icon> Settings</a>
+  <a mat-menu-item ><mat-icon>exit_to_app</mat-icon> Sign Out</a>
 </mat-menu>

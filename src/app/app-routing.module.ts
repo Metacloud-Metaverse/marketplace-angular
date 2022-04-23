@@ -9,7 +9,8 @@ const routes: Routes = [
     children: [
       /* { path: '', loadChildren: () => import('./modules/intro/intro.module').then(m => m.IntroModule), data: { preload: true }}, */
       { path: 'events', loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule), data: { preload: true }},
-      { path: 'marketplace', loadChildren: () => import('./modules/marketplace/marketplace.module').then(m => m.MarketplaceModule), data: { preload: true }}
+      { path: 'marketplace', loadChildren: () => import('./modules/marketplace/marketplace.module').then(m => m.MarketplaceModule), data: { preload: true }},
+      { path: 'profile', loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule), data: { preload: true }},
     ]
   },
   /* { path: '', redirectTo: '', pathMatch: 'full' }, */

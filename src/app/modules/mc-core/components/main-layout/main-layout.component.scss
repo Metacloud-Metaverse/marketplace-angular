@@ -270,6 +270,16 @@
         }
       }
 
+      .avatar{
+        border: 3px solid transparent;
+        &::ng-deep .mat-button-wrapper{
+          display: flex;
+        }
+        &:hover{
+          border-color: $color_primary_500;
+        }
+      }
+
       .router-link-active {
         .nav-link {
           font-weight: 700;
