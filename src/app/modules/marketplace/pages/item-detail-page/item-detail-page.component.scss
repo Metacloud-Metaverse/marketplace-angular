@@ -1,23 +1,22 @@
 @import "../../../../../assets/styles/vars";
 
-.item-detail-page{
-
-  .container{
+.item-detail-page {
+  .container {
     display: flex;
     gap: 2em;
 
-    .column-left{
-      a{
+    .column-left {
+      a {
         border: 1px solid rgba($color: #000000, $alpha: 0.2);
-        &:hover{
+        &:hover {
           border: 1px solid rgba($color: #000000, $alpha: 0.5);
         }
       }
     }
   }
 
-  header{
-    .image-container{
+  header {
+    .image-container {
       height: 400px;
       background-color: #860197;
       border-radius: 1em;
@@ -25,14 +24,15 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      overflow: hidden;
 
-      img{
+      img {
         width: 100%;
         height: 90%;
         object-fit: contain;
       }
 
-      span{
+      span {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -50,17 +50,17 @@
     }
   }
 
-  section{
+  section {
     margin-top: 2em;
     background-color: rgba($color: #000000, $alpha: 0.1);
     border-radius: 1em;
     padding: 3em;
 
-    .row{
+    .row {
       display: flex;
     }
 
-    h1{
+    h1 {
       margin: 0;
       margin-right: auto;
       font-family: $font_text !important;
@@ -68,72 +68,72 @@
       font-size: 2.5em;
     }
 
-    h2{
+    h2 {
       display: flex;
       white-space: nowrap;
       font-size: 1.5em;
       margin: 0;
       font-weight: 600;
 
-      img{
+      img {
         width: 30px;
         height: 30px;
         margin-right: 6px;
       }
     }
 
-    .tags{
+    .tags {
       display: flex;
       gap: 1em;
       margin-top: 0.5em;
 
-      .tag{
+      .tag {
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 0.5em 2em;
-        height: 30px;
+        /* height: 30px; */
         border-radius: 5px;
         background-color: rgba($color: #000000, $alpha: 0.1);
       }
 
-      .rarity{
+      .rarity {
         background-color: #860197;
         color: white;
         font-weight: 600;
       }
     }
 
-    .texts{
-      align-items: flex-end;
+    .texts {
+      align-items: flex-start;
       gap: 2em;
       margin-top: 2em;
 
-      .left{
+      .left {
         width: 100%;
-        mat-list{
+        mat-list {
           display: flex;
           flex-wrap: wrap;
           width: 100%;
           gap: 1em;
-          mat-list-item{
+          mat-list-item {
             width: calc(50% - 1em);
-            &::ng-deep .mat-list-item-content{
+            &::ng-deep .mat-list-item-content {
               padding: 0;
             }
-            &::ng-deep .mat-list-icon{
+            &::ng-deep .mat-list-icon {
               width: 40px;
               height: 40px;
             }
-            div{
-              &:nth-of-type(2){
+            div {
+              &:nth-of-type(2) {
                 color: #000000;
                 font-size: 1.25em;
                 font-weight: 600;
               }
-              a{
+              a {
                 color: black;
-                &:hover{
+                &:hover {
                   color: $color_primary_500;
                 }
               }
@@ -142,12 +142,72 @@
         }
       }
 
-      .right{
+      .right {
         min-width: 140px;
-        a,button{
+        a,
+        button {
           width: 100%;
           margin-bottom: 0.5em;
           height: 50px;
+        }
+      }
+    }
+
+    .parcels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      margin-top: 2em;
+      p {
+        width: 100%;
+      }
+      button {
+        width: 100px;
+        padding-left: 0;
+        padding-right: 0.5em;
+        background-color: rgba($color: #000000, $alpha: 0.1);
+        mat-icon {
+          transform: scale(0.7);
+        }
+        &:hover {
+          background-color: rgba($color: #000000, $alpha: 0.2);
+        }
+      }
+    }
+
+    .latest-sales,.bids {
+      margin-top: 3em;
+      table {
+        width: 100%;
+        background-color: transparent;
+
+        .user {
+          color: black;
+          font-weight: 600;
+          &:hover {
+            text-decoration: underline;
+          }
+          .avatar {
+            margin-right: 8px;
+            min-width: 24px;
+            width: 24px;
+            min-height: 24px;
+            height: 24px;
+            display: inline-block;
+            position: relative;
+            top: 4px;
+          }
+          span {
+            position: relative;
+            top: -2px;
+          }
+        }
+
+        .token {
+          width: 20px;
+          margin-right: 8px;
+          position: relative;
+          top: 4px;
         }
       }
     }
