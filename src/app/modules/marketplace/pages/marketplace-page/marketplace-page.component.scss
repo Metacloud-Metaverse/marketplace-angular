@@ -1,6 +1,9 @@
 @import "../../../../../assets/styles/vars";
 
 .marketplace-page{
+  @include xs{
+    padding-top: 3em;
+  }
 
   header{
     padding: 3em 0;
@@ -34,6 +37,25 @@
       display: flex;
       flex-wrap: wrap;
       gap: 2em;
+      @include xs{
+        width: calc(100% + 2.4em);
+        margin-left: -1.2em;
+      }
+      @include sm{
+        width: calc(100% + 6em);
+        margin-left: -3em;
+      }
+
+      .spacer{
+        @include xs{
+          width: 1.5em;
+          min-width: 1.5em;
+        }
+        @include sm{
+          width: 3em;
+          min-width: 3em;
+        }
+      }
 
       .card{
         padding-top: 1em;

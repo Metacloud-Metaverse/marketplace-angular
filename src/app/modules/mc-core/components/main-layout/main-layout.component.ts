@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { LoginModalComponent } from '../../modals/login-modal/login-modal.component';
 
 @Component({
   selector: 'app-main-layout',
@@ -20,6 +21,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class MainLayoutComponent implements OnInit {
 
   isVideoOpen = false;
+  isLogged = true;
   videoUrlIframe?: SafeResourceUrl;
 
   isMenuOpen = false;
@@ -29,8 +31,6 @@ export class MainLayoutComponent implements OnInit {
   @ViewChild('audio') audio!: ElementRef;
 
   constructor(
-    protected sanitizer: DomSanitizer,
-
     public dialog: MatDialog,
     public router: Router,
     private breakpointObserver: BreakpointObserver,
@@ -41,8 +41,6 @@ export class MainLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadVideoManageer();
-    this.loadMusic();
     this.breakpointObserver
       .observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
       .subscribe((state: BreakpointState) => {
@@ -52,47 +50,14 @@ export class MainLayoutComponent implements OnInit {
     });
   }
 
-  playAudio() {
-    this.isMuted = false;
-    setTimeout(() => { this.audio.nativeElement.volume = 0.0; }, 100);
-    this.audio.nativeElement.play();
-    setTimeout(() => { this.audio.nativeElement.volume = 0.07; }, 250);
-    setTimeout(() => { this.audio.nativeElement.volume = 0.15; }, 500);
-    setTimeout(() => { this.audio.nativeElement.volume = 0.23; }, 750);
-    setTimeout(() => { this.audio.nativeElement.volume = 0.30; }, 1000);
-  }
-
-  stopAudio() {
-    this.audio.nativeElement.pause();
-    this.isMuted = true;
-  }
-
   closeMenu(e: any){
     this.isMenuOpen = false;
   }
 
-  loadMusic(){
-    /* this.mainService.audioMain.subscribe(res=>{
-      if(res){
-        this.playAudio();
-      } else {
-        this.stopAudio();
-      }
-    }); */
-  }
-
-  loadVideoManageer() {
-    /* this.videoManager.startVideo.subscribe(urlIframe => {
-      this.videoUrlIframe = this.sanitizer.bypassSecurityTrustResourceUrl(urlIframe);
-      this.isVideoOpen = true;
-    }); */
-  }
-
-  onClickPlayHypeVideo() {
-    /* this.videoManager.startVideo.next('https://www.youtube.com/embed/h1-0NZAqz4o'); */
-  }
-
-  closeVideo() {
-    this.isVideoOpen = false;
+  openLoginModal(){
+    this.dialog.open(LoginModalComponent, {
+      width: '520px',
+      /* panelClass: 'modal-full-width-mobile', */
+    });
   }
 }
