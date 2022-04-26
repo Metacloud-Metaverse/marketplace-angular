@@ -1,0 +1,42 @@
+@import "../../../../../assets/styles/vars";
+
+.scenes-pool-page{
+  padding-top: 2em;
+  padding-bottom: 4em;
+
+  .row{
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+
+    h1{
+      margin: 0;
+      margin-left: 20px;
+      margin-right: auto;
+    }
+  }
+
+  .empty-screen{
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3em 2em;
+  }
+
+  .scene-universe{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    .scene{
+      width: calc(33.3% - 1em);
+    }
+
+    mat-paginator{
+      width: 100%;
+      margin-top: 3em;
+    }
+  }
+}

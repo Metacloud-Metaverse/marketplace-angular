@@ -1,0 +1,15 @@
+<div class="main-layout intro-component-animation">
+
+  <nav>
+    <a mat-button [routerLink]="['scenes']" routerLinkActive="active">Scenes</a>
+    <a mat-button [routerLink]="['land']" routerLinkActive="active">Land</a>
+    <a mat-button [routerLink]="['avatar']" routerLinkActive="active">Avatar</a>
+    <a mat-button [routerLink]="['items']" routerLinkActive="active">Items</a>
+    <a mat-button [routerLink]="['wearables']" routerLinkActive="active">Wearables</a>
+    <a mat-button [routerLink]="['names']" routerLinkActive="active">Names</a>
+  </nav>
+
+  <div class="layout">
+    <router-outlet></router-outlet>
+  </div>
+</div>

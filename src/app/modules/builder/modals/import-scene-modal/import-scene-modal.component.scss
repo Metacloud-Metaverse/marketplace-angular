@@ -1,0 +1,119 @@
+@import "../../../../../assets/styles/vars";
+
+.import-scene-modal {
+  text-align: center;
+  padding: 1em 3em;
+
+  h4 {
+    margin-top: 0;
+  }
+
+  form {
+    margin: 2em 0;
+    padding: 2em;
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    border-radius: 0.5em;
+    overflow-y: auto;
+    max-height: 200px;
+
+    .empty-screen{
+      mat-icon{
+        background-color: rgba($color: #000000, $alpha: 0.1);
+        color: rgba($color: #000000, $alpha: 0.5);
+        padding: 0.5em;
+        border-radius: 200px;
+        margin-bottom: 1em;
+        transform: scale(1.5);
+        -o-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+      }
+    }
+
+
+    .files{
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+
+      .file{
+        text-align: center;
+        width: 140px;
+        position: relative;
+
+        .image-container{
+          margin-bottom: 1em;
+          box-shadow: $box_shadow_6;
+          border: 2px solid rgba($color: #000000, $alpha: 0.1);
+          border-radius: 0.5em;
+          height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          mat-icon{
+            opacity: 0.5;
+            transform: scale(1.5);
+            -o-transform: scale(1.5);
+            -ms-transform: scale(1.5);
+            -moz-transform: scale(1.5);
+            -webkit-transform: scale(1.5);
+          }
+        }
+        p{
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          margin: 0;
+          line-height: 1.2;
+          font-size: 0.9em;
+          font-weight: 600;
+        }
+
+        .btn-remove{
+          position: absolute;
+          top: -16px;
+          right: -16px;
+          background-color: red;
+          color: white;
+          transform: scale(0.7);
+          -o-transform: scale(0.7);
+          -ms-transform: scale(0.7);
+          -moz-transform: scale(0.7);
+          -webkit-transform: scale(0.7);
+          opacity: 0;
+        }
+
+        &:hover{
+          .btn-remove{
+            opacity: 1;
+          }
+        }
+      }
+
+
+      .file-error{
+        .image-container{
+          border-color: red;
+        }
+        p{
+          &:nth-of-type(2){
+            color: red;
+          }
+        }
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1em;
+
+    button {
+      width: 50%;
+      height: 46px;
+    }
+  }
+}

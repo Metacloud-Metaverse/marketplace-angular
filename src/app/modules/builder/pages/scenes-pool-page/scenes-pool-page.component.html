@@ -1,0 +1,59 @@
+<div class="scenes-pool-page intro-component-animation">
+  <div class="container">
+
+    <div class="row">
+      <a [routerLink]="['/builder/scenes']" matTooltip="Back" mat-icon-button><mat-icon>arrow_back</mat-icon></a>
+      <h1>Scene Universe</h1>
+
+      <button mat-button color="primary" [matMenuTriggerFor]="filterUserMenu">
+        <span *ngIf="filter == 0">ALL USERS</span>
+        <span *ngIf="filter == 1">ONLY ME</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <button mat-button color="primary" [matMenuTriggerFor]="sortMenu">
+        <span *ngIf="sort == 0">NEWEST</span>
+        <span *ngIf="sort == 1">NAME</span>
+        <span *ngIf="sort == 2">LIKES</span>
+        <span *ngIf="sort == 3">ITEMS</span>
+        <span *ngIf="sort == 4">SMART ITEMS</span>
+        <span *ngIf="sort == 5">SIZE</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+    </div>
+
+    <app-loading *ngIf="isLoading"></app-loading>
+
+    <div *ngIf="!isLoading && sceneUniverse.length <= 0" class="empty-screen">
+      <p>It looks like we don't have any Scenes</p>
+    </div>
+
+    <div *ngIf="!isLoading && sceneUniverse.length > 0" class="scene-universe">
+      <div class="scene" *ngFor="let scene of sceneUniverse">
+        <app-scene-card [isMinimized]="true"></app-scene-card>
+      </div>
+      <mat-paginator
+        [length]="100"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page">
+      </mat-paginator>
+    </div>
+
+  </div>
+</div>
+
+
+<mat-menu #filterUserMenu="matMenu">
+  <button mat-menu-item (click)="filter = 0">All Users</button>
+  <button mat-menu-item (click)="filter = 1">Only Me</button>
+</mat-menu>
+
+<mat-menu #sortMenu="matMenu">
+  <button mat-menu-item (click)="sort = 0">Newest</button>
+  <button mat-menu-item (click)="sort = 1">Name</button>
+  <button mat-menu-item (click)="sort = 2">Likes</button>
+  <button mat-menu-item (click)="sort = 3">Items</button>
+  <button mat-menu-item (click)="sort = 4">Smart Items</button>
+  <button mat-menu-item (click)="sort = 5">Size</button>
+</mat-menu>

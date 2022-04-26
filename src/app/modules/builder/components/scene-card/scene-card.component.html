@@ -1,0 +1,28 @@
+<a [routerLink]="['/builder/scenes/scene-detail']" class="scene-card animated component-animation" [ngClass]="{'scene-card-minimized': isMinimized}">
+
+  <img [src]="image" alt="Scene background Image" class="animated" />
+
+  <div class="body">
+    <p class="title"><b>{{ title }}</b></p>
+    <p *ngIf="!isMinimized"><small>{{ size }}</small></p>
+    <div *ngIf="isMinimized" class="row" matTooltip="{{ description }}">
+      <div>
+        <mat-icon>window</mat-icon>
+        4 PARCELS
+      </div>
+      <div>
+        <mat-icon>nature</mat-icon>
+        37 ITEMS
+      </div>
+    </div>
+  </div>
+
+  <button *ngIf="isEditMode" class="btn-setting" mat-icon-button matTooltip="Settings" [matMenuTriggerFor]="settings" (click)="$event.stopPropagation()"><mat-icon>more_horiz</mat-icon></button>
+
+</a>
+
+<mat-menu #settings="matMenu">
+  <button *ngIf="isEditMode" mat-menu-item>Duplicate</button>
+  <button *ngIf="isEditMode" mat-menu-item>Download</button>
+  <button *ngIf="isEditMode" mat-menu-item (click)="openDeleteSceneModal()">Delete</button>
+</mat-menu>

@@ -1,0 +1,38 @@
+<div class="scenes-page intro-component-animation">
+  <div class="container">
+
+    <div class="row">
+      <p>{{ scenes.length }} RESULTS</p>
+      <button class="btn-icon" mat-icon-button matTooltip="Import Scene" (click)="openImportSceneModal()"><mat-icon>upload</mat-icon></button>
+      <button class="btn-icon" mat-icon-button matTooltip="Create Scene" (click)="openCreateSceneModal()"><mat-icon>add_circle</mat-icon></button>
+    </div>
+
+    <div *ngIf="scenes.length <= 0" class="empty-screen">
+      <p>It looks like you don't have any Scenes. <br> <a class="link hover-linear" (click)="openCreateSceneModal()">Click here</a> to get started.</p>
+    </div>
+
+    <div *ngIf="scenes.length > 0" class="scenes" @componentAnimation>
+      <div class="scene" *ngFor="let scene of scenes">
+        <app-scene-card [isEditMode]="true"></app-scene-card>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 3em; margin-bottom: 0;">
+      <p>FROM THE SCENE UNIVERSE</p>
+      <a [routerLink]="['/builder/scenes/pools']" mat-button color="primary"> VIEW MORE <mat-icon>chevron_right</mat-icon></a>
+    </div>
+
+    <div class="layout" @componentAnimation>
+      <drag-scroll>
+        <div drag-scroll-item class="spacer"></div>
+        <div drag-scroll-item *ngFor="let scene of poolScenes.slice(0, 12)">
+          <div class="card">
+            <app-scene-card></app-scene-card>
+          </div>
+        </div>
+        <div drag-scroll-item class="spacer"></div>
+      </drag-scroll>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<mat-dialog-content class="import-scene-modal">
+  <h4><b>Import Scene</b></h4>
+  <p>You can import any Scene made with the Builder!</p>
+
+  <form>
+    <div *ngIf="files.length <= 0" class="empty-screen">
+      <mat-icon>upload</mat-icon>
+      <p>Drag your Scene .zip file here, or <br> <a class="link hover-linear">Browse your computer</a></p>
+    </div>
+
+    <div *ngIf="files.length > 0" class="files">
+      <div class="file" *ngFor="let file of files" [ngClass]="{'file-error': file.status == 1}">
+        <div class="image-container">
+          <mat-icon *ngIf="file.status == 0">task</mat-icon>
+          <mat-icon *ngIf="file.status == 1">content_paste_off</mat-icon>
+        </div>
+        <div class="body">
+          <p>{{ file.name }}</p>
+          <p *ngIf="file.status == 1"><small>Invalid file</small></p>
+        </div>
+        <button class="btn-remove" mat-icon-button matTooltip="Remove" color="error"><mat-icon>close</mat-icon></button>
+      </div>
+    </div>
+  </form>
+
+  <div class="buttons">
+    <button mat-stroked-button mat-dialog-close="">CANCEL</button>
+    <button mat-flat-button color="primary" [disabled]="files.length == 0">
+      <span *ngIf="files.length <= 1">IMPORT SCENE</span>
+      <span *ngIf="files.length > 1">IMPORT {{ files.length }} SCENES</span>
+    </button>
+  </div>
+</mat-dialog-content>

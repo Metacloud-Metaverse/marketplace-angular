@@ -1,0 +1,50 @@
+<mat-dialog-content class="create-scene-modal">
+  <h4><b>Create a Scene</b></h4>
+  <p *ngIf="step == 0">Set a name and a description for your scene</p>
+  <p *ngIf="step == 1">Set the size of your new scene</p>
+
+  <form *ngIf="step == 0">
+    <mat-form-field>
+      <mat-label>NAME</mat-label>
+      <input matInput type="text" placeholder="Scene name here" value="New scene" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>DESCRIPTION</mat-label>
+      <input matInput type="text" placeholder="Some description..." />
+    </mat-form-field>
+  </form>
+
+  <form *ngIf="step == 1" class="form-size">
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Rows</mat-label>
+        <input matInput type="text" value="3" name="rows" [(ngModel)]="rows" />
+      </mat-form-field>
+      <p>X</p>
+      <mat-form-field>
+        <mat-label>Columns</mat-label>
+        <input matInput type="text" value="4" name="columns" [(ngModel)]="columns" />
+      </mat-form-field>
+    </div>
+    <div *ngIf="isError"  class="error">
+      <p>Your Scene can't have more than 32 parcels</p>
+      <mat-icon>warning</mat-icon>
+    </div>
+    <div *ngIf="!isError" class="squares">
+      <div class="column" *ngFor="let column of columns2">
+        <div class="square" *ngFor="let row of rows2"></div>
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="step == 0" class="buttons">
+    <button mat-stroked-button mat-dialog-close>CANCEL</button>
+    <button mat-flat-button color="primary" (click)="step = 1">NEXT</button>
+  </div>
+
+  <div *ngIf="step == 1" class="buttons">
+    <button mat-stroked-button (click)="step = 0">BACK</button>
+    <button mat-flat-button color="primary">NEXT</button>
+  </div>
+</mat-dialog-content>

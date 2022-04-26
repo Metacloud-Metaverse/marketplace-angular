@@ -1,0 +1,46 @@
+<div class="scene-detail-page intro-component-animation">
+  <div class="container">
+
+    <a class="btn-back" [routerLink]="['/builder/scenes/pools']" mat-stroked-button> <mat-icon>arrow_back</mat-icon> Back</a>
+
+    <div class="container-glb">
+      <model-viewer
+        alt="{{ title }}"
+        src="assets/models/robot-expressive.glb"
+        camera-controls="true"
+        autoplay
+        enable-pan
+        class="model-avatar">
+      </model-viewer>
+
+      <button class="btn-like animated" mat-flat-button (click)="isLiked = !isLiked" [ngClass]="{'is-liked': isLiked}">
+        <mat-icon *ngIf="isLiked">favorite</mat-icon>
+        <mat-icon *ngIf="!isLiked">favorite_outline</mat-icon>
+        {{ likes }}
+      </button>
+
+      <button class="btn-navigate animated" mat-icon-button matTooltip="Navigate"><mat-icon>visibility</mat-icon></button>
+    </div>
+
+    <div class="body">
+      <div class="row-title">
+        <h3 class="title">{{ title }}</h3>
+        <p><small>Scene by <a [routerLink]="['/routePath']" class="link hover-linear">{{ creator }}</a></small></p>
+      </div>
+
+      <p>{{ description }}</p>
+
+      <div class="row-details">
+        <div>
+          <mat-icon>window</mat-icon>
+          4 PARCELS
+        </div>
+        <div>
+          <mat-icon>nature</mat-icon>
+          37 ITEMS
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
