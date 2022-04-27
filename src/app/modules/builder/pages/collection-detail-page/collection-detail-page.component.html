@@ -1,0 +1,41 @@
+<div class="collection-detail-page intro-component-animation">
+  <div class="container">
+
+    <div class="row">
+      <a [routerLink]="['/builder/collections']" mat-icon-button matTooltip="Back"><mat-icon>arrow_back</mat-icon></a>
+      <h1>[name_collection] <button mat-icon-button matTooltip="Edit Name Collection" color="primary" (click)="openSaveCollectionModal()"><mat-icon>edit</mat-icon></button></h1>
+      <button mat-icon-button matTooltip="Settings" [matMenuTriggerFor]="settings"><mat-icon>more_horiz</mat-icon></button>
+      <button mat-stroked-button (click)="openCreateItemModal()"><mat-icon color="primary">add</mat-icon> NEW ITEM</button>
+      <button mat-flat-button color="primary" matTooltip="You need to add at least one item to publish your collection">PUBLISH</button>
+    </div>
+
+    <div *ngIf="showAlert" class="alert">
+      <span>Cool! Now you can start working on your items. <a class="link hover-linear">Click here</a> to open the editor or click the edit button on any item.</span>
+      <button mat-icon-button matTooltip="Close" (click)="showAlert = false;"><mat-icon>close</mat-icon></button>
+    </div>
+
+    <app-loading *ngIf="isLoading"></app-loading>
+
+    <div *ngIf="!isLoading && items.length <= 0" class="empty-screen">
+      <p>Looking good! Start adding items to your new collection</p>
+      <p>You will not be able to add or remove items after publishing your collection.</p>
+    </div>
+
+    <div class="items" @componentAnimation>
+      <div class="item component-animation" *ngFor="let item of items">
+        Item!
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<mat-menu #settings="matMenu">
+  <button mat-menu-item>See in World</button>
+  <button mat-menu-item>Open in editor</button>
+  <button mat-menu-item>Add existing item</button>
+  <button mat-menu-item>Delete</button>
+  <button mat-menu-item>Copy URN</button>
+  <button mat-menu-item matTooltipPosition="right" matTooltip="This collection is not published yet" style="opacity: 0.5;">Copy address</button>
+  <button mat-menu-item matTooltipPosition="right" matTooltip="This collection is not published yet" style="opacity: 0.5;">Forum post</button>
+</mat-menu>

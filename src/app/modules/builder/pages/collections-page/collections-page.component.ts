@@ -1,16 +1,23 @@
+import { animation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ComponentAnimation } from 'src/app/modules/mc-core/animations/component.animation';
 import { CreateCollectionModalComponent } from '../../modals/create-collection-modal/create-collection-modal.component';
 import { CreateItemModalComponent } from '../../modals/create-item-modal/create-item-modal.component';
 
 @Component({
-  selector: 'app-items-page',
-  templateUrl: './items-page.component.html',
-  styleUrls: ['./items-page.component.scss']
+  selector: 'app-collections-page',
+  templateUrl: './collections-page.component.html',
+  styleUrls: ['./collections-page.component.scss'],
+  animations: [ComponentAnimation.componentAnimation]
 })
-export class ItemsPageComponent implements OnInit {
+export class CollectionsPageComponent implements OnInit {
 
-  typeView = 0;
+  isLoading = false;
+  isListView = false;
+  collections:any = [
+    {},{},{},{},{},{},{},{},
+  ]
 
   constructor(
     public dialog: MatDialog

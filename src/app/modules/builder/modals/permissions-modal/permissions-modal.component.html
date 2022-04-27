@@ -1,0 +1,24 @@
+<mat-dialog-content class="permissions-modal">
+  <h4><b>Share your Land with other users</b></h4>
+
+  <div class="share">
+    <form>
+      <mat-form-field appearance="outline">
+        <mat-label>Wallet address</mat-label>
+        <input matInput type="text" placeholder="Write Address here..." />
+        <button matSuffix mat-fab color="primary" matTooltip="Add Permission"><mat-icon>add</mat-icon></button>
+      </mat-form-field>
+    </form>
+
+    <mat-list class="list-user-invited">
+      <mat-list-item class="user" *ngFor="let user of usersInvited">
+        <button class="avatar" mat-list-icon><img src="/assets/img/avatar-juan.png" alt="" /></button>
+        <div mat-line> [User_name] </div>
+        <div mat-line> [wallet_address] </div>
+        <button class="btn-remove" mat-icon-button matTooltip="Remove" color="error"><mat-icon>remove</mat-icon></button>
+      </mat-list-item>
+    </mat-list>
+
+  </div>
+
+</mat-dialog-content>

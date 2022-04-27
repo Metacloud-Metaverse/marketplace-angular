@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { AvatarPageComponent } from './pages/avatar-page/avatar-page.component';
+import { CollectionDetailPageComponent } from './pages/collection-detail-page/collection-detail-page.component';
+import { CollectionsPageComponent } from './pages/collections-page/collections-page.component';
 import { ItemsPageComponent } from './pages/items-page/items-page.component';
 import { LandPageComponent } from './pages/land-page/land-page.component';
 import { NamesPageComponent } from './pages/names-page/names-page.component';
@@ -20,9 +22,11 @@ const routes: Routes = [
       { path: 'scenes/pools', component: ScenesPoolPageComponent },
       { path: 'scenes/scene-detail', component: SceneDetailPageComponent },
       { path: 'land', component: LandPageComponent },
-      { path: 'avatar', component: AvatarPageComponent },
-      { path: 'items', component: ItemsPageComponent },
-      { path: 'wearables', component: WearablesPageComponent },
+      /* { path: 'avatar', component: AvatarPageComponent }, */
+      /* { path: 'items', component: ItemsPageComponent }, */
+      { path: 'collections', component: CollectionsPageComponent },
+      { path: 'collection-detail', component: CollectionDetailPageComponent },
+      /* { path: 'wearables', component: WearablesPageComponent }, */
       { path: 'names', component: NamesPageComponent },
       { path: '', redirectTo: 'scenes', pathMatch: 'full' }
     ]

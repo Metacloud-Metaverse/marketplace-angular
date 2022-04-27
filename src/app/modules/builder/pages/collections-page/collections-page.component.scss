@@ -1,6 +1,7 @@
 @import "../../../../../assets/styles/vars";
 
-.items-page{
+.collections-page {
+  padding-bottom: 4em;
 
   .row {
     display: flex;
@@ -22,44 +23,74 @@
       font-size: 0.7em;
     }
 
-    .btn-create{
+    .btn-create {
       border: 1px solid rgba($color: #000000, $alpha: 0.1);
     }
   }
 
-  .empty-screen{
+  .empty-screen {
     border: 1px solid rgba($color: #000000, $alpha: 0.1);
     border-radius: 1em;
     padding: 4em 2em;
     text-align: center;
 
-    p{
+    p {
       width: 500px;
       max-width: 100%;
       margin: auto;
       margin-bottom: 3em;
     }
 
-    .buttons{
+    .buttons {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 2em;
 
-      button{
+      button {
         text-align: center;
         padding: 1.5em;
         width: 200px;
         border-radius: 1em;
         background-color: rgba($color: #000000, $alpha: 0.1);
-        &:hover{
+        &:hover {
           background-color: rgba($color: #000000, $alpha: 0.2);
         }
 
-        img{
+        img {
           width: 100px;
         }
       }
+    }
+  }
+
+  .collections {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .row-header {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+
+      p {
+        width: 33.3%;
+      }
+    }
+
+    .collection {
+
+    }
+  }
+
+  .collections-grid{
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .collection{
+      width: calc(25% - 0.75em);
     }
   }
 }

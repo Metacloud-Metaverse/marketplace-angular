@@ -1,0 +1,49 @@
+@import "../../../../../assets/styles/vars";
+
+.create-item-modal {
+  text-align: center;
+  padding: 1em 3em;
+  position: relative;
+
+  .btn-close{
+    position: absolute;
+    top: 0em;
+    right: 1em;
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+
+  .btn-primary{
+    width: 100%;
+    height: 46px;
+    margin-top: 3em;
+  }
+
+  .empty-screen{
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    border-radius: 1em;
+    padding: 4em 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: center;
+    p{
+      span{
+        color: $color_primary_500;
+      }
+    }
+
+    mat-icon{
+      padding: 1em;
+      border-radius: 200px;
+      background-color: rgba($color: #000000, $alpha: 0.1);
+      margin-bottom: 0.5em;
+    }
+
+    .color-alert{
+      color: #b87a08;
+    }
+  }
+}

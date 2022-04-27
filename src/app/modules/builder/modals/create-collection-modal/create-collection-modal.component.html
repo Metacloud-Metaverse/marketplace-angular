@@ -1,0 +1,24 @@
+<mat-dialog-content class="create-collection-modal">
+
+  <button class="btn-close" mat-icon-button matTooltip="Close" mat-dialog-close><mat-icon>close</mat-icon></button>
+
+  <h4 *ngIf="isCreateMode"><b>New Collection</b></h4>
+  <p *ngIf="isCreateMode">Enter a descriptive name for your new collection</p>
+
+  <h4 *ngIf="!isCreateMode"><b>Edit Collection Name</b></h4>
+  <p *ngIf="!isCreateMode">Set a new name for this collection</p>
+
+  <form>
+    <mat-form-field>
+      <mat-label>NAME</mat-label>
+      <input matInput type="text" placeholder="My Collection" max="32" />
+      <mat-hint>The name can be 32 characters at most </mat-hint>
+    </mat-form-field>
+  </form>
+
+  <button mat-flat-button color="primary" class="btn-primary">
+    <span *ngIf="isCreateMode">CREATE</span>
+    <span *ngIf="!isCreateMode">SAVE</span>
+  </button>
+
+</mat-dialog-content>

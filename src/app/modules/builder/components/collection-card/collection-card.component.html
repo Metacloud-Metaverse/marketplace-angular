@@ -1,0 +1,19 @@
+<a mat-button [routerLink]="['/builder/collection-detail']" class="collection-card component-animation animated" [ngClass]="{'collection-grid': !isList}">
+
+  <button (click)="$event.stopPropagation()" class="btn-setting" mat-icon-button matTooltip="Settings" [matMenuTriggerFor]="settings"><mat-icon>more_horiz</mat-icon></button>
+
+  <div class="image-container animated">
+    <img src="/assets/img/scene-image-preview.png" alt="[name_collection]" />
+  </div>
+
+  <div class="body">
+    <p class="text-name">[name_collection]</p>
+    <p class="text-collection">Collection <span>-</span></p>
+    <p class="text-items">5 items</p>
+  </div>
+
+</a>
+
+<mat-menu #settings="matMenu">
+  <button mat-menu-item>Delete</button>
+</mat-menu>

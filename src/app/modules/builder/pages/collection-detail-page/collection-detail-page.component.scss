@@ -1,0 +1,51 @@
+@import "../../../../../assets/styles/vars";
+
+.collection-detail-page {
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+
+    h1 {
+      margin: 0;
+      margin-right: auto;
+      button {
+        opacity: 0;
+      }
+
+      &:hover {
+        button {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .alert {
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    align-items: center;
+    margin-bottom: 2em;
+
+    span {
+      margin-right: auto;
+    }
+  }
+
+  .empty-screen {
+    padding: 3em;
+    border-radius: 1em;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    text-align: center;
+  }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    .item {
+      width: calc(25% - 1em);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<mat-dialog-content class="share-modal">
+
+  <button class="btn-close" mat-icon-button matTooltip="Close" mat-dialog-close><mat-icon>close</mat-icon></button>
+
+  <h4><b>Share your Scene</b></h4>
+  <p>Let your friends and co-creators see your work</p>
+
+  <div class="image-container">
+    <img src="/assets/img/scene-image-preview.png" alt="" />
+  </div>
+
+  <div class="share-social-media">
+    <button mat-flat-button>
+      <img src="/assets/img/icons/facebook-icon.svg" alt="Facebook" />
+      <span>SHARE</span>
+    </button>
+    <button mat-flat-button>
+      <img src="/assets/img/icons/twitter-icon.svg" alt="Twitter" />
+      <span>SHARE</span>
+    </button>
+  </div>
+
+  <div class="share-link">
+    <p>{{ link }}</p>
+    <button mat-button color="primary" [cdkCopyToClipboard]="link" (click)="copyButton()">
+      <span *ngIf="!isCopied">COPY LINK</span>
+      <span *ngIf="isCopied">COPIED!!</span>
+    </button>
+  </div>
+
+</mat-dialog-content>

@@ -1,0 +1,14 @@
+<mat-dialog-content class="create-item-modal">
+
+  <button class="btn-close" mat-icon-button matTooltip="Close" mat-dialog-close><mat-icon>close</mat-icon></button>
+
+  <h4><b>New Item</b></h4>
+
+  <div class="empty-screen">
+    <mat-icon>upload</mat-icon>
+    <p>Drag your Asset file here in <b>ZIP, GLTF, GLB, PNG</b> format, or <a class="link hover-linear">Browse your computer</a></p>
+    <p class="color-alert" *ngIf="error == 1">The file is too big to be uploaded. The max size is 2MB.</p>
+    <p class="color-alert" *ngIf="error == 2">Error creating WebGL context.</p>
+  </div>
+
+</mat-dialog-content>

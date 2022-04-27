@@ -1,25 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ComponentAnimation } from 'src/app/modules/mc-core/animations/component.animation';
 import { CreateCollectionModalComponent } from '../../modals/create-collection-modal/create-collection-modal.component';
 import { CreateItemModalComponent } from '../../modals/create-item-modal/create-item-modal.component';
 
 @Component({
-  selector: 'app-items-page',
-  templateUrl: './items-page.component.html',
-  styleUrls: ['./items-page.component.scss']
+  selector: 'app-collection-detail-page',
+  templateUrl: './collection-detail-page.component.html',
+  styleUrls: ['./collection-detail-page.component.scss'],
+  animations: [ComponentAnimation.componentAnimation]
 })
-export class ItemsPageComponent implements OnInit {
+export class CollectionDetailPageComponent implements OnInit {
 
-  typeView = 0;
+  isLoading = false;
+  showAlert = true;
+  items:any = [
+    {},{},{},{},{},{},{},{},
+  ]
 
-  constructor(
-    public dialog: MatDialog
-  ) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  openCreateCollectionModal(){
+  openSaveCollectionModal(){
     this.dialog.open(CreateCollectionModalComponent, {
       width: '600px',
       /* panelClass: 'modal-full-width-mobile', */
@@ -32,4 +36,5 @@ export class ItemsPageComponent implements OnInit {
       /* panelClass: 'modal-full-width-mobile', */
     });
   }
+
 }

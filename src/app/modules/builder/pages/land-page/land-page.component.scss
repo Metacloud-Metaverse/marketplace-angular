@@ -1,5 +1,91 @@
 @import "../../../../../assets/styles/vars";
 
-.land-page{
+.land-page {
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 1em;
 
+    p {
+      margin: 0;
+      margin-right: auto;
+    }
+
+    .btn-icon {
+      line-height: 1;
+      border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    }
+
+    button {
+      font-size: 0.7em;
+    }
+  }
+
+  .list-container {
+    padding-bottom: 3em;
+
+    .container {
+      padding-top: 0;
+      border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+    }
+
+    .search {
+      margin: auto;
+      width: 600px;
+      max-width: 100%;
+      margin-top: 1.5em;
+    }
+
+    table {
+      width: 100%;
+      background-color: transparent;
+
+      .owner {
+        color: black;
+        font-weight: 600;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        &:hover {
+          text-decoration: underline;
+        }
+        .avatar {
+          margin-right: 8px;
+          min-width: 24px;
+          width: 24px;
+          min-height: 24px;
+          height: 24px;
+          display: inline-block;
+          position: relative;
+        }
+        span {
+          display: block;
+          position: relative;
+          top: 3px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          max-width: 160px;
+        }
+      }
+
+      .token {
+        width: 20px;
+        margin-right: 8px;
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
+
+  .map-container {
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }

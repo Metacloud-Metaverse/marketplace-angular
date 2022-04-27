@@ -1,18 +1,20 @@
-<div class="items-page intro-component-animation">
-
+<div class="collections-page intro-component-animation">
   <div class="container">
+
     <div class="row">
       <p>0 RESULTS</p>
       <button class="btn-create" mat-icon-button color="primary" matTooltip="Create" [matMenuTriggerFor]="create"><mat-icon>add</mat-icon></button>
       <button mat-flat-button color="primary">OPEN EDITOR</button>
       <mat-button-toggle-group>
-        <mat-button-toggle value="list" (click)="typeView = 0"><mat-icon>list</mat-icon></mat-button-toggle>
-        <mat-button-toggle value="map" (click)="typeView = 1"><mat-icon>location_on</mat-icon></mat-button-toggle>
+        <mat-button-toggle value="grid" (click)="isListView = false" matTooltip="Grid View"><mat-icon>grid_view</mat-icon></mat-button-toggle>
+        <mat-button-toggle value="list" (click)="isListView = true" matTooltip="List View"><mat-icon>list</mat-icon></mat-button-toggle>
       </mat-button-toggle-group>
     </div>
 
-    <div class="empty-screen">
-      <h3><b>No items</b></h3>
+    <app-loading *ngIf="isLoading"></app-loading>
+
+    <div *ngIf="!isLoading && collections.length <= 0" class="empty-screen">
+      <h3><b>No collections</b></h3>
       <p>You have no objects on your Collection yet, Create a new item, and dress the metacloud in style!</p>
 
       <div class="buttons">
@@ -26,8 +28,20 @@
         </button>
       </div>
     </div>
+
+    <div *ngIf="!isLoading && collections.length > 0" class="collections" @componentAnimation [ngClass]="{'collections-grid': !isListView}">
+      <div *ngIf="isListView" class="row-header">
+        <p>Item</p><p>Type</p><p>Items</p>
+      </div>
+
+      <div class="collection" *ngFor="let collection of collections">
+        <app-collection-card [isList]="isListView"></app-collection-card>
+      </div>
+    </div>
+
   </div>
 </div>
+
 
 <mat-menu #create="matMenu">
   <button mat-menu-item (click)="openCreateItemModal()">New item</button>
