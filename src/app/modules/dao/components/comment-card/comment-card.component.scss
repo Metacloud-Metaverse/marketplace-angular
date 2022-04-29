@@ -1,0 +1,15 @@
+@import "../../../../../assets/styles/vars";
+
+.comment-card{
+  display: flex;
+  gap: 1em;
+
+  p{
+    margin: 0;
+    margin-bottom: 0.5em;
+
+    small{
+      font-weight: 400;
+    }
+  }
+}

@@ -1,0 +1,220 @@
+@import "../../../../../assets/styles/vars";
+
+.proposal-detail-page {
+  padding-bottom: 6em;
+
+  .container {
+    display: flex;
+    gap: 6em;
+
+    .left {
+      width: 100%;
+
+      header {
+        margin-bottom: 3em;
+
+        h1 {
+          margin: 0;
+          font-family: $font_text !important;
+          font-weight: 600;
+          margin-top: 12px;
+          font-size: 2.5em;
+        }
+
+        .row {
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+          margin-top: 2em;
+          font-size: 0.8em;
+        }
+
+        .chip {
+          padding: 0.2em 1em;
+          border-radius: 200px;
+          color: white;
+          text-transform: uppercase;
+        }
+
+        // Categories
+        .chip-catalyst {
+          background-color: #fd5622;
+        }
+        .chip-poi {
+          background-color: #5caac7;
+        }
+        .chip-nameban {
+          background-color: #6d31ea;
+        }
+        .chip-grant {
+          background-color: #b805f2;
+        }
+        .chip-preproposal {
+          background-color: #128118;
+        }
+        .chip-draft {
+          background-color: #4d4d4d;
+        }
+        .chip-governance {
+          background-color: #781281;
+        }
+
+        // Status
+        .chip-active {
+          background-color: #f74e8d;
+        }
+        .chip-finished {
+          background-color: #575757;
+        }
+        .chip-rejected {
+          background-color: #ad3939;
+        }
+        .chip-passed {
+          background-color: #1c8245;
+        }
+        .chip-enacted {
+          background-color: #2a61c7;
+        }
+      }
+
+      article {
+        margin-bottom: 2em;
+      }
+
+      .comments {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        .row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .empty-screen {
+          text-align: center;
+          padding: 2em;
+          mat-icon {
+            transform: scale(2);
+            -o-transform: scale(2);
+            -ms-transform: scale(2);
+            -moz-transform: scale(2);
+            -webkit-transform: scale(2);
+            opacity: 0.3;
+          }
+        }
+
+        .btn-read-more {
+          background-color: $color_primary_700;
+          color: white;
+          &:hover {
+            background-color: $color_primary_800;
+          }
+        }
+      }
+    }
+
+    .right {
+      width: 300px;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      padding-top: 3em;
+
+      .btn-stroked{
+        width: 100%;
+        text-align: left;
+        height: 46px;
+
+        &::ng-deep .mat-button-wrapper{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+
+      .btn-watchlist{
+        color: $color_primary_500;
+      }
+
+      .votes,.details{
+        border: 1px solid rgba($color: #000000, $alpha: 0.1);
+        border-radius: 0.25em;
+        padding: 1em;
+
+        mat-divider{
+          margin: 0.5em 0;
+        }
+
+        .vote{
+          margin: 0.5em 0;
+        }
+
+        .row{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 0.5em;
+        }
+
+        p{
+          margin: 0;
+        }
+
+        mat-slider{
+          width: 100%;
+        }
+
+        .block{
+          background-color: rgba($color: #000000, $alpha: 0.1);
+          border-radius: 0.5em;
+          margin: 1em 0;
+          padding: 0.5em;
+          text-align: center;
+          font-size: 0.8em;
+        }
+
+        .buttons{
+          margin-top: 1.5em;
+          margin-bottom: 0.5em;
+          button{
+            width: 50%;
+          }
+        }
+
+        .voting{
+          font-size: 0.8em;
+        }
+      }
+
+      .details{
+        .row{
+          font-size: 0.8em;
+          margin-top: 0.5em;
+          .avatar{
+            width: 24px;
+            min-width: 24px;
+            height: 24px;
+            min-height: 24px;
+            margin-right: 6px;
+          }
+
+          .link{
+            display: flex;
+            align-items: center;
+            mat-icon{
+              transform: scale(0.7);
+              -o-transform: scale(0.7);
+              -ms-transform: scale(0.7);
+              -moz-transform: scale(0.7);
+              -webkit-transform: scale(0.7);
+            }
+          }
+        }
+      }
+    }
+  }
+}

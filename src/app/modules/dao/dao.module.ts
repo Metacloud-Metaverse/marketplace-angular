@@ -11,6 +11,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTableModule } from '@angular/material/table';
 
 // Pages
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -23,6 +28,8 @@ import { CreateProposalPageComponent } from './pages/create-proposal-page/create
 
 // Components
 import { ProposalCardComponent } from './components/proposal-card/proposal-card.component';
+import { CommentCardComponent } from './components/comment-card/comment-card.component';
+import { VotesModalComponent } from './modals/votes-modal/votes-modal.component';
 
 
 @NgModule({
@@ -35,6 +42,8 @@ import { ProposalCardComponent } from './components/proposal-card/proposal-card.
     ActivityPageComponent,
     CreateProposalPageComponent,
     ProposalCardComponent,
+    CommentCardComponent,
+    VotesModalComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +57,11 @@ import { ProposalCardComponent } from './components/proposal-card/proposal-card.
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatTableModule,
   ]
 })
 export class DaoModule { }

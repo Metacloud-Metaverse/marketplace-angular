@@ -1,0 +1,30 @@
+.votes-modal {
+  .row {
+    display: flex;
+    align-items: center;
+  }
+
+  h5 {
+    margin: 0;
+    small {
+      font-weight: 400;
+    }
+  }
+
+  .btn-close {
+    margin-left: auto;
+  }
+
+  table {
+    width: 100%;
+    box-shadow: none;
+
+    .avatar {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      min-height: 24px;
+      margin-right: 6px;
+    }
+  }
+}

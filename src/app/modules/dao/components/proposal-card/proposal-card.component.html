@@ -1,4 +1,4 @@
-<a [routerLink]="['/routePath']" class="proposal-card box component-animation animated">
+<a [routerLink]="['/dao/proposals/proposal-detail']" class="proposal-card box component-animation animated">
 
   <div *ngIf="isImportant" class="important"><mat-icon color="primary">bookmark</mat-icon></div>
 
@@ -33,7 +33,6 @@
       <div *ngIf="status == 2" class="chip chip-rejected">REJECTED</div>
       <div *ngIf="status == 3" class="chip chip-passed">PASSED</div>
       <div *ngIf="status == 4" class="chip chip-enacted">ENACTED</div>
-
     </div>
   </div>
 

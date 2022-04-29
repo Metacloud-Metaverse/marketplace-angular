@@ -1,0 +1,9 @@
+<div class="comment-card component-animation">
+  <div class="avatar">
+    <img [src]="avatar" alt="{{ name }}" onerror="this.src='/assets/img/user-avatar-empty.svg';">
+  </div>
+  <div class="texts">
+    <p><b>{{ name }} <small>&nbsp; {{ date | date }}</small></b></p>
+    <p>{{ comment }}</p>
+  </div>
+</div>

@@ -1,1 +1,148 @@
-<p>proposal-detail-page works!</p>
+<div class="proposal-detail-page intro-component-animation">
+  <div class="container">
+
+    <div class="left">
+      <header>
+        <a [routerLink]="['/dao/proposals']" mat-button><mat-icon>arrow_back</mat-icon> Back</a>
+        <h1>Should Events announcements be limited to 1 day or less at a time to be considered "Happening now"??</h1>
+        <div class="row">
+          <div class="category">
+            <div *ngIf="category == 0" class="chip chip-catalyst">CATALYST</div>
+            <div *ngIf="category == 1" class="chip chip-poi">POI</div>
+            <div *ngIf="category == 2" class="chip chip-nameban">NAME BAN</div>
+            <div *ngIf="category == 3" class="chip chip-grant">GRANT</div>
+            <div *ngIf="category == 4" class="chip chip-preproposal">PRE-PROPOSAL</div>
+            <div *ngIf="category == 5" class="chip chip-draft">DRAFT</div>
+            <div *ngIf="category == 6" class="chip chip-governance">GOVERNANCE</div>
+          </div>
+
+          <div class="status">
+            <div *ngIf="status == 0" class="chip chip-active">ACTIVE</div>
+            <div *ngIf="status == 1" class="chip chip-finished">FINISHED</div>
+            <div *ngIf="status == 2" class="chip chip-rejected">REJECTED</div>
+            <div *ngIf="status == 3" class="chip chip-passed">PASSED</div>
+            <div *ngIf="status == 4" class="chip chip-enacted">ENACTED</div>
+          </div>
+        </div>
+      </header>
+
+      <article>
+        <p>I love to go to the Events page to see what is happening now or soon, so that I can be there when the cool stuff happens. As it stands, there is a rotating banner of trending events (I like this) A static list of trending events (a bit redundant, but if kept to 6 or less doesn't bother me), then a bunch of events that started days or weeks ago, followed by events actually in progress or happening soon.</p>
+
+        <p>My problem lies with the events that are scheduled to last multiple days but really are only active for a few hours on the first day. Many times when I go to these events, the actual event is long over and no one is there. I think the event organizer should have to post a new event announcement for things that are multiple days or even if they run more than 3 hours. At the very least, I would be happy if there was a maximum time for an event of 24 hours. After that the announcement goes away. With something like a festival or long format event where there is activity for more than a few hours or even days, a new event announcement should be made for each segment of the event.</p>
+
+        <p>There is currently an event at the top of the list hat has been going on for 11 days. If you jump in to that parcel, there is nothing going on. Most events last 3 hours or less but the announcement may remain for weeks afterward.</p>
+
+        <p>Example image: https://imgur.com/a/9raRaFd</p>
+
+        <p>Should we continue to let event organizers hog the top slots of the Events page or should there be additional limits set to how long an event can be happening "now"?</p>
+
+        <p>(side note: Also, the Events.decentraland.org page behaves differently from the in game version. It would be nice if the in game version was more like the .org version).</p>
+      </article>
+
+      <mat-divider></mat-divider>
+
+      <div class="comments">
+        <div class="row">
+          <h5><b>{{ comments.length }} Comment</b></h5>
+          <button mat-button color="primary">JOIN THE DISCUSSION</button>
+        </div>
+
+        <div *ngIf="comments.length <= 0" class="empty-screen">
+          <mat-icon>forum</mat-icon>
+          <p>No comments yet, you have the chance to be the first one!</p>
+        </div>
+
+        <ng-container *ngIf="comments.length > 0">
+          <div class="comment" *ngFor="let comment of comments.slice(0,slice)">
+            <app-comment-card></app-comment-card>
+          </div>
+        </ng-container>
+
+        <button *ngIf="slice < comments.length" mat-flat-button class="btn-read-more" (click)="loadMoreComments()">READ MORE</button>
+      </div>
+    </div>
+
+    <div class="right">
+      <button class="btn-stroked" mat-stroked-button>Discuss in the forum <mat-icon>open_in_new</mat-icon></button>
+      <button class="btn-stroked" mat-stroked-button (click)="addedWatchlist = !addedWatchlist" [ngClass]="{'btn-watchlist': addedWatchlist}">
+        <span *ngIf="!addedWatchlist">Add to my Watchlist</span>
+        <span *ngIf="addedWatchlist">Remove to my Watchlist</span>
+        <mat-icon>bookmark</mat-icon>
+      </button>
+
+      <div class="votes">
+        <div class="row">
+          <p><b>Current results</b></p>
+          <button mat-button color="primary" (click)="openVotesModal()">SEE VOTES</button>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="vote">
+          <div class="row"><p><small><b>Yay</b></small></p><p><small>92.88%</small></p></div>
+          <mat-progress-bar mode="determinate" value="92" color="primary"></mat-progress-bar>
+          <p><small>61,984 VP <span>(10 votes)</span></small></p>
+        </div>
+
+        <div class="vote">
+          <div class="row"><p><small><b>Nay</b></small></p><p><small>0.88%</small></p></div>
+          <mat-progress-bar mode="determinate" value="8" color="primary"></mat-progress-bar>
+          <p><small>12 VP <span>(1 votes)</span></small></p>
+        </div>
+
+        <div class="vote">
+          <div class="row"><p><small><b>Invalid</b></small></p><p><small>0%</small></p></div>
+          <mat-progress-bar mode="determinate" value="0" color="primary"></mat-progress-bar>
+          <p><small>0 VP <span>(0 votes)</span></small></p>
+        </div>
+
+        <div class="block">
+          <p>Acceptance Treshold</p>
+          <p><b>500,000 VP</b></p>
+        </div>
+
+        <div class="row buttons">
+          <button *ngIf="!isLogged" mat-flat-button color="primary" style="width: 100%;">SIGN IN</button>
+          <button *ngIf="isLogged" mat-stroked-button color="primary">VOTE NO</button>
+          <button *ngIf="isLogged" mat-flat-button color="primary">VOTE YES</button>
+        </div>
+
+        <div class="row voting">
+          <p>Voting with <b>&nbsp; 0VP</b></p>
+          <button mat-button color="primary">Manage</button>
+        </div>
+      </div>
+
+      <div class="details">
+        <p><b>Details</b></p>
+
+        <mat-divider></mat-divider>
+
+        <div class="row">
+          <p>Created by</p>
+          <a [routerLink]="['/routePath']" class="link hover-linear">
+            <div class="avatar"><img src="/assets/img/avatar.png" alt="" onerror="this.src='/assets/img/user-avatar-empty.svg';"></div>
+            ToxSam
+          </a>
+        </div>
+
+        <div class="row">
+          <p>Started</p>
+          <p>Mar 28 20:34</p>
+        </div>
+
+        <div class="row">
+          <p>Ends</p>
+          <p>Apr 23 20:34</p>
+        </div>
+
+        <div class="row">
+          <p>Snapshot</p>
+          <a href="#" target="_blank" class="link hover-linear">#Qyudmbs <mat-icon>open_in_new</mat-icon></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
