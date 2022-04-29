@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateProposalPageComponent } from './create-proposal-page.component';
+import { StartProposalPageComponent } from './start-proposal-page.component';
 
-describe('CreateProposalPageComponent', () => {
-  let component: CreateProposalPageComponent;
-  let fixture: ComponentFixture<CreateProposalPageComponent>;
+describe('StartProposalPageComponent', () => {
+  let component: StartProposalPageComponent;
+  let fixture: ComponentFixture<StartProposalPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateProposalPageComponent ]
+      declarations: [ StartProposalPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateProposalPageComponent);
+    fixture = TestBed.createComponent(StartProposalPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

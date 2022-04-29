@@ -1,0 +1,59 @@
+<div class="start-proposal intro-component-animation">
+  <div class="container">
+
+    <a mat-button [routerLink]="['/dao/proposals/start-proposal']"><mat-icon>arrow_back</mat-icon> Back</a>
+
+    <br><br>
+    <p>What would you like to do?</p>
+    <div class="row buttons">
+      <button mat-stroked-button [ngClass]="{'active': type == 0}" (click)="type = 0">
+        <div class="icon"><mat-icon>location_one</mat-icon></div>
+        <div class="text">
+          <p><b>Add POI</b></p>
+          <p><small>Highlight a noteworthy Metacloud location on the map for the others to find</small></p>
+        </div>
+      </button>
+
+      <button mat-stroked-button [ngClass]="{'active': type == 1}" (click)="type = 1">
+        <div class="icon"><mat-icon>location_one</mat-icon></div>
+        <div class="text">
+          <p><b>Remove POI</b></p>
+          <p><small>Maybe a given location wasn’t noteworthy enought. We dare you try to put it down</small></p>
+        </div>
+      </button>
+    </div>
+
+    <h1 *ngIf="type == 0"><b>Add a Point of Interest</b></h1>
+    <h1 *ngIf="type == 1"><b>Remove a Point of Interest</b></h1>
+    <p>Points of interest (POIs) are scenes that have been highlighted on Metacloud’s map in a ‘pin drop’ form, helping other users to quickly find and access especially interesting areas.</p>
+    <br><br>
+
+    <p *ngIf="type == 0" class="title"><b>What location do you want to add as a POI?</b></p>
+    <p *ngIf="type == 1" class="title"><b>What location do you want to remove as a POI?</b></p>
+    <p>Enter the X and Y coordinates of the location.</p>
+    <div class="row" style="width: 600px; max-width: 100%;">
+      <mat-form-field appearance="outline">
+        <input matInput type="text" placeholder="-150 throught 150" />
+        <mat-icon matSuffix color="warn">warning</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput type="text" placeholder="-150 throught 150" />
+        <mat-icon matSuffix color="warn">warning</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="text-error">The coordinates are out of the map</div>
+    <br><br>
+
+    <p class="title"><b>Description</b></p>
+    <p *ngIf="type == 0">Why do you think that this location should be a featured point of interest within Metacloud? Please describe the scene located at these coordinates, explaining how it would be interesting or helpful for other Metacloud users.</p>
+    <p *ngIf="type == 1">Why do you think that this location should be removed as a featured point of interest within Metacloud? Please describe the scene located at these coordinates, explaining why it is no longer an interesting or helpful place for other Metacloud users.</p>
+    <mat-form-field appearance="outline">
+      <textarea *ngIf="type == 0" matInput name="" id="" rows="10" maxlength="250" placeholder="The scene located at 0,0 is both visually stunning and informative for new users. The interactive tutorial hosted here would provide people with a fun and enjoyable way to learn more about Metacloud"></textarea>
+      <textarea *ngIf="type == 1" matInput name="" id="" rows="10" maxlength="250" placeholder="The scene located at 0,0 is no longer visually stunning for users. The location has been abandoned for a long time."></textarea>
+      <mat-hint align="end">(0 out of 250 characters)</mat-hint>
+    </mat-form-field>
+    <br><br>
+
+    <button mat-flat-button color="primary" class="btn-submit">SUBMIT PROPOSAL</button>
+  </div>
+</div>

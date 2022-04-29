@@ -1,0 +1,48 @@
+<div class="start-proposal intro-component-animation">
+  <div class="container">
+
+    <a mat-button [routerLink]="['/dao/proposals/start-proposal']"><mat-icon>arrow_back</mat-icon> Back</a>
+    <h1><b>Create a community poll</b></h1>
+    <p>The purpose of the Pre-Proposal Poll is to introduce a governance issue to the community, gauge community sentiment, and determine if there is enough support to move forward with the drafting of an initial proposal. Pre-Proposal Polls can only pass to the Draft Proposal stage if they have accumulated a threshold of at least 500K VP</p>
+
+    <div class="alert alert-error">
+      <mat-icon>info</mat-icon>
+      <p>
+        This action requires at least 100 VP. <a [routerLink]="['/routePath']" class="link hover-linear">Buy CLOUD</a> to get VP, or <a [routerLink]="['/routePath']" class="link hover-linear">run for delegate</a>.
+      </p>
+    </div>
+    <br>
+
+    <p class="title"><b>Title</b></p>
+    <p>The question you would like to ask the community.</p>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" maxlength="200" placeholder="Enter your question here" />
+      <mat-hint align="end">(0 out of 200 characters)</mat-hint>
+    </mat-form-field>
+    <br><br>
+
+    <p class="title"><b>Description</b></p>
+    <p>A brief description of your question. Feel free to explain your motivation for polling the community, elaborate on the optional responses, or link to any relevant resources that might help inform voters.</p>
+    <mat-form-field appearance="outline">
+      <textarea matInput name="" id="" rows="10" maxlength="700" placeholder="A brief description of your question"></textarea>
+      <mat-hint align="end">(0 out of 700 characters)</mat-hint>
+    </mat-form-field>
+    <br><br>
+
+    <p class="title"><b>Options</b></p>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" placeholder="Choice 1" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" placeholder="Choice 2" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" placeholder="Invalid Question/options" />
+    </mat-form-field>
+    <button mat-button color="primary">+ ADD OPTION</button>
+
+    <br><br>
+    <button mat-flat-button color="primary" class="btn-submit">SUBMIT PROPOSAL</button>
+    <div class="alert alert-error"><mat-icon>info</mat-icon> This action requires at least 100 VP.</div>
+  </div>
+</div>

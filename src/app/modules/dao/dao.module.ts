@@ -16,6 +16,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 
 // Pages
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -24,7 +25,12 @@ import { ProposalDetailPageComponent } from './pages/proposal-detail-page/propos
 import { TransparencyPageComponent } from './pages/transparency-page/transparency-page.component';
 import { VotingPowerPageComponent } from './pages/voting-power-page/voting-power-page.component';
 import { ActivityPageComponent } from './pages/activity-page/activity-page.component';
-import { CreateProposalPageComponent } from './pages/create-proposal-page/create-proposal-page.component';
+import { StartProposalPageComponent } from './pages/start-proposal-page/start-proposal-page.component';
+import { StartProposalCommunityPageComponent } from './pages/start-proposal-community-page/start-proposal-community-page.component';
+import { StartProposalCatalystPageComponent } from './pages/start-proposal-catalyst-page/start-proposal-catalyst-page.component';
+import { StartProposalPoiPageComponent } from './pages/start-proposal-poi-page/start-proposal-poi-page.component';
+import { StartProposalNamebanPageComponent } from './pages/start-proposal-nameban-page/start-proposal-nameban-page.component';
+import { StartProposalGrantPageComponent } from './pages/start-proposal-grant-page/start-proposal-grant-page.component';
 
 // Components
 import { ProposalCardComponent } from './components/proposal-card/proposal-card.component';
@@ -40,10 +46,15 @@ import { VotesModalComponent } from './modals/votes-modal/votes-modal.component'
     ProposalsPageComponent,
     VotingPowerPageComponent,
     ActivityPageComponent,
-    CreateProposalPageComponent,
     ProposalCardComponent,
     CommentCardComponent,
     VotesModalComponent,
+    StartProposalPageComponent,
+    StartProposalCommunityPageComponent,
+    StartProposalCatalystPageComponent,
+    StartProposalPoiPageComponent,
+    StartProposalNamebanPageComponent,
+    StartProposalGrantPageComponent,
   ],
   imports: [
     CommonModule,
@@ -62,6 +73,7 @@ import { VotesModalComponent } from './modals/votes-modal/votes-modal.component'
     MatDialogModule,
     MatTooltipModule,
     MatTableModule,
+    MatSelectModule,
   ]
 })
 export class DaoModule { }

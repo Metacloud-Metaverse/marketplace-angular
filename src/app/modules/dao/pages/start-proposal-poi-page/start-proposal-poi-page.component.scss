@@ -1,0 +1,63 @@
+@import "../start-proposal-page/start-proposal-page.component.scss";
+
+.buttons {
+  width: 800px;
+  max-width: 100%;
+  margin-bottom: 3em;
+
+  button {
+    white-space: normal;
+    text-align: left;
+    padding: 1.5em 1.5em;
+    font-weight: 400;
+    opacity: 0.5;
+
+    &:hover{
+      opacity: 1;
+    }
+
+    &::ng-deep .mat-button-wrapper {
+      display: flex;
+      gap: 1em;
+    }
+
+    mat-icon {
+      padding: 0.7em;
+      border-radius: 200px;
+    }
+
+    p {
+      color: black;
+      margin: 0;
+      line-height: 1.2;
+      &:first-of-type{
+        margin-bottom: 0.5em;
+      }
+      small{
+        opacity: 0.7;
+      }
+    }
+
+    &:first-of-type {
+      border-color: #389c6c;
+      background-color: rgba($color: #389c6c, $alpha: 0.1);
+      mat-icon{
+        color: #389c6c;
+        background-color: rgba($color: #389c6c, $alpha: 0.3);
+      }
+    }
+
+    &:last-of-type {
+      border-color: #cd3232;
+      background-color: rgba($color: #cd3232, $alpha: 0.1);
+      mat-icon{
+        color: #cd3232;
+        background-color: rgba($color: #cd3232, $alpha: 0.3);
+      }
+    }
+  }
+
+  .active{
+    opacity: 1 !important;
+  }
+}

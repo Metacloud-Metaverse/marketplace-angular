@@ -1,0 +1,27 @@
+<div class="start-proposal intro-component-animation">
+  <div class="container">
+
+    <a mat-button [routerLink]="['/dao/proposals/start-proposal']"><mat-icon>arrow_back</mat-icon> Back</a>
+    <h1><b>Ban a name</b></h1>
+    <p>Banning a name prevents the use of abusive or offensive names for avatars and scenes.</p>
+
+    <br><br>
+
+    <p><b>The name you want to ban</b></p>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" maxlength="15" />
+      <mat-hint align="end">(0 out of 15 characteres)</mat-hint>
+    </mat-form-field>
+    <br><br>
+
+    <p class="title"><b>Description</b></p>
+    <p>Provide a brief explanation of why this name should be banned. For example: why or to whom might it be offensive?</p>
+    <mat-form-field appearance="outline">
+      <textarea matInput name="" id="" rows="10" maxlength="250" placeholder=""></textarea>
+      <mat-hint align="end">(0 out of 250 characters)</mat-hint>
+    </mat-form-field>
+    <br><br>
+
+    <button mat-flat-button color="primary" class="btn-submit">SUBMIT PROPOSAL</button>
+  </div>
+</div>

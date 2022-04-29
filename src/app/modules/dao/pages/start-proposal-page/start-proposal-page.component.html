@@ -1,0 +1,51 @@
+<div class="start-proposal-page intro-component-animation">
+  <div class="container">
+
+    <a mat-button [routerLink]="['/routePath']"><mat-icon>arrow_back</mat-icon> Back</a>
+    <h2><b>Submit Proposal</b></h2>
+    <p style="text-align: center;">Select a proposal category to get started</p>
+    <br>
+
+    <p><small>COMMON ACTIONS</small></p>
+    <button [routerLink]="['catalyst-node']" mat-stroked-button>
+      <div class="icon"><mat-icon>dashboard</mat-icon></div>
+      <div class="text">
+        <p><b>Catalyst Node</b></p>
+        <p>Add node to the network of community-run servers</p>
+      </div>
+    </button>
+
+    <button [routerLink]="['point-of-interest']" mat-stroked-button>
+      <div class="icon"><mat-icon>location_on</mat-icon></div>
+      <div class="text">
+        <p><b>Point of Interest</b></p>
+        <p>Highlight a noteworthy Metacloud location on the map for others to find</p>
+      </div>
+    </button>
+
+    <button [routerLink]="['name-ban']" mat-stroked-button>
+      <div class="icon"><mat-icon>block</mat-icon></div>
+      <div class="text">
+        <p><b>Name Ban</b></p>
+        <p>Ban an offensive name from Metacloud</p>
+      </div>
+    </button>
+
+    <button [routerLink]="['request-a-grant']" mat-stroked-button>
+      <div class="icon"><mat-icon>playlist_add_check</mat-icon></div>
+      <div class="text">
+        <p><b>Grant Request</b></p>
+        <p>Request funding from the DAO for project or contribution</p>
+      </div>
+    </button>
+
+    <p><small>GOVERNANCE PROCESS</small></p>
+    <button [routerLink]="['community-poll']" mat-stroked-button>
+      <div class="icon"><mat-icon>history_edu</mat-icon></div>
+      <div class="text">
+        <p><b>Pre-Proposal Poll</b></p>
+        <p>Ask community members for their opinion on an issue or topic</p>
+      </div>
+    </button>
+  </div>
+</div>

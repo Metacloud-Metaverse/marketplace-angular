@@ -1,0 +1,33 @@
+<div class="start-proposal intro-component-animation">
+  <div class="container">
+
+    <a mat-button [routerLink]="['/dao/proposals/start-proposal']"><mat-icon>arrow_back</mat-icon> Back</a>
+    <h1><b>Add a catalyst node</b></h1>
+    <p>Instead of using central servers, Metacloud is run on a network of community operated nodes. These nodes store copies of all scenes deployed to Metacloud, and they handle the messaging and interactions by establishing peer-to-peer connections between users.</p>
+
+    <p class="title"><b>To propose the addition of a new node, please provide the following details.</b></p>
+    <br><br>
+
+    <p>Ethereum address of the owner of the Catalyst Node</p>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" placeholder="Example: 0x06012c8cf97bead4deas20193" />
+    </mat-form-field>
+    <br><br>
+
+    <p>Domain for the Catalyst Node</p>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" placeholder="Example: catalyst.yourdomainname.com" />
+    </mat-form-field>
+    <br><br>
+
+    <p class="title"><b>Description</b></p>
+    <p>Explain why this node should be added to the Catalyst network. Why would this addition be beneficial to the network? For example, adding nodes in new geographic areas helps to provide a better experience to more users.</p>
+    <mat-form-field appearance="outline">
+      <textarea matInput name="" id="" rows="10" maxlength="250" placeholder=""></textarea>
+      <mat-hint align="end">(0 out of 250 characters)</mat-hint>
+    </mat-form-field>
+    <br><br>
+
+    <button mat-flat-button color="primary" class="btn-submit">SUBMIT PROPOSAL</button>
+  </div>
+</div>
