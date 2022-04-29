@@ -1,0 +1,40 @@
+<a [routerLink]="['/routePath']" class="proposal-card box component-animation animated">
+
+  <div *ngIf="isImportant" class="important"><mat-icon color="primary">bookmark</mat-icon></div>
+
+  <h3>{{ title }}</h3>
+
+  <p>{{ description }}</p>
+
+  <div class="row">
+    <div *ngIf="!isEnded" class="timeframe">
+      ENDS IN
+      {{ timeframe }}
+      DAY<span *ngIf="timeframe > 1">S</span>
+    </div>
+
+    <div *ngIf="isEnded" class="timeframe ended">
+      Ended {{ timeframe | date }}
+    </div>
+
+    <div class="category">
+      <div *ngIf="category == 0" class="chip chip-catalyst">CATALYST</div>
+      <div *ngIf="category == 1" class="chip chip-poi">POI</div>
+      <div *ngIf="category == 2" class="chip chip-nameban">NAME BAN</div>
+      <div *ngIf="category == 3" class="chip chip-grant">GRANT</div>
+      <div *ngIf="category == 4" class="chip chip-preproposal">PRE-PROPOSAL</div>
+      <div *ngIf="category == 5" class="chip chip-draft">DRAFT</div>
+      <div *ngIf="category == 6" class="chip chip-governance">GOVERNANCE</div>
+    </div>
+
+    <div class="status">
+      <div *ngIf="status == 0" class="chip chip-active">ACTIVE</div>
+      <div *ngIf="status == 1" class="chip chip-finished">FINISHED</div>
+      <div *ngIf="status == 2" class="chip chip-rejected">REJECTED</div>
+      <div *ngIf="status == 3" class="chip chip-passed">PASSED</div>
+      <div *ngIf="status == 4" class="chip chip-enacted">ENACTED</div>
+
+    </div>
+  </div>
+
+</a>

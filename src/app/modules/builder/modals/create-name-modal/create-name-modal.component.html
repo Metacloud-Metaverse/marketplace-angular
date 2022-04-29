@@ -1,0 +1,36 @@
+<mat-dialog-content class="create-name-modal">
+
+  <img class="background-image" src="/assets/img/avatar-create-name.png" alt="Background Image Avatar">
+
+  <button class="btn-close" mat-icon-button matTooltip="Close" mat-dialog-close><mat-icon>close</mat-icon></button>
+
+  <div class="left">
+    <header>
+      <h5><b>STATE A GENUINE NAME</b></h5>
+      <p><small>Genuine Names can be assigned to your Avatar for use as an alias, or they can be assigned to Parcels.</small></p>
+      <p><small>Determining a name to a Parcel or a Estate allows you to create a genuine URL, like <i>https://name.metacloud</i>, making it easy to send people to your Land. When someone follows your new URL, they will be redirected to your land in <a [routerLink]="['/']" class="link hover-linear">Metacloud!</a></small></p>
+      <p><small>Names are only available in Binance Smart Chain, and can only be claimed with Cloud <img class="token" src="/assets/img/logos/icon.svg" alt="Token" /></small></p>
+    </header>
+
+    <mat-form-field>
+      <mat-label>NAME</mat-label>
+      <input matInput type="text" maxlength="15" [(ngModel)]="name" placeholder="Your name goes here" />
+      <span matSuffix>{{ name.length }}/15</span>
+    </mat-form-field>
+
+    <div class="item" [ngClass]="{'active': isAuthorizate}">
+      <mat-spinner (click)="onClickAuthorization()" class="animated" diameter="30" strokeWidth="5" value="0" [mode]="mode"></mat-spinner>
+      <p (click)="onClickAuthorization()"><small><b>CLOUD APPROVED</b></small></p>
+      <p><small>Authorize the <a href="https://etherscan.io/address/0x8e5660b4ab70168b5a6feea0e0315cb49c8cd539" target="_blank" class="link hover-linear">DCLController</a> contract to operate CLOUD on your behalf on Binance Smart Chain.</small></p>
+    </div>
+
+    <div class="buttons">
+      <button mat-stroked-button mat-dialog-close>CANCEL</button>
+      <button mat-flat-button color="primary" [ngClass]="{'is-disabled': true}" matTooltip="You don't have enogh CLOUD to claim a new name">
+        CLAIM 100
+        <img class="token" src="/assets/img/logos/icon.svg" alt="Token Metacloud" />
+      </button>
+    </div>
+  </div>
+
+</mat-dialog-content>

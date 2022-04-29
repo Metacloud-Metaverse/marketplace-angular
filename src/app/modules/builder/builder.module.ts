@@ -20,6 +20,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatListModule } from '@angular/material/list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -51,6 +52,7 @@ import { CreateItemModalComponent } from './modals/create-item-modal/create-item
 import { CreateCollectionModalComponent } from './modals/create-collection-modal/create-collection-modal.component';
 import { ItemDetailPageComponent } from './pages/item-detail-page/item-detail-page.component';
 import { CollectionCardComponent } from './components/collection-card/collection-card.component';
+import { CreateNameModalComponent } from './modals/create-name-modal/create-name-modal.component';
 
 
 @NgModule({
@@ -76,6 +78,7 @@ import { CollectionCardComponent } from './components/collection-card/collection
     CollectionsPageComponent,
     ItemDetailPageComponent,
     CollectionCardComponent,
+    CreateNameModalComponent,
   ],
   imports: [
     CommonModule,
@@ -98,6 +101,7 @@ import { CollectionCardComponent } from './components/collection-card/collection
     MatTableModule,
     ClipboardModule,
     MatListModule,
+    MatProgressSpinnerModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

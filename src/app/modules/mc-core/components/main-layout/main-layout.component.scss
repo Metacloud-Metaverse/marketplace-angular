@@ -14,6 +14,17 @@
     width: 100%;
     z-index: 1;
 
+    .background-color{
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-color: #FBE1D7;
+    }
+
     .background-noise {
       background-image: url("/assets/img/patterns/pattern-noise.png");
       background-repeat: repeat;
@@ -28,7 +39,7 @@
       z-index: 1;
     }
 
-    .background-color {
+    .background-gradient {
       position: absolute;
       width: 130%;
       left: -30%;
@@ -36,6 +47,7 @@
       min-height: 4000px;
       top: 0;
       background: radial-gradient(#9e95d3, #fff2ea, #f5cabb 90%);
+      filter: blur(30px);
     }
 
     .background-circle-1 {

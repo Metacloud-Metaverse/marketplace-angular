@@ -6,6 +6,11 @@ import { McCoreModule } from '../mc-core/mc-core.module';
 
 // Angular Material
 import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 // Pages
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -17,6 +22,7 @@ import { ActivityPageComponent } from './pages/activity-page/activity-page.compo
 import { CreateProposalPageComponent } from './pages/create-proposal-page/create-proposal-page.component';
 
 // Components
+import { ProposalCardComponent } from './components/proposal-card/proposal-card.component';
 
 
 @NgModule({
@@ -27,7 +33,8 @@ import { CreateProposalPageComponent } from './pages/create-proposal-page/create
     ProposalsPageComponent,
     VotingPowerPageComponent,
     ActivityPageComponent,
-    CreateProposalPageComponent
+    CreateProposalPageComponent,
+    ProposalCardComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +43,11 @@ import { CreateProposalPageComponent } from './pages/create-proposal-page/create
 
     // Angular Material
     MatButtonModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule,
   ]
 })
 export class DaoModule { }

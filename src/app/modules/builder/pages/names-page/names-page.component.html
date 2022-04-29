@@ -1,3 +1,26 @@
 <div class="names-page intro-component-animation">
-  <p>its works</p>
+  <div class="container">
+
+    <div class="row">
+      <p>{{ names.length }} RESULTS</p>
+      <button class="btn-icon" mat-icon-button matTooltip="Create Name" (click)="openCreateNameModal()" color="primary"><mat-icon>add</mat-icon></button>
+    </div>
+
+    <app-loading *ngIf="isLoading"></app-loading>
+
+    <div *ngIf="!isLoading && names.length <= 0" class="empty-screen">
+      <p>It looks like you don't have any Names. <br> <a class="link hover-linear" (click)="openCreateNameModal()">Click here</a> to get started.</p>
+    </div>
+
+    <div *ngIf="!isLoading && names.length > 0" class="names" @componentAnimation>
+      <div class="name component-animation" *ngFor="let name of names">
+        COCOPark
+        <button (click)="$event.stopPropagation()" class="btn-setting" mat-icon-button matTooltip="Settings" [matMenuTriggerFor]="settings"><mat-icon>more_horiz</mat-icon></button>
+      </div>
+      <mat-menu #settings="matMenu">
+        <button mat-menu-item>Delete?</button>
+      </mat-menu>
+    </div>
+
+  </div>
 </div>

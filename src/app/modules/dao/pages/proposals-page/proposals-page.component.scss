@@ -1,0 +1,66 @@
+@import "../../../../../assets/styles/vars";
+
+.proposals-page {
+  padding-bottom: 6em;
+
+  .layout {
+    display: flex;
+    gap: 4em;
+  }
+
+  .left {
+    width: 300px;
+    min-width: 300px;
+
+    mat-accordion{
+      mat-expansion-panel{
+        background-color: transparent;
+        box-shadow: none;
+      }
+      button{
+        width: 100%;
+        text-align: left;
+        font-weight: 400 !important;
+        mat-icon{
+          background-color: rgba($color: $color_primary_500, $alpha: 0.1);
+          border-radius: 200px;
+          padding: 0.4em;
+          transform: scale(0.7);
+          -o-transform: scale(0.7);
+          -ms-transform: scale(0.7);
+          -moz-transform: scale(0.7);
+          -webkit-transform: scale(0.7);
+        }
+      }
+      .active{
+        background-color: $color_primary_700;
+        color: white;
+      }
+      .active2{
+        background-color: rgba($color: white, $alpha: 0.7);
+      }
+    }
+  }
+
+  .right {
+    width: 100%;
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      p {
+        margin: 0;
+        margin-right: auto;
+      }
+      .btn-primary {
+        background-color: $color_primary_700 !important;
+      }
+    }
+
+    .proposals{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+  }
+}

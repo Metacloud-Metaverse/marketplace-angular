@@ -1,0 +1,74 @@
+@import "../../../../../assets/styles/vars";
+
+.proposal-card{
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
+  top: 0;
+  background-color: rgba($color: white, $alpha: 0.4);
+
+  &:hover{
+    top: -12px;
+    box-shadow: $box_shadow_24;
+  }
+
+  .important{
+    position: absolute;
+    top: -2px;
+    right: 1em;
+    transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+  }
+
+  h3{
+    margin: 0;
+    padding-right: 2em;
+    font-size: 1.25em;
+    font-weight: 800;
+  }
+
+  .description{
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .row{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+
+  .timeframe{
+    margin-right: 1em;
+  }
+
+  .chip{
+    padding: 0.2em 1em;
+    border-radius: 200px;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  // Categories
+  .chip-catalyst { background-color: #FD5622; }
+  .chip-poi { background-color: #5CAAC7; }
+  .chip-nameban { background-color: #6D31EA; }
+  .chip-grant { background-color: #B805F2; }
+  .chip-preproposal { background-color: #128118; }
+  .chip-draft { background-color: #4d4d4d; }
+  .chip-governance { background-color: #781281; }
+
+  // Status
+  .chip-active { background-color: #F74E8D; }
+  .chip-finished { background-color: #575757; }
+  .chip-rejected { background-color: #ad3939; }
+  .chip-passed { background-color: #1C8245; }
+  .chip-enacted { background-color:#2a61c7; }
+}

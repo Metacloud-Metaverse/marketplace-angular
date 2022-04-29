@@ -46,3 +46,13 @@
     background: transparent !important;
   }
 }
+
+.modal-create-name{
+  @include xs{
+    max-width: 100% !important;
+    height: 100%;
+  }
+  mat-dialog-container{
+    padding: 0;
+  }
+}
