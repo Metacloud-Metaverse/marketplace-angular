@@ -22,22 +22,21 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
-
 // Pages
 import { LandPageComponent } from './pages/land-page/land-page.component';
 import { ScenesPageComponent } from './pages/scenes-page/scenes-page.component';
-import { AvatarPageComponent } from './pages/avatar-page/avatar-page.component';
 import { ItemsPageComponent } from './pages/items-page/items-page.component';
 import { NamesPageComponent } from './pages/names-page/names-page.component';
-import { WearablesPageComponent } from './pages/wearables-page/wearables-page.component';
 import { CollectionDetailPageComponent } from './pages/collection-detail-page/collection-detail-page.component';
 import { CollectionsPageComponent } from './pages/collections-page/collections-page.component';
 import { ScenesPoolPageComponent } from './pages/scenes-pool-page/scenes-pool-page.component';
 import { SceneDetailPageComponent } from './pages/scene-detail-page/scene-detail-page.component';
+import { AvatarsPageComponent } from './pages/avatars-page/avatars-page.component';
+import { ItemDetailPageComponent } from './pages/item-detail-page/item-detail-page.component';
 
 // Components
 import { SceneCardComponent } from './components/scene-card/scene-card.component';
+import { CollectionCardComponent } from './components/collection-card/collection-card.component';
 
 // Layouts
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
@@ -50,19 +49,16 @@ import { ShareModalComponent } from './modals/share-modal/share-modal.component'
 import { PermissionsModalComponent } from './modals/permissions-modal/permissions-modal.component';
 import { CreateItemModalComponent } from './modals/create-item-modal/create-item-modal.component';
 import { CreateCollectionModalComponent } from './modals/create-collection-modal/create-collection-modal.component';
-import { ItemDetailPageComponent } from './pages/item-detail-page/item-detail-page.component';
-import { CollectionCardComponent } from './components/collection-card/collection-card.component';
 import { CreateNameModalComponent } from './modals/create-name-modal/create-name-modal.component';
+import { AvatarCardComponent } from './components/avatar-card/avatar-card.component';
 
 
 @NgModule({
   declarations: [
     LandPageComponent,
     ScenesPageComponent,
-    AvatarPageComponent,
     ItemsPageComponent,
     NamesPageComponent,
-    WearablesPageComponent,
     MainLayoutComponent,
     CreateSceneModalComponent,
     ImportSceneModalComponent,
@@ -79,6 +75,8 @@ import { CreateNameModalComponent } from './modals/create-name-modal/create-name
     ItemDetailPageComponent,
     CollectionCardComponent,
     CreateNameModalComponent,
+    AvatarsPageComponent,
+    AvatarCardComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,20 @@
+<div class="avatars-page intro-component-animation">
+  <div class="container">
+
+    <div class="row">
+      <p>{{ avatars.length }} RESULTS</p>
+      <button class="btn-icon" mat-icon-button matTooltip="Create Avatar"><mat-icon>add_circle</mat-icon></button>
+    </div>
+
+    <div *ngIf="avatars.length <= 0" class="empty-screen">
+      <p>It looks like you don't have any Avatar. <br> <a class="link hover-linear">Click here</a> to get started.</p>
+    </div>
+
+    <div *ngIf="avatars.length > 0" class="avatars" @componentAnimation>
+      <div class="avatar-card" *ngFor="let avatar of avatars">
+        <app-avatar-card [isEditMode]="true"></app-avatar-card>
+      </div>
+    </div>
+
+  </div>
+</div>

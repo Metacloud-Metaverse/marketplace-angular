@@ -40,6 +40,4 @@ export class ScenesPageComponent implements OnInit {
       /* panelClass: 'modal-full-width-mobile', */
     });
   }
-
-
 }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WearablesPageComponent } from './wearables-page.component';
+import { AvatarCardComponent } from './avatar-card.component';
 
-describe('WearablesPageComponent', () => {
-  let component: WearablesPageComponent;
-  let fixture: ComponentFixture<WearablesPageComponent>;
+describe('AvatarCardComponent', () => {
+  let component: AvatarCardComponent;
+  let fixture: ComponentFixture<AvatarCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WearablesPageComponent ]
+      declarations: [ AvatarCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WearablesPageComponent);
+    fixture = TestBed.createComponent(AvatarCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

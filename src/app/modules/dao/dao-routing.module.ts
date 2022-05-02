@@ -32,6 +32,7 @@ const routes: Routes = [
       { path: 'transparency', component: TransparencyPageComponent },
       { path: 'voting-power', component: VotingPowerPageComponent },
       { path: 'activity', component: ActivityPageComponent },
+      { path: '', redirectTo: 'proposals', pathMatch: 'full' },
     ]
   }
 ];

@@ -1,0 +1,51 @@
+@import "../../../../../assets/styles/vars";
+
+.avatars-page {
+  padding-bottom: 4em;
+
+  .row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    gap: 0.5em;
+
+    p {
+      margin: 0;
+      margin-right: auto;
+    }
+
+    .btn-icon {
+      line-height: 1;
+      border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    }
+
+    button{
+      font-size: 0.7em;
+    }
+  }
+
+  .empty-screen {
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    border-radius: 1em;
+    padding: 4em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    p {
+      width: 600px;
+      max-width: 100%;
+    }
+  }
+
+  .avatars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    .avatar-card {
+      width: calc(25% - 0.75em);
+    }
+  }
+}
