@@ -17,6 +17,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
+
 
 // Pages
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -74,6 +76,7 @@ import { VotesModalComponent } from './modals/votes-modal/votes-modal.component'
     MatTooltipModule,
     MatTableModule,
     MatSelectModule,
+    MatListModule,
   ]
 })
 export class DaoModule { }

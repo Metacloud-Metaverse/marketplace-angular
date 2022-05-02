@@ -9,6 +9,7 @@ import { StartProposalGrantPageComponent } from './pages/start-proposal-grant-pa
 import { StartProposalNamebanPageComponent } from './pages/start-proposal-nameban-page/start-proposal-nameban-page.component';
 import { StartProposalPageComponent } from './pages/start-proposal-page/start-proposal-page.component';
 import { StartProposalPoiPageComponent } from './pages/start-proposal-poi-page/start-proposal-poi-page.component';
+import { TransparencyPageComponent } from './pages/transparency-page/transparency-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'proposals/start-proposal/point-of-interest', component: StartProposalPoiPageComponent },
   { path: 'proposals/start-proposal/name-ban', component: StartProposalNamebanPageComponent },
   { path: 'proposals/start-proposal/request-a-grant', component: StartProposalGrantPageComponent },
+  { path: 'transparency', component: TransparencyPageComponent },
 ];
 
 @NgModule({

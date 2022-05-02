@@ -7,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransparencyPageComponent implements OnInit {
 
+  daoCommittee:any = [
+    {},{},{},{},{},
+  ]
+
+  daoFacilitator:any = [
+    {},{}
+  ]
+
+  wearableCurationTeam:any = [
+    {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
