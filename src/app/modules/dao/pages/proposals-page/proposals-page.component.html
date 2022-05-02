@@ -1,11 +1,6 @@
 <div class="proposals-page intro-component-animation">
   <div class="container">
 
-    <nav>
-      <a [routerLink]="['/routePath']" routerLinkActive="router-link-active">PROPOSALS</a>
-      <a [routerLink]="['/routePath']" routerLinkActive="router-link-active">TRANSPARENCY</a>
-    </nav>
-
     <div class="layout">
       <div class="left">
         <mat-accordion multi>
@@ -60,7 +55,7 @@
 
         <app-loading *ngIf="isLoading"></app-loading>
 
-        <div *ngIf="!isLoading" class="empty-screen"></div>
+        <div *ngIf="!isLoading && proposals.length <= 0" class="empty-screen">Empty Screen</div>
 
         <div *ngIf="!isLoading" class="proposals" @componentAnimation>
           <mat-form-field appearance="outline">

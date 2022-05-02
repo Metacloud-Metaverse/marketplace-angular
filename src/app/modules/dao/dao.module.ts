@@ -19,7 +19,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 
-
 // Pages
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProposalsPageComponent } from './pages/proposals-page/proposals-page.component';
@@ -39,6 +38,9 @@ import { ProposalCardComponent } from './components/proposal-card/proposal-card.
 import { CommentCardComponent } from './components/comment-card/comment-card.component';
 import { VotesModalComponent } from './modals/votes-modal/votes-modal.component';
 
+// Layouts
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { VotesModalComponent } from './modals/votes-modal/votes-modal.component'
     StartProposalPoiPageComponent,
     StartProposalNamebanPageComponent,
     StartProposalGrantPageComponent,
+    MainLayoutComponent,
   ],
   imports: [
     CommonModule,

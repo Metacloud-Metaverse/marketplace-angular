@@ -1,0 +1,13 @@
+<div class="main-layout intro-component-animation">
+
+  <nav>
+    <a mat-button [routerLink]="['proposals']" routerLinkActive="active">Proposals</a>
+    <a mat-button [routerLink]="['voting-power']" routerLinkActive="active">Voting Power</a>
+    <a *ngIf="isLogged" mat-button [routerLink]="['transparency']" routerLinkActive="active">Transparency</a>
+    <a *ngIf="isLogged" mat-button [routerLink]="['activity']" routerLinkActive="active">Activity</a>
+  </nav>
+
+  <div class="layout">
+    <router-outlet></router-outlet>
+  </div>
+</div>

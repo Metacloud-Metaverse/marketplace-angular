@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { ActivityPageComponent } from './pages/activity-page/activity-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProposalDetailPageComponent } from './pages/proposal-detail-page/proposal-detail-page.component';
 import { ProposalsPageComponent } from './pages/proposals-page/proposals-page.component';
@@ -14,7 +16,6 @@ import { VotingPowerPageComponent } from './pages/voting-power-page/voting-power
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'proposals', component: ProposalsPageComponent },
   { path: 'proposals/proposal-detail', component: ProposalDetailPageComponent },
   { path: 'proposals/start-proposal', component: StartProposalPageComponent },
   { path: 'proposals/start-proposal/community-poll', component: StartProposalCommunityPageComponent },
@@ -22,8 +23,17 @@ const routes: Routes = [
   { path: 'proposals/start-proposal/point-of-interest', component: StartProposalPoiPageComponent },
   { path: 'proposals/start-proposal/name-ban', component: StartProposalNamebanPageComponent },
   { path: 'proposals/start-proposal/request-a-grant', component: StartProposalGrantPageComponent },
-  { path: 'transparency', component: TransparencyPageComponent },
-  { path: 'voting-power', component: VotingPowerPageComponent },
+
+  {
+    path: 'governance',
+    component: MainLayoutComponent,
+    children: [
+      { path: 'proposals', component: ProposalsPageComponent },
+      { path: 'transparency', component: TransparencyPageComponent },
+      { path: 'voting-power', component: VotingPowerPageComponent },
+      { path: 'activity', component: ActivityPageComponent },
+    ]
+  }
 ];
 
 @NgModule({
