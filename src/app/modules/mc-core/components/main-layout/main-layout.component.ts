@@ -21,7 +21,7 @@ import { LoginModalComponent } from '../../modals/login-modal/login-modal.compon
 export class MainLayoutComponent implements OnInit {
 
   isVideoOpen = false;
-  isLogged = true;
+  isLogged = false;
   videoUrlIframe?: SafeResourceUrl;
 
   isMenuOpen = false;
