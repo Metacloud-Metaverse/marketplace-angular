@@ -1,0 +1,62 @@
+@import "../../../../../assets/styles/vars";
+
+.activity-page {
+  padding: 2em 0;
+
+  .row-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 2em;
+
+    .chip {
+      padding: 0.5em 1em;
+      background-color: rgba($color: #000000, $alpha: 0.1);
+      font-size: 0.9em;
+      border-radius: 0.5em;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba($color: #000000, $alpha: 0.2);
+      }
+    }
+
+    .active {
+      background-color: $color_primary_500 !important;
+      color: white !important;
+    }
+
+    .btn-sort {
+      margin-left: auto;
+      min-width: 120px;
+      background-color: rgba($color: #000000, $alpha: 0);
+      text-overflow: ellipsis;
+      &:hover {
+        background-color: rgba($color: #000000, $alpha: 0.1);
+      }
+    }
+  }
+
+  .empty-screen {
+    text-align: center;
+    padding: 1em;
+  }
+
+  .proposals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    .proposal {
+      width: calc(33.3% - 1.33em);
+
+      &::ng-deep .proposal-card{
+        .description, .timeframe{
+          display: none;
+        }
+        .current-result{
+          display: block;
+        }
+      }
+    }
+  }
+}

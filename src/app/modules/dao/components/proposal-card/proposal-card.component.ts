@@ -14,6 +14,9 @@ export class ProposalCardComponent implements OnInit {
   status = 0;
   isImportant = true;
   isEnded = false;
+  addWatchlist = false;
+
+  showCurrentResult = 0;
 
   constructor() { }
 

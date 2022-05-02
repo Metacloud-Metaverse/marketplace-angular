@@ -1,1 +1,53 @@
-<p>activity-page works!</p>
+<div class="activity-page intro-component-animation">
+  <div class="container">
+
+    <div class="row-header">
+      <div class="chip animated" [ngClass]="{'active': filterActive == 0}" (click)="filterActive = 0">MY PROPOSALS</div>
+      <div class="chip animated" [ngClass]="{'active': filterActive == 1}" (click)="filterActive = 1">MY WATCHLIST</div>
+      <button mat-flat-button class="btn-sort animated" [matMenuTriggerFor]="sortByMenu">
+        <span *ngIf="sortBy == 0">All outcomes</span>
+        <span *ngIf="sortBy == 1">Active outcomes</span>
+        <span *ngIf="sortBy == 2">Finished outcomes</span>
+        <span *ngIf="sortBy == 3">Passed outcomes</span>
+        <span *ngIf="sortBy == 4">Rejected outcomes</span>
+        <span *ngIf="sortBy == 5">Enacted outcomes</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+    </div>
+
+    <app-loading *ngIf="isLoading"></app-loading>
+
+    <div *ngIf="!isLoading && filterActive == 0 && myProposals.length <= 0" class="empty-screen intro-component-animation">
+      <img src="/assets/img/avatar-watch.png" alt="" />
+      <p>You haven't submitted any proposal yet. <a [routerLink]="['/routePath']" class="link hover-linear">Create a proposal</a></p>
+    </div>
+
+    <div *ngIf="!isLoading && filterActive == 1 && myWatchlist.length <= 0" class="empty-screen intro-component-animation">
+      <img src="/assets/img/avatar-watch.png" alt="" />
+      <p>You haven't watchlist any proposal yet.</p>
+    </div>
+
+    <div *ngIf="!isLoading && filterActive == 0 && myProposals.length > 0" class="proposals intro-component-animation" @componentAnimation>
+      <div class="proposal" *ngFor="let proposals of myProposals">
+        <app-proposal-card></app-proposal-card>
+      </div>
+    </div>
+
+    <div *ngIf="!isLoading && filterActive == 1 && myWatchlist.length > 0" class="proposals intro-component-animation" @componentAnimation>
+      <div class="proposal" *ngFor="let proposals of myWatchlist">
+        <app-proposal-card></app-proposal-card>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<mat-menu #sortByMenu="matMenu">
+  <button mat-menu-item (click)="sortBy = 0">ALL OUTCOMES</button>
+  <button mat-menu-item (click)="sortBy = 1">ACTIVE OUTCOMES</button>
+  <button mat-menu-item (click)="sortBy = 2">FINISHED OUTCOMES</button>
+  <button mat-menu-item (click)="sortBy = 3">PASSED OUTCOMES</button>
+  <button mat-menu-item (click)="sortBy = 4">REJECTED OUTCOMES</button>
+  <button mat-menu-item (click)="sortBy = 5">ENACTED OUTCOMES</button>
+</mat-menu>

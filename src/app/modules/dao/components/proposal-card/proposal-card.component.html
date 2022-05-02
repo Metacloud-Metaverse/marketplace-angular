@@ -1,10 +1,32 @@
 <a [routerLink]="['/dao/proposals/proposal-detail']" class="proposal-card box component-animation animated">
 
-  <div *ngIf="isImportant" class="important"><mat-icon color="primary">bookmark</mat-icon></div>
+  <button *ngIf="isImportant" mat-icon-button class="btn-watchlist animated" (click)="addWatchlist = !addWatchlist; $event.stopPropagation();" [ngClass]="{'btn-watchlist-active': addWatchlist}" matTooltip="Add / Remove Watchlist">
+    <mat-icon>bookmark</mat-icon>
+  </button>
 
-  <h3>{{ title }}</h3>
+  <h3 class="title">{{ title }}</h3>
 
-  <p>{{ description }}</p>
+  <p class="description">{{ description }}</p>
+
+  <div class="current-result">
+    <p><small>CURRENT RESULT</small></p>
+    <div *ngIf="showCurrentResult == 0" class="item">
+      <div class="row">
+        <p><small><b>Yay</b></small></p>
+        <p><small><b>96%</b></small></p>
+      </div>
+      <mat-progress-bar mode="determinate" value="40" color="primary"></mat-progress-bar>
+      <p><small><b>82,531 VP</b> <span>&nbsp; (7 votes)</span></small></p>
+    </div>
+    <div *ngIf="showCurrentResult == 1" class="item">
+      <div class="row">
+        <p><small><b>Nay</b></small></p>
+        <p><small><b>96%</b></small></p>
+      </div>
+      <mat-progress-bar mode="determinate" value="40" color="warn"></mat-progress-bar>
+      <p><small><b>82,531 VP</b> <span>&nbsp; (7 votes)</span></small></p>
+    </div>
+  </div>
 
   <div class="row">
     <div *ngIf="!isEnded" class="timeframe">
