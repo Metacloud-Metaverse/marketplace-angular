@@ -1,1 +1,116 @@
-<p>create-event-page works!</p>
+<div class="create-event-page">
+  <div class="container">
+
+    <a mat-button [routerLink]="['/events']"><mat-icon>arrow_back</mat-icon> Back</a>
+    <h1><b>Submit event</b></h1>
+    <p>Be sure to fill in as many details as possible to generate interest in your event</p>
+
+    <br>
+
+    <div class="event-cover">
+      <p><b>Event Cover</b></p>
+      <input #eventCoverInput type="file" />
+      <div class="image-container">
+        <div class="empty-screen">
+          <mat-icon>camera</mat-icon>
+          <p><span class="link hover-linear" (click)="eventCoverInput.click()">Browse</span> your computer or drag a picture to add a cover <br><i>(Recommended size: 1340 x 670)</i></p>
+        </div>
+        <img [src]="eventCover" (click)="eventCoverInput.click()" />
+      </div>
+      <p><small><i>(recommended size: 1340 x 670)</i></small></p>
+    </div>
+
+    <p><b>Events Name</b></p>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" placeholder="Be as descriptive as you can" />
+    </mat-form-field>
+
+    <p><b>Description</b></p>
+    <mat-form-field appearance="outline">
+      <textarea matInput name="" id="" rows="10" placeholder="Keep it short but keep it interesting!"></textarea>
+    </mat-form-field>
+
+    <p><b>Date and Time</b></p>
+    <div class="row">
+      <mat-slide-toggle>All Day Event</mat-slide-toggle>
+    </div> <br>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label><b>Start/End Day</b></mat-label>
+        <mat-date-range-input
+          [formGroup]="inputDate"
+          [rangePicker]="inputDatePicker">
+          <input (click)="inputDatePicker.open()" matStartDate placeholder="Start date" formControlName="dateStart">
+          <input (click)="inputDatePicker.open()" matEndDate placeholder="End date" formControlName="dateEnd">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="inputDatePicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #inputDatePicker></mat-date-range-picker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label><b>Start/End Time</b></mat-label>
+        <mat-date-range-input
+          [formGroup]="inputTime"
+          [rangePicker]="inputTimePicker">
+          <input (click)="inputTimePicker.open()" matStartDate placeholder="Start time" formControlName="timeStart">
+          <input (click)="inputTimePicker.open()" matEndDate placeholder="End time" formControlName="timeEnd">
+        </mat-date-range-input>
+        <mat-hint>UTC</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="inputTimePicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #inputTimePicker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+
+    <p><b>Repeat</b></p>
+    <mat-form-field appearance="outline">
+      <mat-select value="0">
+        <mat-option value="0">Does not repeat</mat-option>
+        <mat-option value="1">Repeay every</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="row">
+      <div class="item">
+        <p><b>Latitud (X)</b></p>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" placeholder="0" />
+        </mat-form-field>
+      </div>
+      <div class="item">
+        <p><b>Longitud (Y)</b></p>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" placeholder="0" />
+        </mat-form-field>
+      </div>
+      <div class="item">
+        <p><b>Server</b></p>
+        <mat-form-field appearance="outline">
+          <mat-select value="0">
+            <mat-option value="0">Any server</mat-option>
+            <mat-option value="1">loki</mat-option>
+            <mat-option value="2">dg</mat-option>
+            <mat-option value="3">odin</mat-option>
+            <mat-option value="4">unicorn</mat-option>
+            <mat-option value="5">unicorn...</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <p><b>Email or Discord username</b></p>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" placeholder="Hello@metacloud.com" />
+    </mat-form-field>
+
+    <p><b>Additonal info</b></p>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" placeholder="Add any other useful details for our reviewers" />
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" class="btn-submit">SUBMIT</button>
+
+    <p><small><i>This event submission will be reviewed by our team, you’ll be notified by email</i></small></p>
+
+  </div>
+</div>

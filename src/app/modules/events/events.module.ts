@@ -3,11 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { EventsRoutingModule } from './events-routing.module';
 import { DragScrollModule } from 'ngx-drag-scroll';
-
-// Pages
-import { EventsPageComponent } from './pages/events-page/events-page.component';
-import { EventPageComponent } from './pages/event-page/event-page.component';
-import { CreateEventPageComponent } from './pages/create-event-page/create-event-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular material
 import { MatButtonModule } from '@angular/material/button';
@@ -16,6 +12,18 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+
+// Pages
+import { EventsPageComponent } from './pages/events-page/events-page.component';
+import { EventPageComponent } from './pages/event-page/event-page.component';
+import { CreateEventPageComponent } from './pages/create-event-page/create-event-page.component';
 
 
 // Components
@@ -37,6 +45,8 @@ import { ButtonsActionShareElementComponent } from './components/buttons-action-
     CommonModule,
     EventsRoutingModule,
     DragScrollModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     // Angular Material
     MatButtonModule,
@@ -44,7 +54,13 @@ import { ButtonsActionShareElementComponent } from './components/buttons-action-
     MatDividerModule,
     MatTooltipModule,
     MatMenuModule,
-    MatChipsModule
+    MatChipsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatSlideToggleModule,
   ]
 })
 export class EventsModule { }

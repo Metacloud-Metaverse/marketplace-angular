@@ -28,6 +28,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { ComingSoonElementComponent } from './components/coming-soon-element/coming-soon-element.component';
 import { LoginModalComponent } from './modals/login-modal/login-modal.component';
+import { LoginRequiredModalComponent } from './modals/login-required-modal/login-required-modal.component';
 
 // Modals
 
@@ -42,6 +43,7 @@ import { LoginModalComponent } from './modals/login-modal/login-modal.component'
     NavMenuComponent,
     ComingSoonElementComponent,
     LoginModalComponent,
+    LoginRequiredModalComponent,
   ],
   imports: [
     CommonModule,
