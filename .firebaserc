@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "daring-pilot-342219"
+  },
+  "targets": {
+    "daring-pilot-342219": {
+      "hosting": {
+        "marketplace-metacloud": [
+          "marketplace-metacloud"
+        ]
+      }
+    }
+  }
+}
