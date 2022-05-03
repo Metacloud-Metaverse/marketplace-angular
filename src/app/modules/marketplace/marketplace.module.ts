@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MarketplaceRoutingModule } from './marketplace-routing.module';
@@ -68,6 +68,9 @@ import { MyOnsalePageComponent } from './pages/my-onsale-page/my-onsale-page.com
     MatChipsModule,
     MatExpansionModule,
     MatTableModule,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class MarketplaceModule { }

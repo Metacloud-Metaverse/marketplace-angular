@@ -142,7 +142,7 @@ export class MarketplacePageComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Marketplace | metacloud');
     this.metaTagService.updateTag(
-      { name: 'description', content: 'Pornland is the first metaverse designed to provide safe, secure and private virtual-reality venues for adult entertainment and real-life sexual fun.' }
+      { name: 'description', content: '' }
     );
   }
 

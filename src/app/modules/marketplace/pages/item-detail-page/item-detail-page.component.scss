@@ -1,11 +1,23 @@
 @import "../../../../../assets/styles/vars";
 
 .item-detail-page {
+  padding-bottom: 4em;
+  @include xs{
+    padding-bottom: 0;
+  }
+
   .container {
     display: flex;
     gap: 2em;
+    @include xs{
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 
     .column-left {
+      @include lt-md {
+        display: none;
+      }
       a {
         border: 1px solid rgba($color: #000000, $alpha: 0.2);
         &:hover {
@@ -13,12 +25,19 @@
         }
       }
     }
+
+    .column-right{
+      width: calc(100% - 4em);
+      @include lt-md{
+        width: 100%;
+      }
+    }
   }
 
   header {
     .image-container {
       height: 400px;
-      background-color: #860197;
+      background-color: rgba($color: white, $alpha: 0.3);
       border-radius: 1em;
       display: flex;
       align-items: center;
@@ -26,10 +45,29 @@
       position: relative;
       overflow: hidden;
 
+      @include xs{
+        width: calc(100% + 2.4em);
+        margin-left: -1.2em;
+        border-radius: 0;
+        height: 67vw;
+        max-height: 400px;
+      }
+
       img {
         width: 100%;
         height: 90%;
         object-fit: contain;
+        @include xs{
+          height: 100%;
+        }
+      }
+
+      model-viewer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
 
       span {
@@ -55,6 +93,17 @@
     background-color: rgba($color: #000000, $alpha: 0.1);
     border-radius: 1em;
     padding: 3em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    @include xs{
+      margin-top: 0;
+      padding: 2em;
+      width: calc(100% + 2.4em);
+      margin-left: -1.2em;
+      border-radius: 0;
+    }
 
     .row {
       display: flex;
@@ -66,6 +115,9 @@
       font-family: $font_text !important;
       font-weight: 600;
       font-size: 2.5em;
+      @include lt-md{
+        font-size: 1.8em;
+      }
     }
 
     h2 {
@@ -79,6 +131,7 @@
         width: 30px;
         height: 30px;
         margin-right: 6px;
+
       }
     }
 
@@ -86,6 +139,11 @@
       display: flex;
       gap: 1em;
       margin-top: 0.5em;
+      @include lt-md{
+        gap: 0.5em;
+        margin-top: 1em;
+        flex-wrap: wrap;
+      }
 
       .tag {
         display: flex;
@@ -95,6 +153,11 @@
         /* height: 30px; */
         border-radius: 5px;
         background-color: rgba($color: #000000, $alpha: 0.1);
+        white-space: nowrap;
+        @include lt-md{
+          padding: 0.5em 1em;
+          font-size: 0.9em;
+        }
       }
 
       .rarity {
@@ -108,6 +171,10 @@
       align-items: flex-start;
       gap: 2em;
       margin-top: 2em;
+      @include lt-md{
+        margin-top: 1em;
+        flex-direction: column;
+      }
 
       .left {
         width: 100%;
@@ -117,9 +184,16 @@
           width: 100%;
           gap: 1em;
           mat-list-item {
-            width: calc(50% - 1em);
+            width: calc(50% - 0.5em);
+            @include xs{
+              width: 100%;
+              height: initial;
+            }
             &::ng-deep .mat-list-item-content {
               padding: 0;
+              @include lt-md{
+                font-size: 0.8em;
+              }
             }
             &::ng-deep .mat-list-icon {
               width: 40px;
@@ -144,6 +218,16 @@
 
       .right {
         min-width: 140px;
+        @include xs{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        @include sm{
+          display: flex;
+          width: 100%;
+          gap: 1em;
+        }
         a,
         button {
           width: 100%;
@@ -175,11 +259,37 @@
       }
     }
 
-    .latest-sales,.bids {
+    .latest-sales,
+    .bids {
       margin-top: 3em;
+
+      p{
+        @include xs{
+          text-align: center;
+        }
+      }
+
+      .scroll-table{
+        @include xs{
+          width: calc(100% + 4em);
+          margin-left: -2em;
+          overflow-x: auto;
+          padding-bottom: 1em;
+        }
+      }
+
       table {
         width: 100%;
         background-color: transparent;
+
+        td{
+          padding: 0 1em;
+          white-space: nowrap;
+        }
+
+        th{
+          padding: 0 1em;
+        }
 
         .user {
           color: black;
