@@ -1,6 +1,12 @@
 @import "../../../../../assets/styles/vars";
 
 .events {
+  padding-bottom: 4em;
+
+  @include lt-md{
+    margin-top: 74px;
+  }
+
   header {
     margin-bottom: 2em;
 
@@ -8,10 +14,43 @@
       display: flex;
       align-items: center;
       gap: 1em;
+      @include lt-md{
+        flex-wrap: wrap;
+      }
 
       h1 {
         margin: 0;
         margin-right: auto;
+        @include lt-md{
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      .search{
+        @include xs{
+          width: calc(100% - 124px);
+        }
+        @include sm{
+          width: calc(100% - 186px);
+        }
+        &::ng-deep .mat-form-field-wrapper{
+          padding-bottom: 0;
+        }
+        &::ng-deep .mat-form-field-infix{
+          padding: 0.5em 0 0.8em 0.3em;
+        }
+        &::ng-deep .mat-form-field-prefix{
+         top: 0.35em;
+        }
+      }
+
+      .btn-submit{
+        padding: 0.4em 2em;
+        @include xs{
+          padding: 0.2em 1em;
+          font-size: 0.8em;
+        }
       }
     }
 
@@ -20,6 +59,9 @@
       height: 1px;
       background-color: rgba($color: white, $alpha: 0.1);
       border-radius: 200px;
+      @include lt-md{
+        display: none;
+      }
 
       .active-line {
         width: 280px;
@@ -69,7 +111,7 @@
         width: 30px;
         height: 4px;
         border-radius: 200px;
-        background-color: white;
+        background-color: rgba($color: #000000, $alpha: 0.5);
         opacity: 0.2;
       }
       .active {
@@ -84,6 +126,9 @@
 
     h2{
       font-family: $font_title !important;
+      @include xs{
+        text-align: center;
+      }
     }
 
     .layout {
@@ -93,6 +138,17 @@
 
       .trending-card {
         width: calc(33.3% - 1em);
+        @include xs{
+          width: 100%;
+          display: none;
+          &:nth-of-type(1){ display: block; }
+          &:nth-of-type(2){ display: block; }
+          &:nth-of-type(3){ display: block; }
+          &:nth-of-type(4){ display: block; }
+        }
+        @include sm{
+          width: calc(50% - 0.5em);
+        }
       }
     }
   }
@@ -102,10 +158,20 @@
 
     h2{
       font-family: $font_title !important;
+      @include xs{
+        text-align: center;
+      }
+    }
+
+    &::ng-deep .mat-chip-list-wrapper{
+      @include xs{
+        justify-content: center;
+      }
     }
 
     mat-chip{
       cursor: pointer;
+      background-color: rgba($color: #000000, $alpha: 0.1);
     }
 
     .active{
@@ -121,6 +187,12 @@
 
       .event-card {
         width: calc(33.3% - 1em);
+        @include xs{
+          width: 100%;
+        }
+        @include sm{
+          width: calc(50% - 0.5em);
+        }
       }
     }
   }

@@ -4,8 +4,11 @@
     <header>
       <div class="row">
         <h1>World events</h1>
-        <button mat-icon-button matTooltip="Search"><mat-icon>search</mat-icon></button>
-        <button mat-flat-button color="primary">SUBMIT EVENT</button>
+        <mat-form-field appearance="outline" class="search">
+          <input matInput type="text" placeholder="Search...">
+          <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+        <button mat-flat-button color="primary" class="btn-submit">SUBMIT EVENT</button>
       </div>
       <div class="separate-line">
         <div class="active-line"></div>
@@ -27,7 +30,7 @@
       </div>
     </section>
 
-    <section class="section2">
+    <section class="section2" @componentAnimation>
       <h2>Trending</h2>
       <div class="layout">
         <div class="trending-card" *ngFor="let item of events.slice(0, 9)">
@@ -36,7 +39,7 @@
       </div>
     </section>
 
-    <section class="section3">
+    <section class="section3" @componentAnimation>
       <h2>Upcoming Events</h2>
       <mat-chip-list aria-label="Fish selection">
         <mat-chip [ngClass]="{'active': filterActive == 0}" (click)="filterActive = 0">APRIL</mat-chip>
@@ -45,8 +48,11 @@
         <mat-chip [ngClass]="{'active': filterActive == 3}" (click)="filterActive = 3">JULY</mat-chip>
       </mat-chip-list>
       <div class="layout">
-        <div class="event-card" *ngFor="let item of events.slice(0, 9)">
+        <div class="event-card" *ngFor="let item of events.slice(0, slice)">
           <app-event-card></app-event-card>
+        </div>
+        <div *ngIf="slice < events.length" style="text-align: center; margin-top: 2em; width: 100%;">
+          <button class="component-animation" mat-flat-button color="primary" (click)="loadMoreProposals()">LOAD MORE</button>
         </div>
       </div>
     </section>

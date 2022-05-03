@@ -1,4 +1,4 @@
-<div class="event-card" [ngClass]="{'trending-card': isTrendingCard}">
+<div class="event-card component-animation animated" [ngClass]="{'trending-card': isTrendingCard}">
 
   <a [routerLink]="['/routePath']" class="image-container">
     <img [src]="image" alt="Image - {{ title }}" onerror="this.src='/assets/img/image-not-found.svg';" />

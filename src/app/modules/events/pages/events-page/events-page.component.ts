@@ -1,17 +1,261 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { DragScrollComponent } from 'ngx-drag-scroll';
+import { ComponentAnimation } from 'src/app/modules/mc-core/animations/component.animation';
 
 
 @Component({
   selector: 'app-events-page',
   templateUrl: './events-page.component.html',
-  styleUrls: ['./events-page.component.scss']
+  styleUrls: ['./events-page.component.scss'],
+  animations: [ComponentAnimation.componentAnimation]
 })
 export class EventsPageComponent implements OnInit {
 
   filterActive = 0;
+  slice = 9;
 
   events:any = [
+    {
+      image: '',
+      title: 'Alison Wonderland’s  WonderQuest #4: WonderSound',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'asdsadsadsa',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'dgflksjlkgjslf;s;ldjfk',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'Alison Wonderland’s  WonderQuest #4: WonderSound',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'Alison Wonderland’s  WonderQuest #4: WonderSound',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'Alison Wonderland’s  WonderQuest #4: WonderSound',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'Alison Wonderland’s  WonderQuest #4: WonderSound',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'asdsadsadsa',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'zxczczxc',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'dgflksjlkgjslf;s;ldjfk',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'Alison Wonderland’s  WonderQuest #4: WonderSound',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'Alison Wonderland’s  WonderQuest #4: WonderSound',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
+    {
+      image: '',
+      title: 'Alison Wonderland’s  WonderQuest #4: WonderSound',
+      date: '2021-12-04',
+      organized: 'Wonder Quest',
+      creator: 'Metacloud',
+      location: '-67,101',
+      coordinates: '-67,101',
+      status: 0,
+    },
     {
       image: '',
       title: 'Alison Wonderland’s  WonderQuest #4: WonderSound',
@@ -136,9 +380,16 @@ export class EventsPageComponent implements OnInit {
 
   @ViewChild('sectionBigCards', {read: DragScrollComponent}) ds!: DragScrollComponent;
 
-  constructor() { }
+  constructor(
+    private titleService: Title,
+    private metaTagService: Meta,
+  ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Events | metacloud');
+    this.metaTagService.updateTag(
+      { name: 'description', content: '' }
+    );
   }
 
   moveLeft() {
@@ -147,5 +398,9 @@ export class EventsPageComponent implements OnInit {
 
   moveRight() {
     this.ds.moveRight();
+  }
+
+  loadMoreProposals(){
+    this.slice = this.slice + 10;
   }
 }

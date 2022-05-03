@@ -3,7 +3,7 @@
 .event-card {
   display: flex;
   flex-direction: column;
-  background-color: #202335;
+  background-color: rgba($color: white, $alpha: 0.4);
   border-radius: 0.5em;
   overflow: hidden;
 
@@ -11,8 +11,16 @@
     display: block;
     position: relative;
     width: 100%;
+    height: 0;
+    padding-bottom: 70%;
+    max-height: 300px;
+    @include xs{
+    }
 
     img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -57,7 +65,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: #a3a3a3;
+      color: $black_medium_emphasis;
 
       .coordinates {
         background-color: white;
@@ -73,7 +81,7 @@
       margin-bottom: 0;
       a {
         font-weight: 600;
-        color: white;
+        color: $black_high_emphasis;
         text-decoration: none;
         &:hover {
           color: $color_primary_500;
@@ -88,6 +96,8 @@
 
   .image-container {
     width: 30%;
+    padding-bottom: initial;
+    height: initial;
   }
 
   .body {
