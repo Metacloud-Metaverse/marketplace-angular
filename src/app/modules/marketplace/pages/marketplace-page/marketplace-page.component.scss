@@ -1,15 +1,24 @@
 @import "../../../../../assets/styles/vars";
 
 .marketplace-page{
-  @include xs{
+  padding-bottom: 3em;
+  @include lt-md{
     padding-top: 3em;
   }
 
   header{
     padding: 3em 0;
     text-align: center;
+    h1{
+      margin-bottom: 0;
+    }
     p{
       font-size: 1.25em;
+      margin-top: 0em;
+      margin-bottom: 2em;
+      @include xs{
+        font-size: 1em;
+      }
     }
   }
 
