@@ -3,12 +3,6 @@
 .create-event-page{
   padding-top: 1em;
   padding-bottom: 4em;
-  @include xs{
-    margin-top: 54px;
-  }
-  @include sm{
-    margin-top: 74px;
-  }
 
   .container{
     width: 800px;

@@ -67,6 +67,12 @@
   .content-layout {
     position: relative;
     z-index: 2;
+    @include xs{
+      padding-top: 54px;
+    }
+    @include sm{
+      padding-top: 74px;
+    }
   }
 
   nav {

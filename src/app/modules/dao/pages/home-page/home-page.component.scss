@@ -104,6 +104,10 @@
     text-align: center;
     position: relative;
     min-height: 100vh;
+    @include xs{
+      min-height: initial;
+      padding-bottom: 5em;
+    }
 
     .background-gradient {
       position: absolute;
@@ -147,6 +151,9 @@
       margin-top: 2em;
       a {
         padding: 0.5em 3em;
+        @include xs{
+          padding: 0.5em 2em;
+        }
       }
     }
   }
@@ -154,6 +161,7 @@
   .section1 {
     text-align: center;
     width: 900px;
+    max-width: 100%;
     margin: auto;
     margin-bottom: 4em;
   }
@@ -167,6 +175,9 @@
       );
       border-radius: 2em;
       padding: 5em;
+      @include xs{
+        padding: 2em;
+      }
 
       h3 {
         font-size: 1.5em;
@@ -177,16 +188,51 @@
       .floating{
         animation: floating 5.5s infinite ease-in-out;
       }
+
+      .texts{
+        @include lt-md{
+          order: 2;
+        }
+      }
+
+      .image{
+        @include lt-md{
+          order: 1;
+        }
+        img{
+          min-width: 200px;
+          width: 300px;
+          max-width: 100%;
+        }
+      }
+
+      .row{
+        @include lt-md{
+          flex-direction: column;
+        }
+      }
     }
   }
 
   .section3 {
     .row {
       align-items: flex-start;
+      @include xs{
+        flex-direction: column;
+      }
       li {
         margin-bottom: 0.5em;
         &::marker {
           color: $color_primary_500;
+        }
+      }
+
+      .right{
+        @include sm{
+          min-width: 160px;
+          img{
+            width: 100%;
+          }
         }
       }
     }
@@ -201,6 +247,12 @@
     padding-top: 1em;
     background-color: rgba($color: #B35FF4, $alpha: 0.17);
     text-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    @include xs{
+      padding: 2em 3em;
+    }
   }
 
   .section5{
@@ -210,6 +262,10 @@
       border: 2px solid violet;
       margin-bottom: 2em;
       padding: 1em 3em;
+      @include xs{
+        padding: 0 1em;
+        font-size: 0.9em;
+      }
       h3{
         font-weight: 600;
         font-size: 1.5em;
@@ -230,9 +286,25 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     margin: 10em auto;
+    @include xs{
+      padding: 2em 3em;
+      text-align: center;
+      margin: 2em auto;
+    }
+    @include sm{
+      padding: 2em 3em;
+      margin: 4em auto;
+    }
+    @include md{
+      margin: 6em auto;
+    }
 
     .row{
       gap: 3em;
+      @include xs{
+        gap: 2em;
+        flex-direction: column;
+      }
     }
 
     button{
