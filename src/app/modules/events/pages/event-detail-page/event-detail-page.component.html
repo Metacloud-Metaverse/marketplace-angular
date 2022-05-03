@@ -1,7 +1,7 @@
-<div class="event-detail-page">
+<div class="event-detail-page intro-component-animation">
   <div class="container">
 
-    <a mat-button [routerLink]="['/events']"><mat-icon>arrow_back</mat-icon> Back</a>
+    <a mat-button [routerLink]="['/events']" class="btn-back"><mat-icon>arrow_back</mat-icon> Back</a>
     <div class="image-container">
       <img src="" alt="" onerror="this.src='/assets/img/image-not-found-horiz.svg';" />
     </div>
@@ -64,7 +64,7 @@
           <a [routerLink]="['/routePath']" class="avatar" matTooltip="[User_name]" *ngFor="let user of users.slice(0,10)">
             <img src="/assets/img/avatar.png" onerror="this.src='/assets/img/user-avatar-empty.svg';" />
           </a>
-          <button mat-icon-button class="more-users" [matMenuTriggerFor]="menuUsers">
+          <button *ngIf="users.length > 10" mat-icon-button class="more-users" [matMenuTriggerFor]="menuUsers">
             +{{ users.length - 10 }}
           </button>
         </div>

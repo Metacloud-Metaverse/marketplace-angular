@@ -1,6 +1,6 @@
 <div class="event-card component-animation animated" [ngClass]="{'trending-card': isTrendingCard}">
 
-  <a [routerLink]="['/routePath']" class="image-container">
+  <a [routerLink]="['/events/event']" class="image-container">
     <img [src]="image" alt="Image - {{ title }}" onerror="this.src='/assets/img/image-not-found.svg';" />
     <div class="viewers">+129</div>
     <div class="date" [ngClass]="{'is-live': isLive}">
@@ -16,7 +16,7 @@
       <div class="date">NOW</div>
       <button mat-flat-button class="coordinates">-67,101 <mat-icon>chevron_right</mat-icon></button>
     </div>
-    <h3><a [routerLink]="['/event']" class="animated">Unboxing of the One Plus 10 Pro 5G in the Metaverse</a></h3>
+    <h3><a [routerLink]="['/events/event']" class="animated">Unboxing of the One Plus 10 Pro 5G in the Metaverse</a></h3>
 
     <app-buttons-action-share-element></app-buttons-action-share-element>
   </div>
