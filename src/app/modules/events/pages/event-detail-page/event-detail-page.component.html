@@ -1,0 +1,89 @@
+<div class="event-detail-page">
+  <div class="container">
+
+    <a mat-button [routerLink]="['/events']"><mat-icon>arrow_back</mat-icon> Back</a>
+    <div class="image-container">
+      <img src="" alt="" onerror="this.src='/assets/img/image-not-found-horiz.svg';" />
+    </div>
+
+    <div class="row header">
+      <div class="calendar">
+        <p><small>Apr</small></p>
+        <p>16</p>
+      </div>
+      <div class="texts">
+        <h1><b>Alison Wonderland’s  WonderQuest #4: WonderSound</b></h1>
+        <p>Public, Organized by <a [routerLink]="['/routePath']" class="link hover-linear">Wonder Quest</a></p>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="row description">
+      <mat-icon>info_outline</mat-icon>
+      <div class="texts">
+        <p style="margin-top: 0;">We are building the token and application that will power the future of incentivizing safe driving for everyone with GDRT rewards.</p>
+        <p>We have launched our application and we are looking for users to test and use the application on Android and iPhones.</p>
+        <p>In return for having a verified account we will give an airdrop of GDRT to all verified accounts that have download the application and started to use it. Visit our land location to learn more!</p>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="row date">
+      <mat-icon>query_builder</mat-icon>
+      <div class="texts">
+        <div class="row">
+          <div>
+            <p>Started: <b>Friday, 06 May at 12:00am</b> (UTC)</p>
+            <p>Ended: <b>Wednesday, 08 Jun at 07:00am</b> (UTC)</p>
+          </div>
+          <div *ngIf="isLive" class="chip">LIVE</div>
+        </div>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="row coordinates">
+      <mat-icon>location_one</mat-icon>
+      <div class="texts">
+        <div class="row">
+          <p><b>Metacloud</b></p>
+          <button mat-flat-button>-67, 101 <mat-icon>chevron_right</mat-icon></button>
+        </div>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="row users">
+      <mat-icon>group</mat-icon>
+      <div class="texts">
+        <div class="users-contain">
+          <a [routerLink]="['/routePath']" class="avatar" matTooltip="[User_name]" *ngFor="let user of users.slice(0,10)">
+            <img src="/assets/img/avatar.png" onerror="this.src='/assets/img/user-avatar-empty.svg';" />
+          </a>
+          <button mat-icon-button class="more-users" [matMenuTriggerFor]="menuUsers">
+            +{{ users.length - 10 }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <app-buttons-action-share-element></app-buttons-action-share-element>
+
+  </div>
+</div>
+
+
+<mat-menu #menuUsers="matMenu" class="menu-events-users">
+  <a [routerLink]="['/routePath']" mat-menu-item *ngFor="let user of users">
+    <div style="display: flex; align-items: center; gap: 1em;">
+      <div class="avatar">
+        <img src="/assets/img/avatar.png" onerror="this.src='/assets/img/user-avatar-empty.svg';" />
+      </div>
+      <span> [Name_user] </span>
+    </div>
+  </a>
+</mat-menu>

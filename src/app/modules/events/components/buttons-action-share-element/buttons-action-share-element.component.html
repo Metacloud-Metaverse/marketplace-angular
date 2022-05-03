@@ -4,7 +4,15 @@
 </div>
 
 <mat-menu #share="matMenu">
-  <button style="display: flex; align-items: center; justify-content: center;" mat-menu-item matTooltipPosition="right" matTooltip="Copy link"><mat-icon style="margin-right: 0;">link</mat-icon></button>
-  <button style="display: flex; align-items: center; justify-content: center;" mat-menu-item matTooltipPosition="right" matTooltip="Facebook"><img src="/assets/img/icons/facebook-icon.svg" alt="Facebook" style="width: 20px;" /></button>
-  <button style="display: flex; align-items: center; justify-content: center;" mat-menu-item matTooltipPosition="right" matTooltip="Twitter"><img src="/assets/img/icons/twitter-icon.svg" alt="Twitter" style="width: 20px;" /></button>
+  <button style="display: flex; align-items: center; justify-content: center;" mat-menu-item matTooltipPosition="right" matTooltip="Copy link" [cdkCopyToClipboard]="'[link_here]'">
+    <mat-icon style="margin-right: 0;">link</mat-icon>
+  </button>
+
+  <button style="display: flex; align-items: center; justify-content: center; background-color: #3B5998;" mat-menu-item matTooltipPosition="right" matTooltip="Facebook">
+    <img src="/assets/img/icons/facebook-icon.svg" alt="Facebook" style="width: 20px;" />
+  </button>
+
+  <button style="display: flex; align-items: center; justify-content: center; background-color: #00ACEE;" mat-menu-item matTooltipPosition="right" matTooltip="Twitter">
+    <img src="/assets/img/icons/twitter-icon.svg" alt="Twitter" style="width: 20px;" />
+  </button>
 </mat-menu>

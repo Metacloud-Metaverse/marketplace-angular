@@ -1,0 +1,132 @@
+@import "../../../../../assets/styles/vars";
+
+.event-detail-page {
+  padding-bottom: 4em;
+
+  .container {
+    width: 800px;
+  }
+
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+
+    mat-icon {
+      margin-top: 4px;
+    }
+
+    .texts {
+      width: 100%;
+    }
+  }
+
+  mat-divider {
+    margin: 2em 0;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    position: relative;
+    border-radius: 1em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    margin-top: 1em;
+    margin-bottom: 3em;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+  }
+
+  .header {
+    align-items: flex-start;
+    gap: 2em;
+
+    .calendar {
+      margin-top: 8px;
+      padding: 0.5em 0;
+      width: 70px;
+      min-width: 70px;
+      max-width: 70px;
+      border-radius: 8px;
+      text-align: center;
+      background-color: rgba($color: $color_primary_500, $alpha: 1);
+      color: white;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.2;
+      &:nth-of-type(2) {
+        font-weight: 600;
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  h1 {
+    font-family: $font_text !important;
+    font-size: 1.8em;
+  }
+
+  .date {
+    p {
+      margin: 0;
+    }
+    .chip {
+      margin-left: auto;
+      background-color: $color_primary_500;
+      color: white;
+      border-radius: 200px;
+      padding: 0.2em 1em;
+      font-size: 0.8em;
+    }
+  }
+
+  .coordinates {
+    .row {
+      align-items: center;
+    }
+    p {
+      margin: 0;
+    }
+    button {
+      margin-left: auto;
+    }
+  }
+
+  .users {
+    margin-bottom: 4em;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .users-contain {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      .avatar{
+        cursor: pointer;
+      }
+    }
+
+    .more-users{
+      border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    }
+  }
+}

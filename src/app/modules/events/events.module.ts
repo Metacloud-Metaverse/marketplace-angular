@@ -18,11 +18,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 
 // Pages
 import { EventsPageComponent } from './pages/events-page/events-page.component';
-import { EventPageComponent } from './pages/event-page/event-page.component';
+import { EventDetailPageComponent } from './pages/event-detail-page/event-detail-page.component';
 import { CreateEventPageComponent } from './pages/create-event-page/create-event-page.component';
 
 
@@ -35,11 +36,11 @@ import { ButtonsActionShareElementComponent } from './components/buttons-action-
 @NgModule({
   declarations: [
     EventsPageComponent,
-    EventPageComponent,
     CreateEventPageComponent,
     BigCardComponent,
     EventCardComponent,
-    ButtonsActionShareElementComponent
+    ButtonsActionShareElementComponent,
+    EventDetailPageComponent
   ],
   imports: [
     CommonModule,
@@ -61,6 +62,7 @@ import { ButtonsActionShareElementComponent } from './components/buttons-action-
     MatNativeDateModule,
     MatSelectModule,
     MatSlideToggleModule,
+    ClipboardModule,
   ]
 })
 export class EventsModule { }
