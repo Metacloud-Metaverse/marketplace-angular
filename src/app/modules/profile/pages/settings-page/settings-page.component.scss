@@ -2,6 +2,9 @@
 
 .settings-page{
   padding-bottom: 3em;
+  @include lt-md{
+    margin-top: 54px;
+  }
 
   .address{
     background-color: rgba($color: #000000, $alpha: 0.1);

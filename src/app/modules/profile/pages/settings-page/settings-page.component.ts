@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-settings-page',
@@ -12,9 +13,16 @@ export class SettingsPageComponent implements OnInit {
   spinnerMode = 'determinate';
   mode: ProgressSpinnerMode = 'determinate';
 
-  constructor() { }
+  constructor(
+    private titleService: Title,
+    private metaTagService: Meta,
+  ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Settings | metacloud');
+    this.metaTagService.updateTag(
+      { name: 'description', content: '' }
+    );
   }
 
   onClickAuthorization(){
