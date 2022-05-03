@@ -8,7 +8,7 @@
           <input matInput type="text" placeholder="Search...">
           <mat-icon matPrefix>search</mat-icon>
         </mat-form-field>
-        <button mat-flat-button color="primary" class="btn-submit">SUBMIT EVENT</button>
+        <a [routerLink]="['/events/create-event']" mat-flat-button color="primary" class="btn-submit">SUBMIT EVENT</a>
       </div>
       <div class="separate-line">
         <div class="active-line"></div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-event-page',
@@ -12,7 +13,10 @@ export class CreateEventPageComponent implements OnInit {
   inputDate!: FormGroup;
   inputTime!: FormGroup;
 
-  constructor() {
+  constructor(
+    private titleService: Title,
+    private metaTagService: Meta,
+  ) {
     const today = new Date();
     const month = today.getMonth();
     const year = today.getFullYear();
@@ -29,6 +33,10 @@ export class CreateEventPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Create new Event | metacloud');
+    this.metaTagService.updateTag(
+      { name: 'description', content: '' }
+    );
   }
 
 }

@@ -3,6 +3,12 @@
 .create-event-page{
   padding-top: 1em;
   padding-bottom: 4em;
+  @include xs{
+    margin-top: 54px;
+  }
+  @include sm{
+    margin-top: 74px;
+  }
 
   .container{
     width: 800px;
@@ -68,6 +74,32 @@
 
     input{
       display: none;
+    }
+  }
+
+  .row-time{
+    @include xs{
+      flex-direction: column;
+    }
+  }
+
+  .row-coordinates{
+    @include xs{
+      flex-wrap: wrap;
+      .item{
+        width: calc(50% - 0.5em);
+        &:nth-of-type(3){
+          width: 100%;
+        }
+      }
+    }
+    @include sm{
+      .item{
+        width: 120px;
+        &:nth-of-type(3){
+          width: 100%;
+        }
+      }
     }
   }
 }
