@@ -54,7 +54,7 @@
             <span *ngIf="sort == 1">Oldest</span>
             <mat-icon>arrow_drop_down</mat-icon>
           </button>
-          <button mat-flat-button color="primary" class="btn-primary">SUBMIT A PROPOSAL</button>
+          <a [routerLink]="['/dao/proposals/start-proposal']" mat-flat-button color="primary" class="btn-primary">SUBMIT A PROPOSAL</a>
         </div>
 
         <app-loading *ngIf="isLoading"></app-loading>
