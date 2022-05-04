@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ComponentAnimation } from 'src/app/modules/mc-core/animations/component.animation';
 
 @Component({
@@ -20,9 +21,17 @@ export class ActivityPageComponent implements OnInit {
   myWatchlist:any = [
   ]
 
-  constructor() { }
+  constructor(
+    private titleService: Title,
+    private metaTagService: Meta,
+  ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Activity | metacloud');
+    this.metaTagService.updateTag(
+      { name: 'description', content: '' }
+    );
+
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = false;
