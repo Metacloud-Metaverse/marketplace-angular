@@ -1,0 +1,24 @@
+<div class="newsletter-section">
+  <div class="container">
+
+    <div class="left">
+      <h3>Developers newsletter</h3>
+      <p>Subscribe to the latest news about Metacloud</p>
+    </div>
+
+    <div class="right">
+      <form [formGroup]="contactForm">
+        <mat-form-field appearance="outline">
+          <input formControlName="email" matInput placeholder="mail@domain.com" type="text" required />
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" (click)="onClickSubmit()">SUBSCRIBE</button>
+
+        <div *ngIf="errors.length > 0" class="row-errors">
+          <p *ngFor="let err of errors" class="text-danger">*Please complete the Email field</p>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

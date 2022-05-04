@@ -1,0 +1,63 @@
+<div class="article-page intro-component-animation">
+
+  <header>
+    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="[title]" />
+  </header>
+
+  <article class="container">
+
+    <div class="row">
+      <div class="date">{{ date | date }}</div>
+
+      <div class="topic">
+        <a *ngIf="topic == 0">Announcements</a>
+        <a *ngIf="topic == 1">Project Updates</a>
+        <a *ngIf="topic == 2">Platform</a>
+        <a *ngIf="topic == 3">Technology</a>
+        <a *ngIf="topic == 4">Tutorials</a>
+      </div>
+    </div>
+
+    <h1><b> {{ title }} </b></h1>
+    <p> {{ description }} </p>
+
+    <div class="row-detail">
+      <a [routerLink]="['/blog/user_name']" class="user">
+        <div class="avatar">
+          <img src="/assets/img/avatar.png" onerror="this.src='/assets/img/user-avatar-empty.svg';">
+        </div>
+        <span><b> {{ creator }} </b></span>
+      </a>
+
+      <div class="share">
+        <p><small>SHARE &nbsp;</small></p>
+        <button mat-icon-button><img src="/assets/img/icons/twitter-icon-black.svg" alt="Twitter" matTooltip="Twitter"></button>
+        <button mat-icon-button><img src="/assets/img/icons/facebook-icon-black.svg" alt="Facebook" matTooltip="Facebook"></button>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="content">
+      <p>Content Article</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum repellat nesciunt excepturi voluptatem consequuntur animi maxime ipsum incidunt, est praesentium nisi voluptas amet saepe soluta minima commodi tenetur quibusdam fugit similique qui harum nobis, tempora perspiciatis nulla! Perspiciatis voluptatum eaque laudantium vero nisi pariatur dignissimos vitae molestias explicabo exercitationem natus laboriosam unde quis odit, nostrum soluta necessitatibus esse! Ut, beatae.</p>
+    </div>
+
+  </article>
+
+  <section class="related-articles">
+    <div class="container">
+      <h2>Related Articles</h2>
+      <div class="layout">
+        <div class="article"><app-article-card></app-article-card></div>
+        <div class="article"><app-article-card></app-article-card></div>
+        <div class="article"><app-article-card></app-article-card></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <app-newsletter-section></app-newsletter-section>
+  </div>
+
+</div>

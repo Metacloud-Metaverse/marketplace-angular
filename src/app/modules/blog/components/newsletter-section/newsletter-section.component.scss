@@ -1,0 +1,46 @@
+@import '../../../../../assets/styles/vars';
+
+.newsletter-section{
+
+  .container{
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    border-radius: 1em;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    margin: 4em auto;
+    width: 1000px;
+
+    @include lt-md{
+      flex-direction: column;
+      gap: 1em;
+      text-align: center;
+    }
+
+    .left{
+      width: 100%;
+    }
+
+    .right{
+      width: 300px;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+
+      mat-form-field{
+        width: 100%;
+      }
+
+      button{
+        width: 100%;
+        height: 54px;
+      }
+
+      .text-danger{
+        color: red;
+        font-weight: 600;
+        margin-top: 0;
+      }
+    }
+  }
+}

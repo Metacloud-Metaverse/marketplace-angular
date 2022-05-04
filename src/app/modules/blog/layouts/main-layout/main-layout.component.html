@@ -1,0 +1,19 @@
+<div class="main-layout intro-component-animation">
+
+  <nav>
+    <div class="spacer"></div>
+    <div class="row">
+      <a mat-button [routerLink]="['/blog/all-articles']" routerLinkActive="active">All articles</a>
+      <a mat-button [routerLink]="['/blog/announcements']" routerLinkActive="active">Announcements</a>
+      <a mat-button [routerLink]="['/blog/project-updates']" routerLinkActive="active">Project Updates</a>
+      <a mat-button [routerLink]="['/blog/platform']" routerLinkActive="active">Platform</a>
+      <a mat-button [routerLink]="['/blog/technology']" routerLinkActive="active">Technology</a>
+      <a mat-button [routerLink]="['/blog/tutorials']" routerLinkActive="active">Tutorials</a>
+    </div>
+    <div class="spacer"></div>
+  </nav>
+
+  <div class="layout">
+    <router-outlet></router-outlet>
+  </div>
+</div>

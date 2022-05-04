@@ -1,0 +1,106 @@
+@import "../../../../../assets/styles/vars";
+
+.article-page {
+
+  header {
+    height: 400px;
+    overflow: hidden;
+    max-height: 400px;
+    @include xs {
+      height: 50vw;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .container {
+    width: 800px;
+    margin: auto;
+
+    .row {
+      display: flex;
+      align-items: center;
+      font-size: 0.8em;
+      gap: 1em;
+
+      a {
+        text-decoration: none;
+        color: $black_high_emphasis;
+        text-transform: uppercase;
+      }
+    }
+
+    .row-detail {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        text-decoration: none;
+        color: $black_high_emphasis;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .share {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 20px;
+        }
+      }
+    }
+
+    h1 {
+      margin: 12px 0;
+    }
+
+    mat-divider {
+      margin: 2em 0;
+    }
+  }
+
+  .related-articles {
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    padding: 3em 0;
+    margin-top: 2em;
+    @include lt-md{
+      padding: 0;
+    }
+
+    .container {
+      width: 1200px;
+    }
+
+    .layout {
+      display: flex;
+      gap: 2em;
+
+      @include lt-md {
+        overflow-x: auto;
+        padding-bottom: 2em;
+      }
+
+      .article {
+        width: calc(33.3% - 1.5em);
+        @include xs {
+          width: 75vw;
+          min-width: 300px;
+        }
+        @include sm {
+          width: 300px;
+          min-width: 300px;
+        }
+      }
+    }
+  }
+}

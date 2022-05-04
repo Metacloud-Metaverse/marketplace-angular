@@ -1,0 +1,24 @@
+<div class="home-page intro-component-animation" @componentAnimation>
+  <div class="container">
+
+    <main *ngIf="articles.length > 0">
+      <div class="article" *ngFor="let article of articles.slice(0,slice)">
+        <app-article-card></app-article-card>
+      </div>
+
+      <div *ngIf="slice < articles.length" style="width: 100%; text-align: center; margin-top: 2em;">
+        <button mat-flat-button class="btn-read-more" (click)="loadMoreComments()">READ MORE</button>
+      </div>
+    </main>
+
+    <app-loading *ngIf="isLoading"></app-loading>
+
+    <div *ngIf="!isLoading && articles.length <= 0" class="empty-screen">
+      <img src="/assets/img/illustrations/empty-screen.svg" alt="Empty Screen Illustration" />
+      <h3><b>No Articles</b></h3>
+    </div>
+
+    <app-newsletter-section></app-newsletter-section>
+
+  </div>
+</div>

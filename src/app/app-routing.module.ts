@@ -12,6 +12,7 @@ const routes: Routes = [
       { path: 'builder', loadChildren: () => import('./modules/builder/builder.module').then(m => m.BuilderModule), data: { preload: true }},
       { path: 'events', loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule), data: { preload: true }},
       { path: 'dao', loadChildren: () => import('./modules/dao/dao.module').then(m => m.DaoModule), data: { preload: true }},
+      { path: 'blog', loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule), data: { preload: true }},
       { path: 'profile', loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule), data: { preload: true }},
     ]
   },

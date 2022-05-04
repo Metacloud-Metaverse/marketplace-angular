@@ -1,0 +1,25 @@
+<div class="article-card component-animation animated">
+
+  <a [routerLink]="['/blog/article_name']" class="image-container">
+    <img [src]="image" alt="Image - {{ title }}" onerror="this.src='/assets/img/image-not-found.svg';" class="animated" />
+  </a>
+
+  <div class="body">
+    <div class="row">
+      <div class="date">{{ date | date }}</div>
+
+      <div class="topic">
+        <a *ngIf="topic == 0" [routerLink]="['/blog/announcements']">Announcements</a>
+        <a *ngIf="topic == 1" [routerLink]="['/blog/project-updates']">Project Updates</a>
+        <a *ngIf="topic == 2" [routerLink]="['/blog/platform']">Platform</a>
+        <a *ngIf="topic == 3" [routerLink]="['/blog/technology']">Technology</a>
+        <a *ngIf="topic == 4" [routerLink]="['/blog/tutorials']">Tutorials</a>
+      </div>
+    </div>
+
+    <h3><a [routerLink]="['/blog/article_name']" class="animated">The Desktop Client Beta is Closer Than Ever to a Full Launch—Get it Now!</a></h3>
+
+    <p class="description">Recent LAND vulnerability report and what the Decentraland Foundation is doing to protect Decentraland's IP</p>
+  </div>
+
+</div>

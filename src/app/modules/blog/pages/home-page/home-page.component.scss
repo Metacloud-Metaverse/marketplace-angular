@@ -1,0 +1,68 @@
+@import "../../../../../assets/styles/vars";
+
+.home-page {
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+
+    .article {
+      width: calc(33.3% - 1.33em);
+      @include xs{
+        width: 100%;
+      }
+      @include sm{
+        width: calc(50% - 1em);
+      }
+
+      &:first-of-type {
+        @include gt-xs{
+          width: 100%;
+          margin: 2em 0;
+
+          &::ng-deep .article-card {
+            flex-direction: row;
+            gap: 2em !important;
+            .image-container {
+              width: 66.6%;
+              padding-bottom: 30%;
+              @include sm{
+                width: 33.3%;
+              }
+            }
+            .body {
+              width: 33.3%;
+              padding-top: 1em;
+              @include sm{
+                width: 66.6%;
+              }
+              .description{
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .btn-read-more {
+      background-color: $color_primary_700;
+      color: white;
+      padding: 0.5em 2em;
+      &:hover {
+        background-color: $color_primary_800;
+      }
+    }
+  }
+
+  .empty-screen {
+    text-align: center;
+    padding: 2em;
+
+    img {
+      width: 300px;
+      max-width: 100%;
+    }
+  }
+}
