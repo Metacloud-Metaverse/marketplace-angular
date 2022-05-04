@@ -1,0 +1,55 @@
+@import "../../../../../assets/styles/vars";
+
+.user-page{
+  padding-bottom: 3em;
+
+  header{
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 4em;
+    width: 800px;
+    max-width: 100%;
+    margin: auto;
+
+    .avatar{
+      margin: auto;
+      margin-bottom: 2em;
+      width: 120px;
+      min-width: 120px;
+      max-width: 120px;
+      height: 120px;
+      min-height: 120px;
+      max-height: 120px;
+      border-radius: 120px;
+    }
+
+    h1{
+      margin: 0;
+    }
+  }
+
+  section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+
+    .article {
+      width: calc(33.3% - 1.33em);
+      @include xs{
+        width: 100%;
+      }
+      @include sm{
+        width: calc(50% - 1em);
+      }
+    }
+
+    .btn-read-more {
+      background-color: $color_primary_700;
+      color: white;
+      padding: 0.5em 2em;
+      &:hover {
+        background-color: $color_primary_800;
+      }
+    }
+  }
+}
