@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-transparency-page',
@@ -19,9 +20,16 @@ export class TransparencyPageComponent implements OnInit {
     {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
   ]
 
-  constructor() { }
+  constructor(
+    private titleService: Title,
+    private metaTagService: Meta,
+  ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Transparency | metacloud');
+    this.metaTagService.updateTag(
+      { name: 'description', content: '' }
+    );
   }
 
 }

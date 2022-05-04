@@ -8,9 +8,18 @@
     .row{
       display: flex;
       gap: 3em;
+      @include lt-md{
+        flex-direction: column;
+      }
 
       .left{
         width: 100%;
+        @include lt-md{
+          order: 2;
+        }
+        @include sm{
+          margin-bottom: 3em;
+        }
 
         h5{
           margin: 0;
@@ -47,6 +56,9 @@
               align-items: center;
               font-weight: 600;
               gap: 1em;
+              @include lt-lg{
+                width: calc(50% - 0.5em);
+              }
             }
           }
         }
@@ -63,6 +75,10 @@
               padding: 1em;
               background-color: rgba($color: white, $alpha: 0.3);
               font-size: 1em;
+
+              @include lt-md{
+                width: 100%;
+              }
 
               &:hover{
                 background-color: rgba($color: white, $alpha: 0.7);
@@ -105,8 +121,14 @@
         }
 
         .expenses-incomes{
+          @include md{
+            flex-direction: column;
+          }
           .column{
             width: 50%;
+            @include lt-lg{
+              width: 100%;
+            }
           }
         }
 
@@ -121,6 +143,19 @@
         width: 300px;
         min-width: 300px;
         max-width: 300px;
+
+        @include xs{
+          order: 1;
+          width: 100%;
+          min-width: 100%;
+          max-width: 100%;
+        }
+
+        @include sm{
+          order: 1;
+          margin: auto;
+          text-align: center;
+        }
 
         .title{
           margin-top: 0;
