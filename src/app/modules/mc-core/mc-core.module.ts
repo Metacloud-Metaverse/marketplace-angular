@@ -19,6 +19,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 // Components
@@ -27,10 +28,11 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { ComingSoonElementComponent } from './components/coming-soon-element/coming-soon-element.component';
-import { LoginModalComponent } from './modals/login-modal/login-modal.component';
-import { LoginRequiredModalComponent } from './modals/login-required-modal/login-required-modal.component';
+import { ListElementComponent } from './components/list-element/list-element.component';
 
 // Modals
+import { LoginModalComponent } from './modals/login-modal/login-modal.component';
+import { LoginRequiredModalComponent } from './modals/login-required-modal/login-required-modal.component';
 
 // Pages
 
@@ -44,6 +46,7 @@ import { LoginRequiredModalComponent } from './modals/login-required-modal/login
     ComingSoonElementComponent,
     LoginModalComponent,
     LoginRequiredModalComponent,
+    ListElementComponent,
   ],
   imports: [
     CommonModule,
@@ -58,12 +61,14 @@ import { LoginRequiredModalComponent } from './modals/login-required-modal/login
     MatIconModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    MatExpansionModule,
   ],
   exports: [
     MainLayoutComponent,
     LoadingComponent,
     FooterComponent,
     ComingSoonElementComponent,
+    ListElementComponent,
   ]
 })
 export class McCoreModule { }

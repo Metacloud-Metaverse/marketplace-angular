@@ -1,0 +1,27 @@
+<mat-action-list class="list-element">
+  <p>{{ title }}</p>
+
+  <mat-expansion-panel *ngFor="let category of data; let i = index" [expanded]="filterCategory == i" (click)="filterCategory = i" hideToggle>
+
+    <mat-expansion-panel-header>
+      <mat-panel-title><mat-icon>{{ category.icon }}</mat-icon> {{ category.title }}</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <ng-container *ngFor="let link of category.links">
+      <a *ngIf="link.type == 0" (click)="filterCategory = i">{{ link.title }}</a>
+
+      <mat-expansion-panel *ngIf="link.type == 1" class="expasion-two" (click)="filterCategory = i">
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ link.title }}</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <ng-container *ngFor="let link2 of link.links">
+          <a *ngIf="link2.type == 0">{{ link2.title }}</a>
+        </ng-container>
+
+      </mat-expansion-panel>
+    </ng-container>
+
+  </mat-expansion-panel>
+
+</mat-action-list>

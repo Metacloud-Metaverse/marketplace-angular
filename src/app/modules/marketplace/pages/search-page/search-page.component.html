@@ -8,71 +8,7 @@
         <button mat-list-item [ngClass]="{'active': filterType == 1}" (click)="filterType = 1"> <div mat-line>LISTINGS</div> <div mat-line>Items being resold</div> </button>
       </mat-action-list>
 
-      <mat-action-list>
-        <p>CATEGORIES</p>
-
-        <mat-expansion-panel *ngFor="let category of categories; let i = index" [expanded]="filterCategory == i" (click)="filterCategory = i" hideToggle>
-
-          <mat-expansion-panel-header>
-            <mat-panel-title><mat-icon>{{ category.icon }}</mat-icon> {{ category.title }}</mat-panel-title>
-          </mat-expansion-panel-header>
-
-          <ng-container *ngFor="let link of category.links">
-            <a *ngIf="link.type == 0" (click)="filterCategory = i">{{ link.title }}</a>
-
-            <mat-expansion-panel *ngIf="link.type == 1" class="expasion-two" (click)="filterCategory = i">
-              <mat-expansion-panel-header>
-                <mat-panel-title>{{ link.title }}</mat-panel-title>
-              </mat-expansion-panel-header>
-
-              <ng-container *ngFor="let link2 of link.links">
-                <a *ngIf="link2.type == 0">{{ link2.title }}</a>
-              </ng-container>
-
-            </mat-expansion-panel>
-          </ng-container>
-
-        </mat-expansion-panel>
-
-
-        <!-- <mat-expansion-panel *ngFor="let category of categories" [expanded]="category.isExpanded">
-
-          <mat-expansion-panel-header>
-            <mat-panel-title><mat-icon>{{ category.icon }}</mat-icon> {{ category.title }}</mat-panel-title>
-          </mat-expansion-panel-header>
-
-          <ng-container *ngFor="let link of category.links">
-
-            <a *ngIf="link.type == 0" [routerLink]="link.url" routerLinkActive="active">{{ link.title }}</a>
-            <a *ngIf="link.type == 2" class="link-disable">{{ link.title }} (Coming soon!)</a>
-
-            <mat-expansion-panel *ngIf="link.type == 1" class="expasion-two">
-              <mat-expansion-panel-header>
-                <mat-panel-title>{{ link.title }}</mat-panel-title>
-              </mat-expansion-panel-header>
-
-              <ng-container *ngFor="let link2 of link.links">
-                <a *ngIf="link2.type == 0" [routerLink]="link2.url" routerLinkActive="active">{{ link2.title }}</a>
-                <a *ngIf="link2.type == 2" class="link-disable">{{ link2.title }} (Coming soon!)</a>
-
-                <mat-expansion-panel *ngIf="link2.type == 1">
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>{{ link2.title }}</mat-panel-title>
-                  </mat-expansion-panel-header>
-
-                  <ng-container *ngFor="let link3 of link2.links">
-                    <a *ngIf="link3.type == 0" [routerLink]="link3.url" routerLinkActive="active">{{ link3.title }}</a>
-                    <a *ngIf="link3.type == 2" class="link-disable">{{ link3.title }} (Coming soon!)</a>
-                  </ng-container>
-                </mat-expansion-panel>
-              </ng-container>
-
-            </mat-expansion-panel>
-
-          </ng-container>
-
-        </mat-expansion-panel> -->
-      </mat-action-list>
+      <app-list-element></app-list-element>
     </div>
 
     <div class="right">
@@ -96,13 +32,24 @@
 
       <div class="filters">
         <div class="row">
+
           <mat-form-field appearance="outline" class="collection">
             <mat-label>COLLECTION</mat-label>
-            <mat-select value="0">
-              <mat-option value="0">ALL COLLECTIONS</mat-option>
-              <mat-option value="1">COATS?</mat-option>
-            </mat-select>
+            <input
+              type="text"
+              placeholder="Pick one"
+              aria-label="Number"
+              matInput
+              [formControl]="myControl"
+              [matAutocomplete]="auto">
+
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
           </mat-form-field>
+
           <div class="genre">
             <mat-label>GENDER</mat-label>
             <div class="row">

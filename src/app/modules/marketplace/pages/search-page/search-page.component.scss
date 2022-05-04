@@ -1,9 +1,14 @@
 @import "../../../../../assets/styles/vars";
 
 .search-page{
+  padding-bottom: 3em;
+
   .container{
     display: flex;
     gap: 2em;
+    @include lt-md{
+      flex-direction: column;
+    }
 
     .left{
       width: 300px;
@@ -223,6 +228,12 @@
 
         .item{
           width: calc(33.3% - 1em);
+          @include xs{
+            width: 100%;
+          }
+          @include sm{
+            width: calc(50% - 1em);
+          }
         }
 
         button{

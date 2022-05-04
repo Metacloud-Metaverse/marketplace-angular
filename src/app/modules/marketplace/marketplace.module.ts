@@ -18,6 +18,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 // Pages
 import { ItemDetailPageComponent } from './pages/item-detail-page/item-detail-page.component';
@@ -34,6 +38,8 @@ import { MyStoreLayoutComponent } from './layouts/my-store-layout/my-store-layou
 import { MyBidsPageComponent } from './pages/my-bids-page/my-bids-page.component';
 import { MySettingsPageComponent } from './pages/my-settings-page/my-settings-page.component';
 import { MyOnsalePageComponent } from './pages/my-onsale-page/my-onsale-page.component';
+import { LandPageComponent } from './pages/land-page/land-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -47,13 +53,16 @@ import { MyOnsalePageComponent } from './pages/my-onsale-page/my-onsale-page.com
     MySalesPageComponent,
     MyBidsPageComponent,
     MySettingsPageComponent,
-    MyOnsalePageComponent
+    MyOnsalePageComponent,
+    LandPageComponent
   ],
   imports: [
     CommonModule,
     MarketplaceRoutingModule,
     McCoreModule,
     DragScrollModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     // Angular Material
     MatButtonModule,
@@ -68,6 +77,9 @@ import { MyOnsalePageComponent } from './pages/my-onsale-page/my-onsale-page.com
     MatChipsModule,
     MatExpansionModule,
     MatTableModule,
+    MatButtonToggleModule,
+    MatCheckboxModule,
+    MatAutocompleteModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

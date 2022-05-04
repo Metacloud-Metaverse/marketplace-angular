@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { ComponentAnimation } from 'src/app/modules/mc-core/animations/component.animation';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-page',
@@ -8,6 +11,10 @@ import { ComponentAnimation } from 'src/app/modules/mc-core/animations/component
   animations: [ComponentAnimation.componentAnimation]
 })
 export class SearchPageComponent implements OnInit {
+
+  myControl = new FormControl();
+  options: string[] = ['ALL COLLECTIONS', 'COATS?', 'Three'];
+  filteredOptions!: Observable<string[]>;
 
   filterType = 0;
   filterCategory = 0;
@@ -79,9 +86,19 @@ export class SearchPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value)),
+    );
   }
 
   loadMoreItems(){
     this.itemSlice = this.itemSlice + 12;
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 }

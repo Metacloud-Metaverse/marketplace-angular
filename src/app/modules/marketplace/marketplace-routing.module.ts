@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { MyStoreLayoutComponent } from './layouts/my-store-layout/my-store-layout.component';
 import { ItemDetailPageComponent } from './pages/item-detail-page/item-detail-page.component';
+import { LandPageComponent } from './pages/land-page/land-page.component';
 import { MarketplacePageComponent } from './pages/marketplace-page/marketplace-page.component';
 import { MyBidsPageComponent } from './pages/my-bids-page/my-bids-page.component';
 import { MyOnsalePageComponent } from './pages/my-onsale-page/my-onsale-page.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
     children: [
       { path: 'item-detail', component: ItemDetailPageComponent },
       { path: 'search', component: SearchPageComponent },
+      { path: 'land', component: LandPageComponent },
       {
         path: 'my-store',
         component: MyStoreLayoutComponent,

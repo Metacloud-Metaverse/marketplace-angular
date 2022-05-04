@@ -1,0 +1,75 @@
+<div class="land-page intro-component-animation">
+
+  <div class="container">
+    <div class="row">
+      <p>RESULTS</p>
+
+      <button *ngIf="typeView == 0" mat-flat-button class="animated" [matMenuTriggerFor]="sortByMenu" class="sort-by">
+        <span *ngIf="sortBy == 0">NEWEST</span>
+        <span *ngIf="sortBy == 1">RECENTLY LISTED</span>
+        <span *ngIf="sortBy == 2">RECENTLY SOLD</span>
+        <span *ngIf="sortBy == 3">CHEAPEST</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <mat-checkbox >ON SALE</mat-checkbox>
+
+      <mat-button-toggle-group>
+        <mat-button-toggle value="list" (click)="typeView = 0"><mat-icon>list</mat-icon></mat-button-toggle>
+        <mat-button-toggle value="map" (click)="typeView = 1"><mat-icon>location_on</mat-icon></mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+
+  <div *ngIf="typeView == 1" class="map-container intro-component-animation">
+    <img src="/assets/img/map-preview.png" alt="" />
+  </div>
+
+  <div *ngIf="typeView == 0" class="list-container intro-component-animation">
+    <div class="container">
+      <div class="left">
+        <app-list-element [data]="listCategory"></app-list-element>
+      </div>
+
+      <div class="right">
+
+        <div class="row">
+          <mat-form-field appearance="outline" class="search">
+            <input matInput type="text" placeholder="Search" />
+            <mat-icon matPrefix>search</mat-icon>
+          </mat-form-field>
+
+        </div>
+
+        <div class="layout-items" @componentAnimation>
+          <app-loading *ngIf="isLoading"></app-loading>
+
+          <ng-container *ngIf="!isLoading">
+            <div class="item" *ngFor="let item of items.slice(0,itemSlice)">
+              <app-item-card [item]="item"></app-item-card>
+            </div>
+          </ng-container>
+
+          <div *ngIf="!isLoading && items.length > itemSlice" style="text-align: center; width: 100%;">
+            <button mat-flat-button color="primary" (click)="loadMoreItems()">LOAD MORE</button>
+          </div>
+
+          <div *ngIf="!isLoading && items.length <= 0" class="empty-screen">
+            <p>No results</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<mat-menu #sortByMenu="matMenu">
+  <button mat-menu-item (click)="sortBy = 0">NEWEST</button>
+  <button mat-menu-item (click)="sortBy = 1">RECENTLY LISTED</button>
+  <button mat-menu-item (click)="sortBy = 2">RECENTLY SOLD</button>
+  <button mat-menu-item (click)="sortBy = 3">CHEAPEST</button>
+</mat-menu>
