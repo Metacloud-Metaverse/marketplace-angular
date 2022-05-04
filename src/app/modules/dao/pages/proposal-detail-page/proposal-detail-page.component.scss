@@ -6,6 +6,10 @@
   .container {
     display: flex;
     gap: 6em;
+    @include lt-md{
+      flex-direction: column;
+      gap: 3em;
+    }
 
     .left {
       width: 100%;
@@ -123,6 +127,13 @@
       flex-direction: column;
       gap: 1em;
       padding-top: 3em;
+      @include xs{
+        width: 100%;
+        min-width: 100%;
+      }
+      @include sm{
+        margin: auto;
+      }
 
       .btn-stroked{
         width: 100%;

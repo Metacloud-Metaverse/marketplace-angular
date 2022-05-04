@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Meta, Title } from '@angular/platform-browser';
 import { VotesModalComponent } from '../../modals/votes-modal/votes-modal.component';
 
 @Component({
@@ -21,10 +22,16 @@ export class ProposalDetailPageComponent implements OnInit {
   slice = 5;
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private titleService: Title,
+    private metaTagService: Meta,
   ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('[name_proposal] | metacloud');
+    this.metaTagService.updateTag(
+      { name: 'description', content: '' }
+    );
   }
 
   openVotesModal(){

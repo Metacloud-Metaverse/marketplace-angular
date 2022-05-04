@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ComponentAnimation } from 'src/app/modules/mc-core/animations/component.animation';
 
 @Component({
@@ -21,9 +22,16 @@ export class ProposalsPageComponent implements OnInit {
 
   slice = 12;
 
-  constructor() { }
+  constructor(
+    private titleService: Title,
+    private metaTagService: Meta,
+  ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Proposals | metacloud');
+    this.metaTagService.updateTag(
+      { name: 'description', content: '' }
+    );
   }
 
   loadMoreProposals(){
