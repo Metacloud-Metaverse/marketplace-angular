@@ -12,6 +12,13 @@
     .item {
       width: calc(33.3% - 1.33em);
       margin-bottom: 2em;
+      @include xs{
+        width: 100%;
+      }
+
+      @include sm{
+        width: calc(50% - 1.66em);
+      }
 
       h2{
         margin: 0;

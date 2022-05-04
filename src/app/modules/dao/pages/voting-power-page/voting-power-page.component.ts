@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-voting-power-page',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VotingPowerPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private titleService: Title,
+    private metaTagService: Meta,
+  ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Voting Power | metacloud');
+    this.metaTagService.updateTag(
+      { name: 'description', content: '' }
+    );
   }
 
 }
