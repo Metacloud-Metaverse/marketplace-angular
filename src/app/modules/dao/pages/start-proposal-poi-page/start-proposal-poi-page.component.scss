@@ -1,9 +1,19 @@
 @import "../start-proposal-page/start-proposal-page.component.scss";
 
+.row{
+  @include xs{
+    flex-direction: column;
+    gap: 0 !important;
+  }
+}
+
 .buttons {
   width: 800px;
   max-width: 100%;
   margin-bottom: 3em;
+  @include xs{
+    gap: 1em !important;
+  }
 
   button {
     white-space: normal;
