@@ -2,49 +2,53 @@
   <div class="container">
 
     <div class="layout">
-      <div class="left">
+      <div class="left animated" [ngClass]="{'left-mobile-open': openFiltersMobile}">
         <mat-accordion multi>
           <mat-expansion-panel expanded>
             <mat-expansion-panel-header>
               <mat-panel-title><b>FILTER BY CATEGORIES</b></mat-panel-title>
             </mat-expansion-panel-header>
-            <button mat-button (click)="filterActive = 0" [ngClass]="{'active': filterActive == 0}"><mat-icon color="primary">list</mat-icon> All proposals</button>
-            <button mat-button (click)="filterActive = 1" [ngClass]="{'active': filterActive == 1}"><mat-icon color="primary">dashboard</mat-icon> Catalyst Node</button>
-            <button mat-button (click)="filterActive = 2" [ngClass]="{'active': filterActive == 2}"><mat-icon color="primary">location_on</mat-icon> Point of Interest</button>
-            <button mat-button (click)="filterActive = 3" [ngClass]="{'active': filterActive == 3}"><mat-icon color="primary">block</mat-icon> Name Ban</button>
-            <button mat-button (click)="filterActive = 4" [ngClass]="{'active': filterActive == 4}"><mat-icon color="primary">playlist_add_check</mat-icon> Grant Request</button>
-            <button mat-button (click)="filterActive = 5" [ngClass]="{'active': filterActive == 5}"><mat-icon color="primary">insert_chart</mat-icon> Pre-Proposal</button>
-            <button mat-button (click)="filterActive = 6" [ngClass]="{'active': filterActive == 6}"><mat-icon color="primary">assignment</mat-icon> Draft Proposal</button>
-            <button mat-button (click)="filterActive = 7" [ngClass]="{'active': filterActive == 7}"><mat-icon color="primary">history_edu</mat-icon> Governance Proposal</button>
+            <button mat-button (click)="filterActive = 0; openFiltersMobile = false;" [ngClass]="{'active': filterActive == 0}"><mat-icon color="primary">list</mat-icon> All proposals</button>
+            <button mat-button (click)="filterActive = 1; openFiltersMobile = false;" [ngClass]="{'active': filterActive == 1}"><mat-icon color="primary">dashboard</mat-icon> Catalyst Node</button>
+            <button mat-button (click)="filterActive = 2; openFiltersMobile = false;" [ngClass]="{'active': filterActive == 2}"><mat-icon color="primary">location_on</mat-icon> Point of Interest</button>
+            <button mat-button (click)="filterActive = 3; openFiltersMobile = false;" [ngClass]="{'active': filterActive == 3}"><mat-icon color="primary">block</mat-icon> Name Ban</button>
+            <button mat-button (click)="filterActive = 4; openFiltersMobile = false;" [ngClass]="{'active': filterActive == 4}"><mat-icon color="primary">playlist_add_check</mat-icon> Grant Request</button>
+            <button mat-button (click)="filterActive = 5; openFiltersMobile = false;" [ngClass]="{'active': filterActive == 5}"><mat-icon color="primary">insert_chart</mat-icon> Pre-Proposal</button>
+            <button mat-button (click)="filterActive = 6; openFiltersMobile = false;" [ngClass]="{'active': filterActive == 6}"><mat-icon color="primary">assignment</mat-icon> Draft Proposal</button>
+            <button mat-button (click)="filterActive = 7; openFiltersMobile = false;" [ngClass]="{'active': filterActive == 7}"><mat-icon color="primary">history_edu</mat-icon> Governance Proposal</button>
           </mat-expansion-panel>
 
           <mat-expansion-panel expanded>
             <mat-expansion-panel-header>
               <mat-panel-title><b>FILTER BY STATUS</b></mat-panel-title>
             </mat-expansion-panel-header>
-            <button mat-button (click)="filterstatus = 0" [ngClass]="{'active2': filterstatus == 0}">All Outcomes</button>
-            <button mat-button (click)="filterstatus = 1" [ngClass]="{'active2': filterstatus == 1}">Active Outcomes</button>
-            <button mat-button (click)="filterstatus = 2" [ngClass]="{'active2': filterstatus == 2}">Finished Outcomes</button>
-            <button mat-button (click)="filterstatus = 3" [ngClass]="{'active2': filterstatus == 3}">Rejected Outcomes</button>
-            <button mat-button (click)="filterstatus = 4" [ngClass]="{'active2': filterstatus == 4}">Passed Outcomes</button>
-            <button mat-button (click)="filterstatus = 5" [ngClass]="{'active2': filterstatus == 5}">Enacted Outcomes</button>
+            <button mat-button (click)="filterstatus = 0; openFiltersMobile = false;" [ngClass]="{'active2': filterstatus == 0}">All Outcomes</button>
+            <button mat-button (click)="filterstatus = 1; openFiltersMobile = false;" [ngClass]="{'active2': filterstatus == 1}">Active Outcomes</button>
+            <button mat-button (click)="filterstatus = 2; openFiltersMobile = false;" [ngClass]="{'active2': filterstatus == 2}">Finished Outcomes</button>
+            <button mat-button (click)="filterstatus = 3; openFiltersMobile = false;" [ngClass]="{'active2': filterstatus == 3}">Rejected Outcomes</button>
+            <button mat-button (click)="filterstatus = 4; openFiltersMobile = false;" [ngClass]="{'active2': filterstatus == 4}">Passed Outcomes</button>
+            <button mat-button (click)="filterstatus = 5; openFiltersMobile = false;" [ngClass]="{'active2': filterstatus == 5}">Enacted Outcomes</button>
           </mat-expansion-panel>
 
           <mat-expansion-panel expanded>
             <mat-expansion-panel-header>
               <mat-panel-title><b>FILTER BY TIMEFRAME</b></mat-panel-title>
             </mat-expansion-panel-header>
-            <button mat-button (click)="filterTimeframe = 0" [ngClass]="{'active2': filterTimeframe == 0}">All</button>
-            <button mat-button (click)="filterTimeframe = 1" [ngClass]="{'active2': filterTimeframe == 1}">Last Week</button>
-            <button mat-button (click)="filterTimeframe = 2" [ngClass]="{'active2': filterTimeframe == 2}">Last Month</button>
-            <button mat-button (click)="filterTimeframe = 3" [ngClass]="{'active2': filterTimeframe == 3}">Last 90 Days</button>
+            <button mat-button (click)="filterTimeframe = 0; openFiltersMobile = false;" [ngClass]="{'active2': filterTimeframe == 0}">All</button>
+            <button mat-button (click)="filterTimeframe = 1; openFiltersMobile = false;" [ngClass]="{'active2': filterTimeframe == 1}">Last Week</button>
+            <button mat-button (click)="filterTimeframe = 2; openFiltersMobile = false;" [ngClass]="{'active2': filterTimeframe == 2}">Last Month</button>
+            <button mat-button (click)="filterTimeframe = 3; openFiltersMobile = false;" [ngClass]="{'active2': filterTimeframe == 3}">Last 90 Days</button>
           </mat-expansion-panel>
         </mat-accordion>
+        <button mat-flat-button color="primary" class="btn-close-mobile" (click)="openFiltersMobile = false;">Close</button>
       </div>
 
       <div class="right">
-        <div class="row">
-          <p>{{ proposals.length }} PROPOSALS</p>
+
+        <button mat-stroked-button class="btn-filter" (click)="openFiltersMobile = true;"><mat-icon>tune</mat-icon> Filters <mat-icon>arrow_drop_down</mat-icon></button>
+
+        <div class="row-header">
+          <p><b>{{ proposals.length }} PROPOSALS</b></p>
           <button mat-button class="btn-sort" [matMenuTriggerFor]="sortMenu">
             <span *ngIf="sort == 0">Latest</span>
             <span *ngIf="sort == 1">Oldest</span>
@@ -58,7 +62,7 @@
         <div *ngIf="!isLoading && proposals.length <= 0" class="empty-screen">Empty Screen</div>
 
         <div *ngIf="!isLoading" class="proposals" @componentAnimation>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" class="search">
             <input matInput type="text" placeholder="Search" />
             <mat-icon matPrefix>search</mat-icon>
           </mat-form-field>

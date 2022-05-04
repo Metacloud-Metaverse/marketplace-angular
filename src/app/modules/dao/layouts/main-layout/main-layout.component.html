@@ -1,10 +1,14 @@
 <div class="main-layout intro-component-animation">
 
   <nav>
-    <a mat-button [routerLink]="['proposals']" routerLinkActive="active">Proposals</a>
-    <a mat-button [routerLink]="['voting-power']" routerLinkActive="active">Voting Power</a>
-    <a *ngIf="isLogged" mat-button [routerLink]="['transparency']" routerLinkActive="active">Transparency</a>
-    <a *ngIf="isLogged" mat-button [routerLink]="['activity']" routerLinkActive="active">Activity</a>
+    <div class="spacer"></div>
+    <div class="row">
+      <a mat-button [routerLink]="['proposals']" routerLinkActive="active">Proposals</a>
+      <a mat-button [routerLink]="['voting-power']" routerLinkActive="active">Voting Power</a>
+      <a *ngIf="isLogged" mat-button [routerLink]="['transparency']" routerLinkActive="active">Transparency</a>
+      <a *ngIf="isLogged" mat-button [routerLink]="['activity']" routerLinkActive="active">Activity</a>
+    </div>
+    <div class="spacer"></div>
   </nav>
 
   <div class="layout">

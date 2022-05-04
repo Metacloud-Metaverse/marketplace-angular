@@ -4,18 +4,38 @@
 
   nav{
     border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+    width: 100%;
     display: flex;
-    justify-content: center;
-    padding: 0 3em;
+    @include xs{
+      overflow-x: auto;
+      font-size: 0.9em;
+    }
+
+    .spacer{
+      margin: auto;
+    }
+
+    .row{
+      display: flex;
+      padding: 0 3em;
+      justify-content: center;
+      @include xs{
+        padding: 0;
+        width: min-content;
+      }
+    }
+
+
 
     a{
-      height: 50px;
-      display: flex;
-      align-items: center;
       border-bottom: 3px solid transparent;
       border-radius: 0;
       font-weight: 600;
       opacity: 0.5;
+      padding: 0.5em 1em;
+      @include xs{
+        font-size: 0.9em;
+      }
 
       &:hover{
         opacity: 0.75;

@@ -14,6 +14,7 @@ export class ProposalsPageComponent implements OnInit {
   filterTimeframe = 0;
   sort = 0;
   isLoading = false;
+  openFiltersMobile = false;
   proposals:any = [
     {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}
   ]
