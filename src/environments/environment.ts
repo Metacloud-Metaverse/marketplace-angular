@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  baseUrlMarketplace: 'https://marketplace.api.meta-cloud.io',
+  baseUrlLand: 'https://land.api.meta-cloud.io'
 };
 
 /*

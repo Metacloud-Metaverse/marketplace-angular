@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+
+  baseUrlMarketplace: 'https://marketplace.api.meta-cloud.io',
+  baseUrlLand: 'https://land.api.meta-cloud.io'
 };
