@@ -7,6 +7,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { LoginModalComponent } from '../../modals/login-modal/login-modal.component';
 
 import Web3 from "web3";
+import { from, map, switchMap } from 'rxjs';
+import { UserService } from 'src/app/services/user.service';
 
 declare const window: any;
 const Web3Modal = window.Web3Modal.default;
@@ -36,7 +38,11 @@ export class MainLayoutComponent implements OnInit {
   showMobile: boolean = true;
   @ViewChild('audio') audio!: ElementRef;
 
+  selectedAccount: any;
+
   constructor(
+    protected userService: UserService,
+
     public dialog: MatDialog,
     public router: Router,
     private breakpointObserver: BreakpointObserver,
@@ -99,8 +105,23 @@ export class MainLayoutComponent implements OnInit {
     });
 
     const web3 = new Web3(provider);
-    
-    web3.eth.getAccounts().then(data => console.log(data));
+
+    from(web3.eth.requestAccounts())
+    .pipe(switchMap(accounts => {
+      this.selectedAccount = accounts[0];
+      return this.userService.getNonceToSign(this.selectedAccount);
+    }))
+    .pipe(switchMap(async (params: any) => {
+      console.log(params);
+      return await web3.eth.personal.sign(`0x${this.toHex(params.data.guest_private_secret)}`, this.selectedAccount, `0x${this.toHex(params.data.guest_private_secret)}`);
+    }))
+    .pipe(switchMap(signature => {
+      return this.userService.verifySigned(this.selectedAccount, signature);
+    }))
+    .subscribe(params => {
+      console.log(params);
+    });
+    //web3.eth.getAccounts().then(data => console.log(data));
 
     /*this.dialog.open(LoginModalComponent, {
       width: '520px',
