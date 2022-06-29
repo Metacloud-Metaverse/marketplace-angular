@@ -10,7 +10,7 @@
         <div class="image-container">
           <!-- Item 3D Model -->
           <model-viewer
-            *ngIf="false"
+            *ngIf="typeItem == 2"
             alt="Name Item"
             src="assets/models/robot-expressive.glb"
             camera-controls="true"
@@ -19,11 +19,11 @@
             class="model-avatar">
           </model-viewer>
           <!-- Item Wearable Image -->
-          <img *ngIf="true" src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" />
+          <img *ngIf="typeItem == 2" src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" />
           <!-- Item Name -->
-          <span *ngIf="false">COCOPark</span>
+          <span *ngIf="typeItem == 3">COCOPark</span>
           <!-- Item Land -->
-          <img *ngIf="false" src="/assets/img/parcels.png" style="object-fit: cover; height: 100%;" />
+          <img *ngIf="typeItem == 0 || typeItem == 1" src="/assets/img/parcels.png" style="object-fit: cover; height: 100%;" />
         </div>
       </header>
 
