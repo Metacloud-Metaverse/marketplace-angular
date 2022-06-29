@@ -31,12 +31,14 @@ export class ItemDetailPageComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   dataSource2 = ELEMENT_DATA2;
 
-  // 0 = Land
-  // 1 = Estate || Bid
-  // 2 = Item   || Quantity
-  // 3 = Name   || Bid
-  typeItem = 0;
+  // typeItem 0 = Land
+  // typeItem 1 = Estate || Bid
+  // typeItem 2 = Item   || Quantity
+  // typeItem 3 = Name   || Bid
+  typeItem = 2;
+
   isBid = false;
+  isItem3D = true;
 
   @Input() item?: any;
 
