@@ -6,106 +6,123 @@
     </div>
 
     <div class="column-right">
-      <header>
-        <div class="image-container"
-             [ngClass]="{'rarity-mythic'   : item?.rarity == 0,
-                         'rarity-uncommon' : item?.rarity == 1,
-                         'rarity-unique'   : item?.rarity == 2,
-                         'rarity-legendary': item?.rarity == 3,
-                         'rarity-epic'     : item?.rarity == 4,
-                         'rarity-unusual'  : item?.rarity == 5,
-                         'rarity-odd'      : item?.rarity == 6,
-                         'rarity-rare'     : item?.rarity == 7}">
+      <header [ngClass]="{
+        'rarity-common'   : item?.rarity == 0,
+        'rarity-unusual'  : item?.rarity == 1,
+        'rarity-odd'      : item?.rarity == 2,
+        'rarity-rare'     : item?.rarity == 3,
+        'rarity-epic'     : item?.rarity == 4,
+        'rarity-legendary': item?.rarity == 5,
+        'rarity-mythic'   : item?.rarity == 6,
+        'rarity-unique'   : item?.rarity == 7}">
 
-          <!-- Item 3D Model -->
-          <model-viewer
-            *ngIf="typeItem == 2 && isItem3D"
-            alt="Name Item"
-            src="/assets/models/robot-expressive.glb"
-            camera-controls="true"
-            autoplay
-            enable-pan
-            class="model-avatar">
-          </model-viewer>
+        <!-- Item 3D Model -->
+        <model-viewer
+          *ngIf="item?.type == 2 && item?.modelItem != '' && showItem"
+          alt="Name Item"
+          [src]="item?.modelItem"
+          camera-controls="true"
+          autoplay
+          enable-pan
+          class="model-avatar">
+        </model-viewer>
 
-          <!-- Item Wearable Image -->
-          <img *ngIf="typeItem == 2 && !isItem3D" src="/assets/img/item-wearable.png" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" class="item-wearable" />
+        <model-viewer
+          *ngIf="item?.type == 2 && item?.modelWear != '' && !showItem"
+          alt="Name Item"
+          [src]="item?.modelWear"
+          camera-controls="true"
+          autoplay
+          enable-pan
+          class="model-avatar">
+        </model-viewer>
 
-          <!-- Item Name -->
-          <span *ngIf="typeItem == 3">COCOPark</span>
+        <!-- Item Image (don't have 3D Model) -->
+        <img *ngIf="item?.type == 2 && item?.modelItem == ''" [src]="item?.photo" onerror="this.src='/assets/img/image-not-found.svg';" class="item-wearable" />
 
-          <!-- Item Land -->
-          <img *ngIf="typeItem == 0 || typeItem == 1" src="/assets/img/parcels.png" style="object-fit: cover; height: 100%;" />
+        <!-- Item Name -->
+        <span *ngIf="item?.type == 3">COCOPark</span>
 
-          <mat-button-toggle-group class="genre" name="fontStyle" aria-label="Change Genre">
-            <mat-button-toggle value="0" matTooltip="Female"><mat-icon>female</mat-icon></mat-button-toggle>
-            <mat-button-toggle value="1" matTooltip="Male"><mat-icon>male</mat-icon></mat-button-toggle>
-          </mat-button-toggle-group>
+        <!-- Item Land (Embed Map) -->
+        <img *ngIf="item?.type == 0 || item?.type == 1" src="/assets/img/parcels.png" style="object-fit: cover; height: 100%;" />
 
-          <mat-button-toggle-group class="view" name="fontStyle" aria-label="Change view">
-            <mat-button-toggle value="bold">Bold</mat-button-toggle>
-            <mat-button-toggle value="italic">Italic</mat-button-toggle>
-          </mat-button-toggle-group>
-        </div>
+        <!-- <mat-button-toggle-group *ngIf="item?.type == 2 && item?.genre == 2" class="btn btn-genre" name="change_genre" aria-label="Change Genre" value="0">
+          <mat-button-toggle value="0" matTooltip="Female"><mat-icon>female</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="1" matTooltip="Male"><mat-icon>male</mat-icon></mat-button-toggle>
+        </mat-button-toggle-group> -->
+
+        <mat-button-toggle-group *ngIf="item?.type == 2" class="btn btn-view" name="change_view" aria-label="Change view" value="0">
+          <mat-button-toggle value="0" (click)="showItem = true" matTooltip="Wearable"><mat-icon>checkroom</mat-icon></mat-button-toggle>
+          <mat-button-toggle value="1" (click)="showItem = false" matTooltip="Try On"><mat-icon>accessibility_new</mat-icon></mat-button-toggle>
+        </mat-button-toggle-group>
       </header>
 
       <section class="section-content">
         <div class="left">
 
-          <h1><b>[Item_name]</b></h1>
+          <h1>{{ item?.title }}</h1>
 
           <div class="tags">
-            <div *ngIf="typeItem == 2 && item?.rarity == 0" class="tag rarity rarity-mythic">MYTHIC</div>
-            <div *ngIf="typeItem == 2 && item?.rarity == 1" class="tag rarity rarity-uncommon">UNCOMMON</div>
-            <div *ngIf="typeItem == 2 && item?.rarity == 2" class="tag rarity rarity-unique">UNIQUE</div>
-            <div *ngIf="typeItem == 2 && item?.rarity == 3" class="tag rarity rarity-legendary">LEGENDARY</div>
-            <div *ngIf="typeItem == 2 && item?.rarity == 4" class="tag rarity rarity-epic">EPIC</div>
-            <div *ngIf="typeItem == 2 && item?.rarity == 5" class="tag rarity rarity-unusual">UNUSUAL</div>
-            <div *ngIf="typeItem == 2 && item?.rarity == 6" class="tag rarity rarity-odd">ODD</div>
-            <div *ngIf="typeItem == 2 && item?.rarity == 7" class="tag rarity rarity-rare">RARE</div>
+            <div *ngIf="item?.type == 2 && item?.rarity == 0" class="tag rarity rarity-common" matTooltip="Max supply: 100,000">COMMON</div>
+            <div *ngIf="item?.type == 2 && item?.rarity == 1" class="tag rarity rarity-unusual" matTooltip="Max supply: 50,000">UNUSUAL</div>
+            <div *ngIf="item?.type == 2 && item?.rarity == 2" class="tag rarity rarity-odd" matTooltip="Max supply: 10,000">ODD</div>
+            <div *ngIf="item?.type == 2 && item?.rarity == 3" class="tag rarity rarity-rare" matTooltip="Max supply: 5000">RARE</div>
+            <div *ngIf="item?.type == 2 && item?.rarity == 4" class="tag rarity rarity-epic" matTooltip="Max supply: 1000">EPIC</div>
+            <div *ngIf="item?.type == 2 && item?.rarity == 5" class="tag rarity rarity-legendary" matTooltip="Max supply: 100">LEGENDARY</div>
+            <div *ngIf="item?.type == 2 && item?.rarity == 6" class="tag rarity rarity-mythic" matTooltip="For the lucky few: max 10">MYTHIC</div>
+            <div *ngIf="item?.type == 2 && item?.rarity == 7" class="tag rarity rarity-unique" matTooltip="Grail-like: One-of-a-kind">UNIQUE</div>
 
-            <div *ngIf="typeItem == 2 && item?.cloud == 0"  class="tag category" matTooltip="Facial Hair"><img src="/assets/img/icons/fashion-icons/mustache.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 1"  class="tag category" matTooltip="Hair"><img src="/assets/img/icons/fashion-icons/womans-hair.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 2"  class="tag category" matTooltip="Eyes"><img src="/assets/img/icons/fashion-icons/sunglasses.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 3"  class="tag category" matTooltip="Eyebrowns"><img src="/assets/img/icons/fashion-icons/eyebrow.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 4"  class="tag category" matTooltip="Mouth"><img src="/assets/img/icons/fashion-icons/lips.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 5"  class="tag category" matTooltip="Upper body"><img src="/assets/img/icons/fashion-icons/shirt.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 6"  class="tag category" matTooltip="Lower body"><img src="/assets/img/icons/fashion-icons/pant-short.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 7"  class="tag category" matTooltip="Feet"><img src="/assets/img/icons/fashion-icons/sandal.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 8"  class="tag category" matTooltip="Earring"><img src="/assets/img/icons/fashion-icons/.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 9"  class="tag category" matTooltip="Eyewear"><img src="/assets/img/icons/fashion-icons/sunglasses-circle.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 10" class="tag category" matTooltip="Hat"><img src="/assets/img/icons/fashion-icons/hat-skullcaps.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 11" class="tag category" matTooltip="Helmet"><img src="/assets/img/icons/fashion-icons/hat-winter.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 12" class="tag category" matTooltip="Mask"><img src="/assets/img/icons/fashion-icons/stalin-mustache.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 13" class="tag category" matTooltip="Tiara"><img src="/assets/img/icons/fashion-icons/.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 14" class="tag category" matTooltip="Top Head"><img src="/assets/img/icons/fashion-icons/.svg" /></div>
-            <div *ngIf="typeItem == 2 && item?.cloud == 15" class="tag category" matTooltip="Skins"><img src="/assets/img/icons/fashion-icons/fashion-trend.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 0"  class="tag category" matTooltip="Facial Hair"><img src="/assets/img/icons/fashion-icons/mustache.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 1"  class="tag category" matTooltip="Hair"><img src="/assets/img/icons/fashion-icons/womans-hair.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 2"  class="tag category" matTooltip="Eyes"><img src="/assets/img/icons/fashion-icons/sunglasses.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 3"  class="tag category" matTooltip="Eyebrowns"><img src="/assets/img/icons/fashion-icons/eyebrow.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 4"  class="tag category" matTooltip="Mouth"><img src="/assets/img/icons/fashion-icons/lips.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 5"  class="tag category" matTooltip="Upper body"><img src="/assets/img/icons/fashion-icons/shirt.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 6"  class="tag category" matTooltip="Lower body"><img src="/assets/img/icons/fashion-icons/pant-short.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 7"  class="tag category" matTooltip="Feet"><img src="/assets/img/icons/fashion-icons/sandal.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 8"  class="tag category" matTooltip="Earring"><img src="/assets/img/icons/fashion-icons/.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 9"  class="tag category" matTooltip="Eyewear"><img src="/assets/img/icons/fashion-icons/sunglasses-circle.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 10" class="tag category" matTooltip="Hat"><img src="/assets/img/icons/fashion-icons/hat-skullcaps.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 11" class="tag category" matTooltip="Helmet"><img src="/assets/img/icons/fashion-icons/hat-winter.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 12" class="tag category" matTooltip="Mask"><img src="/assets/img/icons/fashion-icons/stalin-mustache.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 13" class="tag category" matTooltip="Tiara"><img src="/assets/img/icons/fashion-icons/.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 14" class="tag category" matTooltip="Top Head"><img src="/assets/img/icons/fashion-icons/.svg" /></div>
+            <div *ngIf="item?.type == 2 && item?.clothes == 15" class="tag category" matTooltip="Skins"><img src="/assets/img/icons/fashion-icons/fashion-trend.svg" /></div>
 
-            <div *ngIf="typeItem == 2 && item?.genre == 0" class="genre tag" matTooltip="Female"><mat-icon>female</mat-icon></div>
-            <div *ngIf="typeItem == 2 && item?.genre == 1" class="genre tag" matTooltip="Male"><mat-icon>male</mat-icon></div>
-            <div *ngIf="typeItem == 2 && item?.genre == 2" class="genre tag" matTooltip="Both"><mat-icon>transgender</mat-icon></div>
+            <div *ngIf="item?.type == 2 && item?.genre == 0" class="genre tag" matTooltip="Female"><mat-icon>female</mat-icon></div>
+            <div *ngIf="item?.type == 2 && item?.genre == 1" class="genre tag" matTooltip="Male"><mat-icon>male</mat-icon></div>
+            <div *ngIf="item?.type == 2 && item?.genre == 2" class="genre tag" matTooltip="Unisex"><mat-icon>transgender</mat-icon></div>
 
-            <button *ngIf="typeItem == 0" class="coordinates tag" mat-button><mat-icon>location_on</mat-icon> -48,-78</button>
+            <button *ngIf="item?.type == 0" class="coordinates tag" mat-button><mat-icon>location_on</mat-icon> -48,-78</button>
 
-            <div *ngIf="typeItem == 1" class="lands tag" mat-button>212 LAND</div>
+            <div *ngIf="item?.type == 1" class="lands tag" mat-button>212 LAND</div>
 
-            <button *ngIf="typeItem == 0 || typeItem == 1" class="btn-jump tag" mat-flat-button color="primary">JUMP IN <mat-icon>exit_to_app</mat-icon></button>
+            <button *ngIf="item?.type == 0 || item?.type == 1" class="btn-jump tag" mat-flat-button color="primary">JUMP IN <mat-icon>exit_to_app</mat-icon></button>
           </div>
 
-          <div class="item creator">
+          <div class="item item-creator">
             <div class="overline">OWNER</div>
             <div class="row">
-              <a [routerLink]="['/routePath']" class="avatar"><img src="/assets/img/avatar.png" /></a>
-              <a [routerLink]="['/routePath']">SHAWNDA0505LYDS</a>
+              <a [routerLink]="[item?.creatorUrl]" class="avatar"><img [src]="item?.creatorAvatar" onerror="this.src='/assets/img/user-avatar-empty,svg';" /></a>
+              <a [routerLink]="[item?.creatorUrl]">{{ item?.creatorName }}</a>
             </div>
           </div>
 
-          <div class="item description">
-            <p class="overline">DESCRIPTION</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla rem veritatis cumque repudiandae! Tenetur commodi exercitationem explicabo ducimus adipisci, mollitia repellat magnam, iure dolores fuga ad. Corrupti pariatur aperiam, delectus, autem dolor nisi ipsam repudiandae labore totam dolorem odio voluptatibus dolore minima omnis numquam! Labore, dignissimos facere nobis minima cum inventore nisi pariatur. Veniam, praesentium perspiciatis assumenda aut amet dolor!</p>
+          <!-- Fix ngIf to the correct var when is created -->
+          <div *ngIf="item?.collectionName != ''" class="item item-creator item-collection">
+            <div class="overline">COLLECTION</div>
+            <div class="row">
+              <a [routerLink]="[item?.collectionUrl]" class="avatar"><img [src]="item?.collectionAvatar" onerror="this.src='/assets/img/user-avatar-empty,svg';" /></a>
+              <a [routerLink]="[item?.collectionUrl]">{{ item?.collectionName }}</a>
+            </div>
           </div>
 
-          <div class="item highlights">
+          <div *ngIf="item?.description != ''" class="item item-description">
+            <div class="overline">DESCRIPTION</div>
+            <p>{{ item?.description }}</p>
+          </div>
+
+          <div *ngIf="item?.type == 0 || item?.type == 1" class="item item-highlights">
             <div class="overline">HIGHLIGHTS</div>
             <div class="highlight">
               <div class="highlight__texts">
@@ -138,7 +155,7 @@
             </div>
           </div>
 
-          <div *ngIf="typeItem == 1" class="item parcels">
+          <div *ngIf="item?.type == 1" class="item item-parcels">
             <p class="overline">PARCELS</p>
             <button mat-button *ngFor="let parcel of parcels"><mat-icon>location_on</mat-icon> -150,17</button>
           </div>
@@ -146,6 +163,40 @@
         </div>
 
         <div class="right">
+          <div class="item item-price">
+            <div class="overline">PRICE</div>
+            <div class="value"><img src="/assets/img/logos/icon-total-white.svg" alt="Cloud Token" /> 5,578</div>
+          </div>
+
+          <div class="item item-network">
+            <div class="overline">NETWORK</div>
+            <div class="value"><small>BINANCE SMART CHAIN</small></div>
+          </div>
+
+          <div class="item item-stock">
+            <div class="overline">STOCK</div>
+            <div class="value">
+              <small>
+                {{ item?.currentMint }}
+                <span>&nbsp;/ &nbsp;</span>
+                <span *ngIf="item?.rarity == 0">100,000</span>
+                <span *ngIf="item?.rarity == 1">50,000</span>
+                <span *ngIf="item?.rarity == 2">10,000</span>
+                <span *ngIf="item?.rarity == 3">5000</span>
+                <span *ngIf="item?.rarity == 4">1000</span>
+                <span *ngIf="item?.rarity == 5">100</span>
+                <span *ngIf="item?.rarity == 6">10</span>
+                <span *ngIf="item?.rarity == 7">1</span>
+              </small>
+            </div>
+          </div>
+
+          <div class="item item-buttons">
+            <button mat-flat-button color="primary">BUY</button>
+            <button mat-flat-button>BID</button>
+          </div>
+
+          <div class="time"><mat-icon>query_builder</mat-icon> Expires in 29 days</div>
 
         </div>
       </section>

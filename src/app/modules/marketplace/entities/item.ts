@@ -3,23 +3,46 @@ export class Item {
   id!: number;
   title!: string;
   photo!: string;
+  modelWear!: string;
+  modelItem!: string;
+  description!: string;
+
+  creatorName!: string;
+  creatorAvatar!: string;
+  creatorUrl!: string;
+
+  collectionName!: string;
+  collectionAvatar!: string;
+  collectionUrl!: string;
+
   rarity: number = 2;
-  // 0 MYTHIC
-  // 1 UNCOMMON
-  // 2 UNIQUE
-  // 3 LEGENDARY
-  // 4 EPIC
-  // 5 UNUSUAL
-  // 6 ODD
-  // 7 RARE
+  // 0 COMMON    || "Max supply: 100,000"
+  // 1 UNUSUAL   || "Max supply: 50,000"
+  // 2 ODD       || "Max supply: 10,000"
+  // 3 RARE      || "Max supply: 5000"
+  // 4 EPIC      || "Max supply: 1000"
+  // 5 LEGENDARY || "Max supply: 100"
+  // 6 MYTHIC    || "Max supply: 10"
+  // 7 UNIQUE    || "Max supply: 1"
+
   genre: number = 0;
   // 0 FEMALE
   // 1 MALE
-  // 2 BOTH
-  cloud: number = 0;
+  // 2 BOTH or UNISEX
+
+  clothes: number = 0;
+  // Sort like you prefer
+
   coordinates!: string;
   lands!: number;
 
+  type: number = 0;
+  // 0 = LAND
+  // 1 = ESTATE || Bid
+  // 2 = ITEM   || Quantity || Image or 3D
+  // 3 = NAME   || Bid
+
+  currentMint!: number;
 
   static ITEMS = [
     {

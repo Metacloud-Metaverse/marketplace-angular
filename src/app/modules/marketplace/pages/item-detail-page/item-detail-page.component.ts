@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { Item } from '../../entities/item';
 
 export interface LatestsSales {
   from: string; to: string; type: string; when: string; price: number;
@@ -31,16 +32,10 @@ export class ItemDetailPageComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   dataSource2 = ELEMENT_DATA2;
 
-  // typeItem 0 = Land
-  // typeItem 1 = Estate || Bid
-  // typeItem 2 = Item   || Quantity
-  // typeItem 3 = Name   || Bid
-  typeItem = 2;
-
   isBid = false;
-  isItem3D = true;
+  showItem = true;
 
-  @Input() item?: any;
+  @Input() item?: Item;
 
   parcels:any = [
     {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
@@ -49,13 +44,32 @@ export class ItemDetailPageComponent implements OnInit {
   constructor(
     private titleService: Title,
     private metaTagService: Meta,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('[Item_name] | metacloud');
     this.metaTagService.updateTag(
       { name: 'description', content: '' }
     );
-  }
 
+    this.item = new Item();
+    this.item.type = 2;
+    this.item.title = '[Item_name]';
+    this.item.genre = 2;
+    this.item.photo = '/assets/img/item-wearable.png';
+    this.item.modelItem = '/assets/models/Character_Male_Babucha.glb';
+    this.item.modelWear = '/assets/models/CharacterMaleBlender.glb';
+    this.item.rarity = 0;
+    this.item.clothes = 7;
+    this.item.description = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla rem veritatis cumque repudiandae! Tenetur commodi exercitationem explicabo ducimus adipisci, mollitia repellat magnam, iure dolores fuga ad. Corrupti pariatur aperiam, delectus, autem dolor nisi ipsam repudiandae.';
+    this.item.creatorName = 'SHAWNDA0505LYDS';
+    this.item.creatorAvatar = '/assets/img/avatar.png';
+    this.item.creatorUrl = '[Item_name]';
+
+    this.item.collectionName = 'Mercenary Cyber Colections';
+    this.item.collectionAvatar = '/assets/img/collection-icon.png';
+    this.item.collectionUrl = '[Item_name]';
+
+    this.item.currentMint = 15;
+  }
 }
