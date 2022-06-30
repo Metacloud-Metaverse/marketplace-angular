@@ -7,181 +7,270 @@
 
     <div class="column-right">
       <header>
-        <div class="image-container">
+        <div class="image-container"
+             [ngClass]="{'rarity-mythic'   : item?.rarity == 0,
+                         'rarity-uncommon' : item?.rarity == 1,
+                         'rarity-unique'   : item?.rarity == 2,
+                         'rarity-legendary': item?.rarity == 3,
+                         'rarity-epic'     : item?.rarity == 4,
+                         'rarity-unusual'  : item?.rarity == 5,
+                         'rarity-odd'      : item?.rarity == 6,
+                         'rarity-rare'     : item?.rarity == 7}">
+
           <!-- Item 3D Model -->
           <model-viewer
-            *ngIf="false"
+            *ngIf="typeItem == 2 && isItem3D"
             alt="Name Item"
-            src="assets/models/robot-expressive.glb"
+            src="/assets/models/robot-expressive.glb"
             camera-controls="true"
             autoplay
             enable-pan
             class="model-avatar">
           </model-viewer>
+
           <!-- Item Wearable Image -->
-          <img *ngIf="true" src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" />
+          <img *ngIf="typeItem == 2 && !isItem3D" src="/assets/img/item-wearable.png" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" class="item-wearable" />
+
           <!-- Item Name -->
-          <span *ngIf="false">COCOPark</span>
+          <span *ngIf="typeItem == 3">COCOPark</span>
+
           <!-- Item Land -->
-          <img *ngIf="false" src="/assets/img/parcels.png" style="object-fit: cover; height: 100%;" />
+          <img *ngIf="typeItem == 0 || typeItem == 1" src="/assets/img/parcels.png" style="object-fit: cover; height: 100%;" />
+
+          <mat-button-toggle-group class="genre" name="fontStyle" aria-label="Change Genre">
+            <mat-button-toggle value="0" matTooltip="Female"><mat-icon>female</mat-icon></mat-button-toggle>
+            <mat-button-toggle value="1" matTooltip="Male"><mat-icon>male</mat-icon></mat-button-toggle>
+          </mat-button-toggle-group>
+
+          <mat-button-toggle-group class="view" name="fontStyle" aria-label="Change view">
+            <mat-button-toggle value="bold">Bold</mat-button-toggle>
+            <mat-button-toggle value="italic">Italic</mat-button-toggle>
+          </mat-button-toggle-group>
         </div>
       </header>
 
-      <section>
-        <div class="row">
-          <h1>JEWELS Power75</h1>
-          <h2><img src="/assets/img/logos/icon.svg" alt="$Cloud" /> 54</h2>
+      <section class="section-content">
+        <div class="left">
+
+          <h1><b>[Item_name]</b></h1>
+
+          <div class="tags">
+            <div *ngIf="typeItem == 2 && item?.rarity == 0" class="tag rarity rarity-mythic">MYTHIC</div>
+            <div *ngIf="typeItem == 2 && item?.rarity == 1" class="tag rarity rarity-uncommon">UNCOMMON</div>
+            <div *ngIf="typeItem == 2 && item?.rarity == 2" class="tag rarity rarity-unique">UNIQUE</div>
+            <div *ngIf="typeItem == 2 && item?.rarity == 3" class="tag rarity rarity-legendary">LEGENDARY</div>
+            <div *ngIf="typeItem == 2 && item?.rarity == 4" class="tag rarity rarity-epic">EPIC</div>
+            <div *ngIf="typeItem == 2 && item?.rarity == 5" class="tag rarity rarity-unusual">UNUSUAL</div>
+            <div *ngIf="typeItem == 2 && item?.rarity == 6" class="tag rarity rarity-odd">ODD</div>
+            <div *ngIf="typeItem == 2 && item?.rarity == 7" class="tag rarity rarity-rare">RARE</div>
+
+            <div *ngIf="typeItem == 2 && item?.cloud == 0"  class="tag category" matTooltip="Facial Hair"><img src="/assets/img/icons/fashion-icons/mustache.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 1"  class="tag category" matTooltip="Hair"><img src="/assets/img/icons/fashion-icons/womans-hair.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 2"  class="tag category" matTooltip="Eyes"><img src="/assets/img/icons/fashion-icons/sunglasses.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 3"  class="tag category" matTooltip="Eyebrowns"><img src="/assets/img/icons/fashion-icons/eyebrow.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 4"  class="tag category" matTooltip="Mouth"><img src="/assets/img/icons/fashion-icons/lips.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 5"  class="tag category" matTooltip="Upper body"><img src="/assets/img/icons/fashion-icons/shirt.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 6"  class="tag category" matTooltip="Lower body"><img src="/assets/img/icons/fashion-icons/pant-short.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 7"  class="tag category" matTooltip="Feet"><img src="/assets/img/icons/fashion-icons/sandal.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 8"  class="tag category" matTooltip="Earring"><img src="/assets/img/icons/fashion-icons/.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 9"  class="tag category" matTooltip="Eyewear"><img src="/assets/img/icons/fashion-icons/sunglasses-circle.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 10" class="tag category" matTooltip="Hat"><img src="/assets/img/icons/fashion-icons/hat-skullcaps.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 11" class="tag category" matTooltip="Helmet"><img src="/assets/img/icons/fashion-icons/hat-winter.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 12" class="tag category" matTooltip="Mask"><img src="/assets/img/icons/fashion-icons/stalin-mustache.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 13" class="tag category" matTooltip="Tiara"><img src="/assets/img/icons/fashion-icons/.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 14" class="tag category" matTooltip="Top Head"><img src="/assets/img/icons/fashion-icons/.svg" /></div>
+            <div *ngIf="typeItem == 2 && item?.cloud == 15" class="tag category" matTooltip="Skins"><img src="/assets/img/icons/fashion-icons/fashion-trend.svg" /></div>
+
+            <div *ngIf="typeItem == 2 && item?.genre == 0" class="genre tag" matTooltip="Female"><mat-icon>female</mat-icon></div>
+            <div *ngIf="typeItem == 2 && item?.genre == 1" class="genre tag" matTooltip="Male"><mat-icon>male</mat-icon></div>
+            <div *ngIf="typeItem == 2 && item?.genre == 2" class="genre tag" matTooltip="Both"><mat-icon>transgender</mat-icon></div>
+
+            <button *ngIf="typeItem == 0" class="coordinates tag" mat-button><mat-icon>location_on</mat-icon> -48,-78</button>
+
+            <div *ngIf="typeItem == 1" class="lands tag" mat-button>212 LAND</div>
+
+            <button *ngIf="typeItem == 0 || typeItem == 1" class="btn-jump tag" mat-flat-button color="primary">JUMP IN <mat-icon>exit_to_app</mat-icon></button>
+          </div>
+
+          <div class="item creator">
+            <div class="overline">OWNER</div>
+            <div class="row">
+              <a [routerLink]="['/routePath']" class="avatar"><img src="/assets/img/avatar.png" /></a>
+              <a [routerLink]="['/routePath']">SHAWNDA0505LYDS</a>
+            </div>
+          </div>
+
+          <div class="item description">
+            <p class="overline">DESCRIPTION</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla rem veritatis cumque repudiandae! Tenetur commodi exercitationem explicabo ducimus adipisci, mollitia repellat magnam, iure dolores fuga ad. Corrupti pariatur aperiam, delectus, autem dolor nisi ipsam repudiandae labore totam dolorem odio voluptatibus dolore minima omnis numquam! Labore, dignissimos facere nobis minima cum inventore nisi pariatur. Veniam, praesentium perspiciatis assumenda aut amet dolor!</p>
+          </div>
+
+          <div class="item highlights">
+            <div class="overline">HIGHLIGHTS</div>
+            <div class="highlight">
+              <div class="highlight__texts">
+                <p><b>PLAZA</b></p>
+                <p><small>2 PARCELS AWAY</small></p>
+              </div>
+              <div class="highlight__image-container">
+                <img src="/assets/img/builder-item-icon.png" />
+              </div>
+            </div>
+
+            <div class="highlight">
+              <div class="highlight__texts">
+                <p><b>ROAD</b></p>
+                <p><small>5 PARCELS AWAY</small></p>
+              </div>
+              <div class="highlight__image-container">
+                <img src="/assets/img/builder-item-icon.png" />
+              </div>
+            </div>
+
+            <div class="highlight">
+              <div class="highlight__texts">
+                <p><b>DISTRIC</b></p>
+                <p><small>ADJACENT</small></p>
+              </div>
+              <div class="highlight__image-container">
+                <img src="/assets/img/builder-item-icon.png" />
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="typeItem == 1" class="item parcels">
+            <p class="overline">PARCELS</p>
+            <button mat-button *ngFor="let parcel of parcels"><mat-icon>location_on</mat-icon> -150,17</button>
+          </div>
+
         </div>
 
-        <div class="tags">
-          <div class="rarity tag">
-            <span class="mythic item-center">MYTHIC</span>
-          </div>
+        <div class="right">
 
-          <div class="category tag" matTooltip="Uppderbody">
-            <mat-icon>checkroom</mat-icon>
-          </div>
-
-          <div class="genre tag" matTooltip="Female">
-            <mat-icon>female</mat-icon>
-          </div>
-
-          <!-- Only Land -->
-          <div class="lands tag" mat-button>212 LAND</div>
-          <button class="coordinates tag" mat-button><mat-icon>location_on</mat-icon> -48,-78</button>
-          <button class="btn-jump tag" mat-flat-button color="primary">JUMP IN <mat-icon>exit_to_app</mat-icon></button>
-          <!-- Only Land -->
-        </div>
-
-        <div class="row texts">
-          <div class="left">
-            <mat-list>
-              <mat-list-item>
-                <div mat-line>Description</div>
-                <div mat-line>Two Golden Orange Bracelets</div>
-              </mat-list-item>
-              <mat-list-item *ngIf="false">
-                <mat-icon mat-list-icon>home</mat-icon>
-                <div mat-line>Plaza</div>
-                <div mat-line>2 Parcels Away</div>
-              </mat-list-item>
-              <mat-list-item *ngIf="false">
-                <mat-icon mat-list-icon>home</mat-icon>
-                <div mat-line>ROAD</div>
-                <div mat-line>5 Parcels Away</div>
-              </mat-list-item>
-              <mat-list-item *ngIf="false">
-                <mat-icon mat-list-icon>home</mat-icon>
-                <div mat-line>DISTRIC</div>
-                <div mat-line>Adjacent</div>
-              </mat-list-item>
-              <mat-list-item>
-                <div mat-line>Price</div>
-                <div mat-line>56 $CLOUD</div>
-              </mat-list-item>
-              <mat-list-item >
-                <img mat-list-icon src="/assets/img/avatar.png" />
-                <div mat-line>Creator</div>
-                <div mat-line><a [routerLink]="['/routePath']" class="link hover-linear">SHAWNDA0505LYDS</a></div>
-              </mat-list-item>
-              <mat-list-item>
-                <div mat-line>Stock</div>
-                <div mat-line>100/100</div>
-              </mat-list-item>
-              <mat-list-item>
-                <img mat-list-icon src="/assets/img/collection-icon.png" />
-                <div mat-line>Collection</div>
-                <div mat-line>Bracelets Paradice</div>
-              </mat-list-item>
-              <mat-list-item>
-                <div mat-line>Expires in 10 days</div>
-              </mat-list-item>
-            </mat-list>
-          </div>
-
-          <div class="right">
-            <button mat-flat-button>BID</button>
-            <button mat-flat-button color="primary">BUY</button>
-          </div>
-        </div>
-
-        <!-- Only Land Estate -->
-        <div class="parcels">
-          <p>PARCELS</p>
-          <button mat-button *ngFor="let parcel of parcels"><mat-icon>location_on</mat-icon> -150,17</button>
-        </div>
-        <!-- Only Land Estate -->
-
-        <div class="latest-sales">
-          <p style="margin-bottom: 0;">LATEST SALES</p>
-          <div class="scroll-table">
-            <table mat-table [dataSource]="dataSource">
-
-              <ng-container matColumnDef="from">
-                <th mat-header-cell *matHeaderCellDef> From </th>
-                <td mat-cell *matCellDef="let element"> <a [routerLink]="['/routePath']" class="user link"><div class="avatar"><img src="/assets/img/avatar.png"></div> <span>{{ element.from }}</span></a> </td>
-              </ng-container>
-
-              <ng-container matColumnDef="to">
-                <th mat-header-cell *matHeaderCellDef> To </th>
-                <td mat-cell *matCellDef="let element"> <a [routerLink]="['/routePath']" class="user link"><div class="avatar"><img src="/assets/img/avatar-juan.png"></div> <span>{{ element.to }}</span></a> </td>
-              </ng-container>
-
-              <ng-container matColumnDef="type">
-                <th mat-header-cell *matHeaderCellDef> Type </th>
-                <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-              </ng-container>
-
-              <ng-container matColumnDef="when">
-                <th mat-header-cell *matHeaderCellDef> When </th>
-                <td mat-cell *matCellDef="let element"> {{element.when | date}} </td>
-              </ng-container>
-
-              <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef> Price </th>
-                <td mat-cell *matCellDef="let element"> <img class="token" src="/assets/img/logos/icon.svg" /> <b>{{element.price}}</b> </td>
-              </ng-container>
-
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-              <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="5">No Results</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="bids">
-          <p style="margin-bottom: 0;">BIDS</p>
-          <div class="scroll-table">
-            <table mat-table [dataSource]="dataSource2">
-
-              <ng-container matColumnDef="from">
-                <th mat-header-cell *matHeaderCellDef> From </th>
-                <td mat-cell *matCellDef="let element"> <a [routerLink]="['/routePath']" class="user link"><div class="avatar"><img src="/assets/img/avatar.png"></div> <span>{{ element.from }}</span></a> </td>
-              </ng-container>
-
-              <ng-container matColumnDef="timeleft">
-                <th mat-header-cell *matHeaderCellDef> Time left </th>
-                <td mat-cell *matCellDef="let element"> {{element.timeleft}} </td>
-              </ng-container>
-
-              <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef> Price </th>
-                <td mat-cell *matCellDef="let element"> <img class="token" src="/assets/img/logos/icon.svg" /> <b>{{element.price}}</b> </td>
-              </ng-container>
-
-              <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
-
-              <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="5">No Results</td>
-              </tr>
-            </table>
-          </div>
         </div>
       </section>
+
+      <div class="row texts">
+        <div class="left">
+          <mat-list>
+            <mat-list-item>
+              <div mat-line>Description</div>
+              <div mat-line>Two Golden Orange Bracelets</div>
+            </mat-list-item>
+            <mat-list-item *ngIf="false">
+              <mat-icon mat-list-icon>home</mat-icon>
+              <div mat-line>Plaza</div>
+              <div mat-line>2 Parcels Away</div>
+            </mat-list-item>
+            <mat-list-item *ngIf="false">
+              <mat-icon mat-list-icon>home</mat-icon>
+              <div mat-line>ROAD</div>
+              <div mat-line>5 Parcels Away</div>
+            </mat-list-item>
+            <mat-list-item *ngIf="false">
+              <mat-icon mat-list-icon>home</mat-icon>
+              <div mat-line>DISTRIC</div>
+              <div mat-line>Adjacent</div>
+            </mat-list-item>
+            <mat-list-item>
+              <div mat-line>Price</div>
+              <div mat-line>56 $CLOUD</div>
+            </mat-list-item>
+            <mat-list-item >
+              <img mat-list-icon src="/assets/img/avatar.png" />
+              <div mat-line>Creator</div>
+              <div mat-line><a [routerLink]="['/routePath']" class="link hover-linear">SHAWNDA0505LYDS</a></div>
+            </mat-list-item>
+            <mat-list-item>
+              <div mat-line>Stock</div>
+              <div mat-line>100/100</div>
+            </mat-list-item>
+            <mat-list-item>
+              <img mat-list-icon src="/assets/img/collection-icon.png" />
+              <div mat-line>Collection</div>
+              <div mat-line>Bracelets Paradice</div>
+            </mat-list-item>
+            <mat-list-item>
+              <div mat-line>Expires in 10 days</div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+
+        <div class="right">
+          <button mat-flat-button>BID</button>
+          <button mat-flat-button color="primary">BUY</button>
+        </div>
+      </div>
+
+      <div class="latest-sales">
+        <p style="margin-bottom: 0;">LATEST SALES</p>
+        <div class="scroll-table">
+          <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="from">
+              <th mat-header-cell *matHeaderCellDef> From </th>
+              <td mat-cell *matCellDef="let element"> <a [routerLink]="['/routePath']" class="user link"><div class="avatar"><img src="/assets/img/avatar.png"></div> <span>{{ element.from }}</span></a> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="to">
+              <th mat-header-cell *matHeaderCellDef> To </th>
+              <td mat-cell *matCellDef="let element"> <a [routerLink]="['/routePath']" class="user link"><div class="avatar"><img src="/assets/img/avatar-juan.png"></div> <span>{{ element.to }}</span></a> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="type">
+              <th mat-header-cell *matHeaderCellDef> Type </th>
+              <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="when">
+              <th mat-header-cell *matHeaderCellDef> When </th>
+              <td mat-cell *matCellDef="let element"> {{element.when | date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> <img class="token" src="/assets/img/logos/icon.svg" /> <b>{{element.price}}</b> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="5">No Results</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="bids">
+        <p style="margin-bottom: 0;">BIDS</p>
+        <div class="scroll-table">
+          <table mat-table [dataSource]="dataSource2">
+
+            <ng-container matColumnDef="from">
+              <th mat-header-cell *matHeaderCellDef> From </th>
+              <td mat-cell *matCellDef="let element"> <a [routerLink]="['/routePath']" class="user link"><div class="avatar"><img src="/assets/img/avatar.png"></div> <span>{{ element.from }}</span></a> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="timeleft">
+              <th mat-header-cell *matHeaderCellDef> Time left </th>
+              <td mat-cell *matCellDef="let element"> {{element.timeleft}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> <img class="token" src="/assets/img/logos/icon.svg" /> <b>{{element.price}}</b> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="5">No Results</td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

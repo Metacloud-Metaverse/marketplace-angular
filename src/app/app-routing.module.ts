@@ -14,6 +14,7 @@ const routes: Routes = [
       { path: 'dao', loadChildren: () => import('./modules/dao/dao.module').then(m => m.DaoModule), data: { preload: true }},
       { path: 'blog', loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule), data: { preload: true }},
       { path: 'profile', loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule), data: { preload: true }},
+      { path: '', redirectTo: 'marketplace', pathMatch: 'full' },
     ]
   },
   /* { path: '', redirectTo: '', pathMatch: 'full' }, */

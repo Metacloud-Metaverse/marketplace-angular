@@ -12,10 +12,11 @@ export class Item {
   // 5 UNUSUAL
   // 6 ODD
   // 7 RARE
-  genre!: number;
+  genre: number = 0;
   // 0 FEMALE
   // 1 MALE
-  cloud!: number;
+  // 2 BOTH
+  cloud: number = 0;
   coordinates!: string;
   lands!: number;
 

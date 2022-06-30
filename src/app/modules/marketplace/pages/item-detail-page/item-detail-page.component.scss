@@ -2,14 +2,14 @@
 
 .item-detail-page {
   padding-bottom: 4em;
-  @include xs{
+  @include xs {
     padding-bottom: 0;
   }
 
   .container {
     display: flex;
     gap: 2em;
-    @include xs{
+    @include xs {
       padding-top: 0;
       padding-bottom: 0;
     }
@@ -26,78 +26,96 @@
       }
     }
 
-    .column-right{
+    .column-right {
       width: calc(100% - 4em);
-      @include lt-md{
+      @include lt-md {
         width: 100%;
       }
     }
   }
 
+  .rarity-mythic {
+    background-color: #860197;
+  }
+  .rarity-uncommon {
+    background-color: #ff7272;
+  }
+  .rarity-unique {
+    background-color: #000000;
+  }
+  .rarity-legendary {
+    background-color: #ff7b1b;
+  }
+  .rarity-epic {
+    background-color: #ff33ad;
+  }
+  .rarity-unusual {
+    background-color: #2fd668;
+  }
+  .rarity-odd {
+    background-color: #ff275b;
+  }
+  .rarity-rare {
+    background-color: #1056d7;
+  }
+
   header {
-    .image-container {
-      height: 400px;
-      background-color: rgba($color: white, $alpha: 0.3);
-      border-radius: 1em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+    height: 400px;
+    background-color: rgba($color: white, $alpha: 0.3);
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
 
-      @include xs{
-        width: calc(100% + 2.4em);
-        margin-left: -1.2em;
-        border-radius: 0;
-        height: 67vw;
-        max-height: 400px;
-      }
+    @include xs {
+      width: calc(100% + 2.4em);
+      margin-left: -1.2em;
+      border-radius: 0;
+      height: 67vw;
+      max-height: 400px;
+    }
 
-      img {
-        width: 100%;
-        height: 90%;
-        object-fit: contain;
-        @include xs{
-          height: 100%;
-        }
-      }
+    model-viewer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-      model-viewer {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
+    .item-wearable{
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+    }
 
-      span {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -webkit-transform: translateY(-50%);
-        width: 90%;
-        text-align: center;
-        font-size: 4em;
-        color: white;
-        line-height: 1.5;
-        font-weight: 600;
-      }
+    span {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      width: 90%;
+      text-align: center;
+      font-size: 4em;
+      color: white;
+      line-height: 1.5;
+      font-weight: 600;
     }
   }
 
   section {
-    margin-top: 2em;
     background-color: rgba($color: #000000, $alpha: 0.1);
-    border-radius: 1em;
-    padding: 3em;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 
-    @include xs{
+    @include xs {
       margin-top: 0;
       padding: 2em;
       width: calc(100% + 2.4em);
@@ -107,17 +125,6 @@
 
     .row {
       display: flex;
-    }
-
-    h1 {
-      margin: 0;
-      margin-right: auto;
-      font-family: $font_text !important;
-      font-weight: 600;
-      font-size: 2.5em;
-      @include lt-md{
-        font-size: 1.8em;
-      }
     }
 
     h2 {
@@ -131,47 +138,14 @@
         width: 30px;
         height: 30px;
         margin-right: 6px;
-
       }
     }
 
-    .tags {
-      display: flex;
-      gap: 1em;
-      margin-top: 0.5em;
-      @include lt-md{
-        gap: 0.5em;
-        margin-top: 1em;
-        flex-wrap: wrap;
-      }
-
-      .tag {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.5em 2em;
-        /* height: 30px; */
-        border-radius: 5px;
-        background-color: rgba($color: #000000, $alpha: 0.1);
-        white-space: nowrap;
-        @include lt-md{
-          padding: 0.5em 1em;
-          font-size: 0.9em;
-        }
-      }
-
-      .rarity {
-        background-color: #860197;
-        color: white;
-        font-weight: 600;
-      }
-    }
-
-    .texts {
+    /* .texts {
       align-items: flex-start;
       gap: 2em;
       margin-top: 2em;
-      @include lt-md{
+      @include lt-md {
         margin-top: 1em;
         flex-direction: column;
       }
@@ -185,13 +159,13 @@
           gap: 1em;
           mat-list-item {
             width: calc(50% - 0.5em);
-            @include xs{
+            @include xs {
               width: 100%;
               height: initial;
             }
             &::ng-deep .mat-list-item-content {
               padding: 0;
-              @include lt-md{
+              @include lt-md {
                 font-size: 0.8em;
               }
             }
@@ -218,12 +192,12 @@
 
       .right {
         min-width: 140px;
-        @include xs{
+        @include xs {
           width: 100%;
           display: flex;
           flex-direction: column;
         }
-        @include sm{
+        @include sm {
           display: flex;
           width: 100%;
           gap: 1em;
@@ -235,42 +209,20 @@
           height: 50px;
         }
       }
-    }
-
-    .parcels {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5em;
-      margin-top: 2em;
-      p {
-        width: 100%;
-      }
-      button {
-        width: 100px;
-        padding-left: 0;
-        padding-right: 0.5em;
-        background-color: rgba($color: #000000, $alpha: 0.1);
-        mat-icon {
-          transform: scale(0.7);
-        }
-        &:hover {
-          background-color: rgba($color: #000000, $alpha: 0.2);
-        }
-      }
-    }
+    } */
 
     .latest-sales,
     .bids {
       margin-top: 3em;
 
-      p{
-        @include xs{
+      p {
+        @include xs {
           text-align: center;
         }
       }
 
-      .scroll-table{
-        @include xs{
+      .scroll-table {
+        @include xs {
           width: calc(100% + 4em);
           margin-left: -2em;
           overflow-x: auto;
@@ -282,12 +234,12 @@
         width: 100%;
         background-color: transparent;
 
-        td{
+        td {
           padding: 0 1em;
           white-space: nowrap;
         }
 
-        th{
+        th {
           padding: 0 1em;
         }
 
@@ -320,6 +272,166 @@
           top: 4px;
         }
       }
+    }
+  }
+
+  .section-content{
+    display: flex;
+
+    .left{
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      padding: 2em;
+
+      h1 {
+        margin: 0;
+        margin-right: auto;
+        font-family: $font_text !important;
+        font-weight: 600;
+        font-size: 2.5em;
+        @include lt-md {
+          font-size: 1.8em;
+        }
+      }
+
+      .item {
+        margin: 2em 0;
+      }
+
+      .overline {
+        font-size: 0.9em;
+        color: $black_inactive;
+        font-weight: 600;
+        margin: 0.5em 0;
+        letter-spacing: 0.5px;
+        opacity: 0.75;
+        line-height: 1.5;
+      }
+
+      .tags {
+        display: flex;
+        gap: 1em;
+        margin-top: 0.5em;
+        @include lt-md {
+          gap: 0.5em;
+          margin-top: 1em;
+          flex-wrap: wrap;
+        }
+
+        .tag {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.5em 2em;
+          /* height: 30px; */
+          border-radius: 5px;
+          background-color: rgba($color: #000000, $alpha: 0.1);
+          white-space: nowrap;
+          @include lt-md {
+            padding: 0.5em 1em;
+            font-size: 0.9em;
+          }
+        }
+
+        .rarity {
+          color: white;
+          font-weight: 600;
+        }
+      }
+
+      .creator {
+        .row {
+          display: flex;
+          align-items: center;
+          gap: 1em;
+
+          a {
+            font-weight: 600;
+            text-decoration: none;
+            color: $black_high_emphasis;
+
+            &:hover {
+              color: $color_primary_500;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      .highlights {
+        width: 360px;
+        max-width: 100%;
+
+        .highlight {
+          display: flex;
+          align-items: center;
+          gap: 1em;
+          margin: 1em 0;
+
+          .highlight__texts {
+            margin-right: auto;
+
+            p{
+              margin: 0;
+              line-height: 1.2;
+            }
+          }
+
+          .highlight__image-container{
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background-color: #7FFE00;
+            padding: 6px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+
+      .parcels{
+        border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+        padding-top: 2em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin-top: 2em;
+
+        .overline{
+          width: 100%;
+        }
+
+        button {
+          width: 100px;
+          padding-left: 0;
+          padding-right: 0.5em;
+          background-color: rgba($color: #000000, $alpha: 0.1);
+          mat-icon {
+            transform: scale(0.7);
+          }
+          &:hover {
+            background-color: rgba($color: #000000, $alpha: 0.2);
+          }
+        }
+      }
+    }
+
+    .right{
+      min-width: 300px;
+      width: 300px;
+      padding: 2em;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      background-color: rgba($color: #000000, $alpha: 0.3);
     }
   }
 }
