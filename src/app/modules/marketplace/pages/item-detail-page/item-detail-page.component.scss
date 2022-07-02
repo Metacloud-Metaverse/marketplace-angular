@@ -2,16 +2,12 @@
 
 .item-detail-page {
   padding-bottom: 4em;
-  @include xs {
-    padding-bottom: 0;
-  }
 
   .container {
     display: flex;
     gap: 2em;
     @include xs {
-      padding-top: 0;
-      padding-bottom: 0;
+      padding: 0;
     }
 
     .column-left {
@@ -34,8 +30,6 @@
     }
   }
 
-
-
   header {
     height: 400px;
     background-color: rgba($color: white, $alpha: 0.3);
@@ -49,21 +43,19 @@
     overflow: hidden;
 
     @include xs {
-      width: calc(100% + 2.4em);
-      margin-left: -1.2em;
       border-radius: 0;
       height: 67vw;
       max-height: 400px;
     }
 
-    &::before{
-      content: '';
+    &::before {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(#FFFFFF, #000000);
+      background: radial-gradient(#ffffff, #000000);
       pointer-events: none;
       mix-blend-mode: multiply;
       opacity: 0.15;
@@ -79,7 +71,7 @@
       --poster-color: transparent;
     }
 
-    .item-wearable{
+    .item-wearable {
       width: 90%;
       height: 90%;
       object-fit: contain;
@@ -99,13 +91,18 @@
       color: white;
       line-height: 1.5;
       font-weight: 600;
+      word-break: break-all;
+
+      @include xs{
+        font-size: 8.5vw;
+      }
     }
 
-    .btn{
+    .btn {
       position: absolute;
       top: 1em;
 
-      &::ng-deep .mat-button-toggle-checked{
+      &::ng-deep .mat-button-toggle-checked {
         background-color: $color_primary_500;
         color: white;
       }
@@ -115,185 +112,47 @@
       left: 1em;
     } */
 
-    .btn-view{
+    .btn-view {
       right: 1em;
-    }
-  }
 
+      mat-button-toggle{
+        @include xs{
+          width: 40px;
+          height: 40px;
 
-  section {
-    background-color: rgba($color: #000000, $alpha: 0.1);
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+          &::ng-deep button{
+            width: 40px;
+            height: 40px;
 
-    @include xs {
-      margin-top: 0;
-      padding: 2em;
-      width: calc(100% + 2.4em);
-      margin-left: -1.2em;
-      border-radius: 0;
-    }
-
-    .row {
-      display: flex;
-    }
-
-    h2 {
-      display: flex;
-      white-space: nowrap;
-      font-size: 1.5em;
-      margin: 0;
-      font-weight: 600;
-
-      img {
-        width: 30px;
-        height: 30px;
-        margin-right: 6px;
-      }
-    }
-
-    /* .texts {
-      align-items: flex-start;
-      gap: 2em;
-      margin-top: 2em;
-      @include lt-md {
-        margin-top: 1em;
-        flex-direction: column;
-      }
-
-      .left {
-        width: 100%;
-        mat-list {
-          display: flex;
-          flex-wrap: wrap;
-          width: 100%;
-          gap: 1em;
-          mat-list-item {
-            width: calc(50% - 0.5em);
-            @include xs {
-              width: 100%;
-              height: initial;
-            }
-            &::ng-deep .mat-list-item-content {
+            .mat-button-toggle-label-content{
               padding: 0;
-              @include lt-md {
-                font-size: 0.8em;
-              }
-            }
-            &::ng-deep .mat-list-icon {
-              width: 40px;
-              height: 40px;
-            }
-            div {
-              &:nth-of-type(2) {
-                color: #000000;
-                font-size: 1.25em;
-                font-weight: 600;
-              }
-              a {
-                color: black;
-                &:hover {
-                  color: $color_primary_500;
-                }
-              }
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
           }
-        }
-      }
-
-      .right {
-        min-width: 140px;
-        @include xs {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-        }
-        @include sm {
-          display: flex;
-          width: 100%;
-          gap: 1em;
-        }
-        a,
-        button {
-          width: 100%;
-          margin-bottom: 0.5em;
-          height: 50px;
-        }
-      }
-    } */
-
-    .latest-sales,
-    .bids {
-      margin-top: 3em;
-
-      p {
-        @include xs {
-          text-align: center;
-        }
-      }
-
-      .scroll-table {
-        @include xs {
-          width: calc(100% + 4em);
-          margin-left: -2em;
-          overflow-x: auto;
-          padding-bottom: 1em;
-        }
-      }
-
-      table {
-        width: 100%;
-        background-color: transparent;
-
-        td {
-          padding: 0 1em;
-          white-space: nowrap;
-        }
-
-        th {
-          padding: 0 1em;
-        }
-
-        .user {
-          color: black;
-          font-weight: 600;
-          &:hover {
-            text-decoration: underline;
-          }
-          .avatar {
-            margin-right: 8px;
-            min-width: 24px;
-            width: 24px;
-            min-height: 24px;
-            height: 24px;
-            display: inline-block;
-            position: relative;
-            top: 4px;
-          }
-          span {
-            position: relative;
-            top: -2px;
-          }
-        }
-
-        .token {
-          width: 20px;
-          margin-right: 8px;
-          position: relative;
-          top: 4px;
         }
       }
     }
   }
 
-  .section-content{
+  .section-content {
     display: flex;
-    background: linear-gradient(#5430AC, #1C1B4D);
+    background: linear-gradient(#5430ac, #1c1b4d);
     border-radius: 1em;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     color: white;
+
+    @include xs{
+      flex-direction: column;
+      border-radius: 0;
+    }
+
+    @include sm{
+      flex-direction: column;
+    }
 
     .item {
       margin: 2em 0;
@@ -309,11 +168,19 @@
       line-height: 1.5;
     }
 
-    .left{
+    .left {
       box-sizing: border-box;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       padding: 3em 4em;
+
+      @include xs{
+        padding: 2em;
+      }
+
+      @include sm{
+        padding: 3em 2em;
+      }
 
       h1 {
         margin: 0;
@@ -351,11 +218,11 @@
             font-size: 0.9em;
           }
 
-          &:hover{
+          &:hover {
             background-color: rgba($color: white, $alpha: 0.1);
           }
 
-          img{
+          img {
             width: 24px;
             height: 24px;
             object-fit: contain;
@@ -388,8 +255,8 @@
         }
       }
 
-      .item-description{
-        p{
+      .item-description {
+        p {
           color: $white_medium_emphasis;
           font-size: 0.9em;
           line-height: 1.4;
@@ -409,23 +276,23 @@
           .highlight__texts {
             margin-right: auto;
 
-            p{
+            p {
               margin: 0;
               line-height: 1.2;
             }
           }
 
-          .highlight__image-container{
+          .highlight__image-container {
             width: 60px;
             height: 60px;
             border-radius: 8px;
-            background-color: #7FFE00;
+            background-color: #7ffe00;
             padding: 6px;
             box-sizing: border-box;
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box;
 
-            img{
+            img {
               width: 100%;
               height: 100%;
               object-fit: contain;
@@ -434,7 +301,7 @@
         }
       }
 
-      .item-parcels{
+      .item-parcels {
         border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
         padding-top: 2em;
         display: flex;
@@ -442,7 +309,7 @@
         gap: 0.5em;
         margin-top: 2em;
 
-        .overline{
+        .overline {
           width: 100%;
         }
 
@@ -461,7 +328,7 @@
       }
     }
 
-    .right{
+    .right {
       min-width: 360px;
       width: 360px;
       padding: 3em 2em;
@@ -470,22 +337,38 @@
       -webkit-box-sizing: border-box;
       background-color: rgba($color: #000000, $alpha: 0.2);
 
-      .item{
+      @include xs{
+        min-width: 100%;
+        width: 100%;
+        padding: 2em;
+      }
+
+      @include sm{
+        min-width: 100%;
+        width: 100%;
+      }
+
+      @include md{
+        min-width: 300px;
+        width: 300px;
+      }
+
+      .item {
         margin-top: 0;
 
-        .value{
+        .value {
           display: flex;
           align-items: center;
           font-weight: 600;
           gap: 8px;
           font-size: 1.25em;
 
-          span{
+          span {
             color: $white_inactive;
             font-weight: 300;
           }
 
-          img{
+          img {
             width: 24px;
             height: 24px;
             object-fit: contain;
@@ -493,25 +376,25 @@
         }
       }
 
-      .item-buttons{
+      .item-buttons {
         display: flex;
         gap: 0.5em;
 
-        button{
+        button {
           width: 50%;
           height: 50px;
 
-          &:nth-of-type(2){
+          &:nth-of-type(2) {
             background-color: rgba($color: white, $alpha: 0.1);
             color: white;
-            &:hover{
+            &:hover {
               background-color: rgba($color: white, $alpha: 0.2);
             }
           }
         }
       }
 
-      .time{
+      .time {
         color: $white_inactive;
         display: flex;
         align-items: center;
@@ -521,9 +404,6 @@
     }
   }
 
-  .rarity-common {
-    background-color: $rarity_common !important;
-  }
   .rarity-unusual {
     background-color: $rarity_unusual !important;
   }
@@ -545,5 +425,78 @@
   .rarity-unique {
     background-color: $rarity_unique !important;
     color: $black_high_emphasis !important;
+  }
+  .rarity-common {
+    background-color: $rarity_common !important;
+  }
+
+  .latest-sales,
+  .bids {
+    margin-top: 3em;
+
+    p {
+      padding: 0 1em;
+    }
+
+    .scroll-table {
+      @include xs {
+        overflow-x: auto;
+        padding-bottom: 1em;
+      }
+    }
+
+    table {
+      width: 100%;
+      background-color: transparent;
+
+      td {
+        padding: 0 1em;
+        white-space: nowrap;
+      }
+
+      th {
+        padding: 0 1em;
+      }
+
+      .user {
+        color: black;
+        font-weight: 600;
+        &:hover {
+          text-decoration: underline;
+        }
+        .avatar {
+          margin-right: 8px;
+          min-width: 24px;
+          width: 24px;
+          min-height: 24px;
+          height: 24px;
+          display: inline-block;
+          position: relative;
+          top: 4px;
+        }
+        span {
+          position: relative;
+          top: -2px;
+        }
+      }
+
+      .token {
+        width: 20px;
+        margin-right: 8px;
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
+
+  .bids{
+    .scroll-table{
+      background-color: rgba($color: #000000, $alpha: 0.1);
+      border-radius: 0.5em;
+
+      @include xs{
+        border-radius: 0;
+      }
+    }
   }
 }

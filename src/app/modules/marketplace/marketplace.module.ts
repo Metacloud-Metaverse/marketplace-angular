@@ -40,6 +40,7 @@ import { MySettingsPageComponent } from './pages/my-settings-page/my-settings-pa
 import { MyOnsalePageComponent } from './pages/my-onsale-page/my-onsale-page.component';
 import { LandPageComponent } from './pages/land-page/land-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PlaceBidModalComponent } from './modals/place-bid-modal/place-bid-modal.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MyBidsPageComponent,
     MySettingsPageComponent,
     MyOnsalePageComponent,
-    LandPageComponent
+    LandPageComponent,
+    PlaceBidModalComponent
   ],
   imports: [
     CommonModule,

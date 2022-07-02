@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Meta, Title } from '@angular/platform-browser';
 import { Item } from '../../entities/item';
+import { PlaceBidModalComponent } from '../../modals/place-bid-modal/place-bid-modal.component';
 
 export interface LatestsSales {
   from: string; to: string; type: string; when: string; price: number;
@@ -28,7 +30,7 @@ const ELEMENT_DATA2: Bids[] = [
 export class ItemDetailPageComponent implements OnInit {
 
   displayedColumns: string[] = ['from', 'to', 'type', 'when', 'price'];
-  displayedColumns2: string[] = ['from', 'timeleft', 'price'];
+  displayedColumns2: string[] = ['from', 'price', 'timeleft'];
   dataSource = ELEMENT_DATA;
   dataSource2 = ELEMENT_DATA2;
 
@@ -44,6 +46,7 @@ export class ItemDetailPageComponent implements OnInit {
   constructor(
     private titleService: Title,
     private metaTagService: Meta,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -53,23 +56,28 @@ export class ItemDetailPageComponent implements OnInit {
     );
 
     this.item = new Item();
-    this.item.type = 2;
+    this.item.type = 3;
     this.item.title = '[Item_name]';
     this.item.genre = 2;
     this.item.photo = '/assets/img/item-wearable.png';
     this.item.modelItem = '/assets/models/Character_Male_Babucha.glb';
     this.item.modelWear = '/assets/models/CharacterMaleBlender.glb';
-    this.item.rarity = 0;
+    this.item.rarity = 5;
     this.item.clothes = 7;
     this.item.description = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla rem veritatis cumque repudiandae! Tenetur commodi exercitationem explicabo ducimus adipisci, mollitia repellat magnam, iure dolores fuga ad. Corrupti pariatur aperiam, delectus, autem dolor nisi ipsam repudiandae.';
     this.item.creatorName = 'SHAWNDA0505LYDS';
     this.item.creatorAvatar = '/assets/img/avatar.png';
-    this.item.creatorUrl = '[Item_name]';
-
+    this.item.creatorUrl = '[Item_url]';
     this.item.collectionName = 'Mercenary Cyber Colections';
     this.item.collectionAvatar = '/assets/img/collection-icon.png';
-    this.item.collectionUrl = '[Item_name]';
-
+    this.item.collectionUrl = '[collection_url]';
     this.item.currentMint = 15;
+  }
+
+  openPlaceBidModal(){
+    this.dialog.open(PlaceBidModalComponent, {
+      width: '900px',
+      panelClass: 'place-bid-modal',
+    });
   }
 }

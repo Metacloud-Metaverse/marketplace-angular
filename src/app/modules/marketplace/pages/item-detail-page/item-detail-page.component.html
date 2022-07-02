@@ -1,13 +1,13 @@
 <div class="item-detail-page intro-component-animation">
-
   <div class="container">
+
     <div class="column-left">
       <a [routerLink]="['/marketplace']" mat-icon-button matTooltip="Back"><mat-icon>arrow_back</mat-icon></a>
     </div>
 
     <div class="column-right">
       <header [ngClass]="{
-        'rarity-common'   : item?.rarity == 0,
+        'rarity-common'   : item?.rarity == 0 || item?.type == 3,
         'rarity-unusual'  : item?.rarity == 1,
         'rarity-odd'      : item?.rarity == 2,
         'rarity-rare'     : item?.rarity == 3,
@@ -193,15 +193,14 @@
 
           <div class="item item-buttons">
             <button mat-flat-button color="primary">BUY</button>
-            <button mat-flat-button>BID</button>
+            <button mat-flat-button (click)="openPlaceBidModal()">BID</button>
           </div>
 
           <div class="time"><mat-icon>query_builder</mat-icon> Expires in 29 days</div>
-
         </div>
       </section>
 
-      <div class="row texts">
+      <!-- <div class="row texts">
         <div class="left">
           <mat-list>
             <mat-list-item>
@@ -251,10 +250,40 @@
           <button mat-flat-button>BID</button>
           <button mat-flat-button color="primary">BUY</button>
         </div>
-      </div>
+      </div> -->
+
+      <section class="bids">
+        <p><b>BIDS</b></p>
+        <div class="scroll-table">
+          <table mat-table [dataSource]="dataSource2">
+
+            <ng-container matColumnDef="from">
+              <th mat-header-cell *matHeaderCellDef> From </th>
+              <td mat-cell *matCellDef="let element"> <a [routerLink]="['/routePath']" class="user link"><div class="avatar"><img src="/assets/img/avatar.png"></div> <span>{{ element.from }}</span></a> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="timeleft">
+              <th mat-header-cell *matHeaderCellDef> Time left </th>
+              <td mat-cell *matCellDef="let element"> {{element.timeleft}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> <img class="token" src="/assets/img/logos/icon.svg" /> <b>{{element.price}}</b> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="5">No Results</td>
+            </tr>
+          </table>
+        </div>
+      </section>
 
       <div class="latest-sales">
-        <p style="margin-bottom: 0;">LATEST SALES</p>
+        <p style="margin-bottom: 0;"><b>LATEST SALES</b></p>
         <div class="scroll-table">
           <table mat-table [dataSource]="dataSource">
 
@@ -293,35 +322,8 @@
         </div>
       </div>
 
-      <div class="bids">
-        <p style="margin-bottom: 0;">BIDS</p>
-        <div class="scroll-table">
-          <table mat-table [dataSource]="dataSource2">
 
-            <ng-container matColumnDef="from">
-              <th mat-header-cell *matHeaderCellDef> From </th>
-              <td mat-cell *matCellDef="let element"> <a [routerLink]="['/routePath']" class="user link"><div class="avatar"><img src="/assets/img/avatar.png"></div> <span>{{ element.from }}</span></a> </td>
-            </ng-container>
-
-            <ng-container matColumnDef="timeleft">
-              <th mat-header-cell *matHeaderCellDef> Time left </th>
-              <td mat-cell *matCellDef="let element"> {{element.timeleft}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="price">
-              <th mat-header-cell *matHeaderCellDef> Price </th>
-              <td mat-cell *matCellDef="let element"> <img class="token" src="/assets/img/logos/icon.svg" /> <b>{{element.price}}</b> </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
-
-            <tr class="mat-row" *matNoDataRow>
-              <td class="mat-cell" colspan="5">No Results</td>
-            </tr>
-          </table>
-        </div>
-      </div>
     </div>
+
   </div>
 </div>

@@ -1,0 +1,32 @@
+<app-loading *ngIf="isLoading" [isFullPage]="true"></app-loading>
+
+<mat-dialog-content class="place-bid-modal">
+  <div class="container">
+    <div class="image-container">
+      <img src="asd" alt="" onerror="this.src='/assets/img/image-not-found.svg';" />
+    </div>
+
+    <div class="texts">
+      <h5><b>Place a bid</b></h5>
+      <p>Set a price and expiration date for your bid on <b>[Name_land_example]</b></p>
+
+      <mat-form-field>
+        <mat-label>PRICE</mat-label>
+        <input matInput type="number" placeholder="0" min="5" [formGroup]="inputCloud" />
+        <img matPrefix src="" />
+        <mat-hint><span class="color-accent">You don’t have enogh $CLOUD</span></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>EXPIRATION DATE</mat-label>
+        <input matInput type="number" placeholder="0" [formGroup]="inputDate" />
+      </mat-form-field>
+
+      <div class="buttons">
+        <button class="btn" mat-flat-button>CANCEL</button>
+        <button class="btn" mat-flat-button color="primary">BID</button>
+      </div>
+    </div>
+
+  </div>
+</mat-dialog-content>

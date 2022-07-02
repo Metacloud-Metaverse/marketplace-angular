@@ -1,0 +1,48 @@
+@import "/src/assets/styles/vars";
+
+.place-bid-modal{
+
+  .container{
+    display: flex;
+    gap: 3em;
+    background: linear-gradient(#5430ac, #1c1b4d);
+    color: white;
+
+    .image-container{
+      width: 200px;
+      min-width: 200px;
+      height: 200px;
+      border-radius: 6px;
+      overflow: hidden;
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .texts{
+      mat-form-field{
+        width: 100%;
+        margin-top: 1em;
+      }
+
+      .color-error{
+        color: $color_error;
+      }
+
+      .buttons{
+        margin-top: 2em;
+        padding-bottom: 2em;
+        display: flex;
+        gap: 0.5em;
+
+        button{
+          width: 50%;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
