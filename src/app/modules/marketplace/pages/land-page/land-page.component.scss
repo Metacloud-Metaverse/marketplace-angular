@@ -1,189 +1,126 @@
-@import "../../../../../assets/styles/vars";
+@import "/src/assets/styles/vars";
 
 .land-page {
   padding-bottom: 3em;
 
-  .row {
-    display: flex;
-    align-items: center;
-    gap: 1em;
+  header{
+    margin-top: 2em;
+    padding-bottom: 0;
 
-    p {
-      margin: 0;
-      margin-right: auto;
+    h1{
+      margin-bottom: 0;
     }
 
-    .btn-icon {
-      line-height: 1;
-      border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    p{
+      font-size: 1.25em;
+      margin-top: 0em;
+      margin-bottom: 2em;
+      @include xs{
+        font-size: 1em;
+      }
     }
 
-    button {
-      font-size: 0.7em;
+    button{
+      border-bottom: 3px solid $color_primary_500;
+      border-radius: 0;
+    }
+
+    .line{
+      position: relative;
+      top: -2px;
+      height: 1px;
+      background-color: rgba($color: #000000, $alpha: 0.1);
     }
   }
 
-  .list-container {
+  .list-container{
     .container{
       display: flex;
       gap: 2em;
-      padding-top: 0;
 
       .left{
-        width: 300px;
-        min-width: 300px;
-
-        mat-action-list{
-          background-color: rgba($color: #000000, $alpha: 0.1);
-          margin-bottom: 1em;
-          border-radius: 1em;
-
-          p{
-            margin: 0;
-            font-size: 0.8em;
-            border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
-            padding-bottom: 0.5em;
-            text-align: center;
-          }
-
-          &::ng-deep .mat-line{
-            &:nth-of-type(1){
-              font-weight: 600;
-            }
-          }
-
-          .active{
-            background-color: rgba($color: #000000, $alpha: 0.1);
-          }
-        }
-
-        mat-icon{
-          margin-right: 8px;
-        }
-
-        a{
-          width: 100%;
-          text-decoration: none;
-          color: rgb(53, 53, 53);
-          display: block;
-          padding: 0.5em 0.8em;
-          border-radius: 0.3em;
-          box-sizing: border-box;
-          display: flex;
-          cursor: pointer;
-          &:hover{
-            background: rgba($color: rgb(0, 0, 0), $alpha: 0.1);
-          }
-        }
-
-        .link-disable{
-          pointer-events: none;
-          color: rgb(85, 85, 85) !important;
-        }
-
-        .active{
-          font-weight: 600;
-          color: $color_primary_500;
-        }
-
-        mat-expansion-panel{
-          background-color: transparent;
-          box-shadow: none;
-          box-sizing: border-box;
-
-          mat-expansion-panel-header{
-            height: initial;
-            border-radius: 0.3em;
-            padding: 0.5em 0.8em;
-            padding-right: 1em;
-            box-sizing: border-box;
-            display: flex;
-            &:hover{
-              background: rgba($color: black, $alpha: 0.1);
-            }
-          }
-
-          &::ng-deep .mat-expansion-panel-body{
-            padding-left: 1em;
-            padding-right: 0;
-          }
-        }
-
-        mat-expansion-panel.mat-expanded{
-          mat-expansion-panel-header{
-            font-weight: 600 !important;
-          }
-          mat-expansion-panel{
-            mat-expansion-panel-header{
-              font-weight: 400 !important;
-            }
-          }
-          mat-expansion-panel.mat-expanded{
-            mat-expansion-panel-header{
-              font-weight: 600 !important;
-            }
-            mat-expansion-panel{
-              mat-expansion-panel-header{
-                font-weight: 400 !important;
-              }
-            }
-            mat-expansion-panel.mat-expanded{
-              mat-expansion-panel-header{
-                font-weight: 600 !important;
-              }
-              mat-expansion-panel{
-                mat-expansion-panel-header{
-                  font-weight: 400 !important;
-                }
-              }
-            }
-          }
+        width: 290px;
+        min-width: 290px;
+        @include lt-lg{
+          display: none;
         }
       }
 
       .right{
         width: 100%;
 
+        .row-filters{
+          display: flex;
+          gap: 0.5em;
+          align-items: center;
+
+          .btn{
+            background-color: rgba($color: #59129F, $alpha: 0.12);
+            border-radius: 200px;
+
+            &:hover{
+              background-color: rgba($color: #59129F, $alpha: 0.24);
+            }
+          }
+
+          .search{
+            position: relative;
+            width: 400px;
+            max-width: 100%;
+            margin-right: auto;
+
+            mat-icon{
+              position: absolute;
+              top: 8px;
+              left: 12px;
+            }
+
+            input{
+              border: none;
+              height: 40px;
+              width: 100%;
+              padding-left: 40px;
+              box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              -webkit-box-sizing: border-box;
+              transition: $animation;
+              -o-transition: $animation;
+              -moz-transition: $animation;
+              -webkit-transition: $animation;
+            }
+          }
+
+          .btn-sort{
+            @include lt-md{
+              display: none;
+            }
+          }
+
+          .btn-filters{
+            display: none;
+            @include lt-lg {
+              display: block;
+            }
+          }
+
+          mat-checkbox{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1em;
+            height: 40px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            @include lt-md{
+              display: none;
+            }
+          }
+        }
+
         .row{
           display: flex;
           gap: 1em;
-        }
-
-        .search{
-          width: 100%;
-
-          &::ng-deep .mat-form-field-wrapper{
-            padding-bottom: 0;
-            margin: 0;
-          }
-
-          &::ng-deep .mat-form-field-outline{
-            background-color: rgba($color: #000000, $alpha: 0.1);
-            border-radius: 5px;
-          }
-
-          &::ng-deep .mat-form-field-infix{
-            padding: 0.7em 0 0.9em 0.5em;
-          }
-        }
-
-        .sort-by{
-          min-width: 120px;
-          background-color: rgba($color: #000000, $alpha: 0.1);
-          text-overflow: ellipsis;
-          &:hover{
-            background-color: rgba($color: #000000, $alpha: 0.2);
-          }
-        }
-
-        mat-slide-toggle{
-          height: 53px;
-          background-color: rgba($color: #000000, $alpha: 0.1);
-          border-radius: 5px;
-          padding: 0 1em;
-          &:hover{
-            background-color: rgba($color: #000000, $alpha: 0.2);
-          }
         }
 
         .filters{
@@ -247,6 +184,13 @@
 
           .item{
             width: calc(33.3% - 1em);
+            @include xs{
+              width: 100%;
+            }
+
+            @include sm{
+              width: calc(50% - 0.5em);
+            }
           }
 
           button{
@@ -256,16 +200,181 @@
       }
     }
   }
+}
 
-  .map-container {
+.filters-mobile{
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100vh;
+  z-index: 199;
+  overflow: hidden;
+  transition: $animation;
+  -o-transition: $animation;
+  -moz-transition: $animation;
+  -webkit-transition: $animation;
+
+  .background{
+    background-color: rgba($color: #000000, $alpha: 0.75);
     width: 100%;
-    height: 70vh;
-    overflow: hidden;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    transition: $animation;
+    -o-transition: $animation;
+    -moz-transition: $animation;
+    -webkit-transition: $animation;
+    z-index: 2;
+  }
 
-    img {
+  .content{
+    width: 320px;
+    max-width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    margin-left: auto;
+    overflow-y: auto;
+    padding: 2em;
+    padding-bottom: 8em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    z-index: 3;
+    position: relative;
+    background-color: #3C2782;
+    color: white;
+
+    &::-webkit-scrollbar{
+      display: none;
+    }
+
+    h4{
+      margin-top: 0;
+    }
+
+    .overline{
+      color: $white_inactive;
+      margin-top: 2em;
+      margin-bottom: 6px;
+      font-size: 0.8em;
+      letter-spacing: 1px;
+    }
+
+    .btn{
+      background-color: rgba($color: #EC0DF0, $alpha: 0.12);
+      border-radius: 200px;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      color: white;
+
+      &:hover{
+        background-color: rgba($color: #EC0DF0, $alpha: 0.24);
+      }
+    }
+
+    .btn-sort{
+      &::ng-deep .mat-button-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .breakpoint-md{
+      @include md{
+        display: none;
+      }
     }
   }
+
+  .btn-results{
+    width: calc(320px - 4em);
+    max-width: calc(100% - 4em);
+    height: 60px;
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+  }
+}
+
+.filters-mobile-active{
+  left: 0;
+
+  .background{
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.map-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 200;
+  background-color: rgba($color: #000000, $alpha: 0.75);
+  animation: introMapView 1s ease;
+  -o-animation: introMapView 1s ease;
+  -moz-animation: introMapView 1s ease;
+  -webkit-animation: introMapView 1s ease;
+
+  @keyframes introMapView {
+    from { opacity: 0; filter: blur(10px); }
+    to   { opacity: 1; filter: blur(00px); }
+  }
+
+  .map{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .row-filters{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    top: 2em;
+    right: 2em;
+
+    mat-checkbox{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1em;
+      height: 40px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      background-color: rgba($color: $color_primary_900, $alpha: 0.75);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      color: white;
+      border-radius: 200px;
+
+      &:hover{
+        background-color: rgba($color: $color_primary_900, $alpha: 0.9);
+      }
+    }
+
+    .btn-close{
+      width: 60px;
+      height: 60px;
+      background-color: rgba($color: #CE2BD5, $alpha: 0.75);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      color: white;
+
+      &:hover{
+        background-color: rgba($color: #CE2BD5, $alpha: 1.0);
+      }
+    }
+  }
+
+
 }

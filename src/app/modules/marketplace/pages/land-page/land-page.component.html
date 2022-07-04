@@ -1,44 +1,40 @@
 <div class="land-page intro-component-animation">
 
-  <div class="container">
-    <div class="row">
-      <p>RESULTS</p>
+  <header class="container">
+    <h1><b>Marketplace</b></h1>
+    <p>Welcome to the virtual world’s one-stop-shop for the top rated digital attractions.</p>
+    <button mat-button>LANDS</button>
+    <div class="line"></div>
+  </header>
 
-      <button *ngIf="typeView == 0" mat-flat-button class="animated" [matMenuTriggerFor]="sortByMenu" class="sort-by">
-        <span *ngIf="sortBy == 0">NEWEST</span>
-        <span *ngIf="sortBy == 1">RECENTLY LISTED</span>
-        <span *ngIf="sortBy == 2">RECENTLY SOLD</span>
-        <span *ngIf="sortBy == 3">CHEAPEST</span>
-        <mat-icon>arrow_drop_down</mat-icon>
-      </button>
-
-      <mat-checkbox >ON SALE</mat-checkbox>
-
-      <mat-button-toggle-group>
-        <mat-button-toggle value="list" (click)="typeView = 0"><mat-icon>list</mat-icon></mat-button-toggle>
-        <mat-button-toggle value="map" (click)="typeView = 1"><mat-icon>location_on</mat-icon></mat-button-toggle>
-      </mat-button-toggle-group>
-    </div>
-  </div>
-
-  <div *ngIf="typeView == 1" class="map-container intro-component-animation">
-    <img src="/assets/img/map-preview.png" alt="" />
-  </div>
-
-  <div *ngIf="typeView == 0" class="list-container intro-component-animation">
+  <div class="list-container">
     <div class="container">
+
       <div class="left">
-        <app-list-element [data]="listCategory"></app-list-element>
+        <app-categories-list [data]="listCategory"></app-categories-list>
       </div>
 
       <div class="right">
+        <div class="row-filters">
+          <div class="search">
+            <mat-icon>search</mat-icon>
+            <input type="text" placeholder="Search..." class="btn" />
+          </div>
 
-        <div class="row">
-          <mat-form-field appearance="outline" class="search">
-            <input matInput type="text" placeholder="Search" />
-            <mat-icon matPrefix>search</mat-icon>
-          </mat-form-field>
+          <button mat-flat-button class="animated" [matMenuTriggerFor]="sortByMenu" class="btn btn-sort">
+            <span *ngIf="sortBy == 0">NEWEST</span>
+            <span *ngIf="sortBy == 1">LISTED</span>
+            <span *ngIf="sortBy == 2">SOLD</span>
+            <span *ngIf="sortBy == 3">NAME</span>
+            <span *ngIf="sortBy == 4">CHEAPEST</span>
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
 
+          <mat-checkbox class="btn">ON SALE</mat-checkbox>
+
+          <button mat-icon-button class="btn btn-map" (click)="isMapActive = true;"><mat-icon>map</mat-icon></button>
+
+          <button mat-icon-button class="btn btn-filters" (click)="isFiltersActive = true;"><mat-icon>tune</mat-icon></button>
         </div>
 
         <div class="layout-items" @componentAnimation>
@@ -66,10 +62,50 @@
 
 </div>
 
+<div class="filters-mobile" [ngClass]="{'filters-mobile-active': isFiltersActive}">
+
+  <div class="background" (click)="isFiltersActive = false;"></div>
+
+  <div class="content">
+    <h4><b>FILTERS</b></h4>
+
+    <span class="breakpoint-md">
+      <div class="overline">SORT BY</div>
+      <button mat-flat-button class="animated" [matMenuTriggerFor]="sortByMenu" class="btn btn-sort">
+        <span *ngIf="sortBy == 0">NEWEST</span>
+        <span *ngIf="sortBy == 1">LISTED</span>
+        <span *ngIf="sortBy == 2">SOLD</span>
+        <span *ngIf="sortBy == 3">NAME</span>
+        <span *ngIf="sortBy == 4">CHEAPEST</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <div class="overline">ON SALE</div>
+      <mat-slide-toggle color="accent"></mat-slide-toggle>
+    </span>
+
+    <div class="overline">CATEGORIES</div>
+    <app-categories-list></app-categories-list>
+  </div>
+  <button mat-flat-button color="primary" class="btn-results" (click)="isFiltersActive = false;">SEE RESULTS</button>
+</div>
+
+<div *ngIf="isMapActive" class="map-container" @leaveComponentBlur>
+
+  <!-- Embed Map Here -->
+  <img src="/assets/img/map-preview.png" class="map" alt="" />
+
+  <div class="row-filters">
+    <mat-checkbox class="btn">ON SALE</mat-checkbox>
+    <button mat-icon-button class="btn-close" matTooltip="Close Map View" (click)="isMapActive = false;"><mat-icon>close</mat-icon></button>
+  </div>
+
+</div>
 
 <mat-menu #sortByMenu="matMenu">
-  <button mat-menu-item (click)="sortBy = 0">NEWEST</button>
+  <button mat-menu-item (click)="sortBy = 0">RECENTLY NEWEST</button>
   <button mat-menu-item (click)="sortBy = 1">RECENTLY LISTED</button>
   <button mat-menu-item (click)="sortBy = 2">RECENTLY SOLD</button>
-  <button mat-menu-item (click)="sortBy = 3">CHEAPEST</button>
+  <button mat-menu-item (click)="sortBy = 3">NAME</button>
+  <button mat-menu-item (click)="sortBy = 4">CHEAPEST</button>
 </mat-menu>

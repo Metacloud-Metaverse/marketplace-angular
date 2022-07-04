@@ -41,6 +41,7 @@ import { MyOnsalePageComponent } from './pages/my-onsale-page/my-onsale-page.com
 import { LandPageComponent } from './pages/land-page/land-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlaceBidModalComponent } from './modals/place-bid-modal/place-bid-modal.component';
+import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { PlaceBidModalComponent } from './modals/place-bid-modal/place-bid-modal
     MySettingsPageComponent,
     MyOnsalePageComponent,
     LandPageComponent,
-    PlaceBidModalComponent
+    PlaceBidModalComponent,
+    CategoriesListComponent
   ],
   imports: [
     CommonModule,

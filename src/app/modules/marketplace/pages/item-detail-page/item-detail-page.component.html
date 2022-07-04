@@ -19,7 +19,7 @@
         <!-- Item 3D Model -->
         <model-viewer
           *ngIf="item?.type == 2 && item?.modelItem != '' && showItem"
-          alt="Name Item"
+          alt="Item Model"
           [src]="item?.modelItem"
           camera-controls="true"
           autoplay
@@ -29,7 +29,7 @@
 
         <model-viewer
           *ngIf="item?.type == 2 && item?.modelWear != '' && !showItem"
-          alt="Name Item"
+          alt="Model Avatar with Item"
           [src]="item?.modelWear"
           camera-controls="true"
           autoplay
@@ -37,7 +37,7 @@
           class="model-avatar">
         </model-viewer>
 
-        <!-- Item Image (don't have 3D Model) -->
+        <!-- Item Image (don't have 3D Model (for example, Tattu in the Skin)) -->
         <img *ngIf="item?.type == 2 && item?.modelItem == ''" [src]="item?.photo" onerror="this.src='/assets/img/image-not-found.svg';" class="item-wearable" />
 
         <!-- Item Name -->

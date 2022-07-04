@@ -1,20 +1,38 @@
 
 export class Item {
+
+  type: number = 0;
+  // 0 = PARCEL
+  // 1 = ESTATE   || Bid
+  // 2 = WEARABLE || Quantity || Image or 3D
+  // 3 = NAME     || Bid
+
+
+  // ALL ITEMS
   id!: number;
   title!: string;
   photo!: string;
-  modelWear!: string;
-  modelItem!: string;
+  photoMiniature!: string;
   description!: string;
+  ownerName!: string
+  ownerAvatar!: string
+  ownerUrl!: string
 
+
+  // WEARABLE && NAME
   creatorName!: string;
   creatorAvatar!: string;
   creatorUrl!: string;
 
+
+  // WEARABLE
+  modelWear!: string;
+  modelItem!: string;
   collectionName!: string;
   collectionAvatar!: string;
   collectionUrl!: string;
-
+  currentMint!: number;
+  clothes: number = 0;
   rarity: number = 2;
   // 0 COMMON    || "Max supply: 100,000"
   // 1 UNUSUAL   || "Max supply: 50,000"
@@ -24,25 +42,18 @@ export class Item {
   // 5 LEGENDARY || "Max supply: 100"
   // 6 MYTHIC    || "Max supply: 10"
   // 7 UNIQUE    || "Max supply: 1"
-
   genre: number = 0;
   // 0 FEMALE
   // 1 MALE
   // 2 BOTH or UNISEX
 
-  clothes: number = 0;
-  // Sort like you prefer
 
-  coordinates!: string;
+  // PARCEL && STATES
+  coordinates!:any[];
+  proximities!:any[];
   lands!: number;
 
-  type: number = 0;
-  // 0 = LAND
-  // 1 = ESTATE || Bid
-  // 2 = ITEM   || Quantity || Image or 3D
-  // 3 = NAME   || Bid
 
-  currentMint!: number;
 
   static ITEMS = [
     {

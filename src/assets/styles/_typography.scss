@@ -96,4 +96,8 @@ button {
   font-size: 1.25em;
   z-index: 8;
   position: relative;
+  transition: $animation;
+  -o-transition: $animation;
+  -moz-transition: $animation;
+  -webkit-transition: $animation;
 }

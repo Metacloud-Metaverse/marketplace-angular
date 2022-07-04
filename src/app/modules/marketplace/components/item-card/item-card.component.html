@@ -1,67 +1,49 @@
 <a [routerLink]="['/marketplace/main/item-detail']" class="item-card component-animation animated">
 
-  <a [routerLink]="['/marketplace/main/item-detail']" class="image-container">
-    <img *ngIf="item.image" src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image - " onerror="this.src='/assets/img/image-not-found.svg';" />
-    <span *ngIf="item.name">di CAPRIO</span>
-  </a>
+  <div class="image-container" [ngClass]="{
+    'rarity-common'   : item?.rarity == 0 || item?.type == 3,
+    'rarity-unusual'  : item?.rarity == 1,
+    'rarity-odd'      : item?.rarity == 2,
+    'rarity-rare'     : item?.rarity == 3,
+    'rarity-epic'     : item?.rarity == 4,
+    'rarity-legendary': item?.rarity == 5,
+    'rarity-mythic'   : item?.rarity == 6,
+    'rarity-unique'   : item?.rarity == 7}">
 
-  <div class="body">
-    <div class="row">
-      <h3><a [routerLink]="['/marketplace/main/item-detail']" class="animated"> {{ item.title }} </a></h3>
-      <div class="token">
-        <img src="/assets/img/logos/icon.svg" alt="" />
-        <span>54</span>
-      </div>
-    </div>
+    <img *ngIf="item?.type == 0 || item?.type == 1" [src]="item?.photoMiniature" alt="{{ item?.title }}" onerror="this.src='/assets/img/image-not-found.svg';" class="image-map" />
 
-    <div class="row" style="margin-bottom: 0;">
-      <div class="rarity">
-        <span class="mythic item-center" *ngIf="item.rarity == 0">MYTHIC</span>
-        <span class="unique item-center" *ngIf="item.rarity == 1">UNIQUE</span>
-        <span class="legendary item-center" *ngIf="item.rarity == 2">LEGENDARY</span>
-        <span class="epic item-center" *ngIf="item.rarity == 3">EPIC</span>
-        <span class="unusual item-center" *ngIf="item.rarity == 4">UNUSUAL</span>
-        <span class="odd item-center" *ngIf="item.rarity == 5">ODD</span>
-        <span class="regular item-center" *ngIf="item.rarity == 6">REGULAR</span>
-        <span class="rare item-center" *ngIf="item.rarity == 7">RARE</span>
-        <span class="uncommon item-center" *ngIf="item.rarity == 8">UNCOMMON</span>
-      </div>
+    <img *ngIf="item?.type == 2" [src]="item?.photoMiniature" alt="{{ item?.title }}" onerror="this.src='/assets/img/image-not-found.svg';" />
 
-      <button *ngIf="false" mat-flat-button class="lands-coordinates item-center">
-        <!-- <span>4 LAND</span> -->
-        <span>{{ item.coordinates }}</span>
-        <mat-icon>location_on</mat-icon>
-      </button>
-
-      <div *ngIf="false" class="item-icon item-center">
-        <mat-icon matTooltip="5 parcels away">location_city</mat-icon>
-      </div>
-
-      <div *ngIf="false" class="item-icon item-center">
-        <mat-icon matTooltip="Adjacent">view_column</mat-icon>
-      </div>
-
-      <div class="spacer"></div>
-
-      <div class="category item-icon item-center">
-        <mat-icon *ngIf="true"  matTooltip="Uppderbody">checkroom</mat-icon>
-        <mat-icon *ngIf="false" matTooltip="Helmet">psychology</mat-icon>
-        <mat-icon *ngIf="false" matTooltip="Uppderbody">checkroom</mat-icon>
-        <mat-icon *ngIf="false" matTooltip="Uppderbody">checkroom</mat-icon>
-        <mat-icon *ngIf="false" matTooltip="Uppderbody">checkroom</mat-icon>
-        <mat-icon *ngIf="false" matTooltip="Uppderbody">checkroom</mat-icon>
-        <mat-icon *ngIf="false" matTooltip="Uppderbody">checkroom</mat-icon>
-        <mat-icon *ngIf="false" matTooltip="Uppderbody">checkroom</mat-icon>
-        <mat-icon *ngIf="false" matTooltip="Uppderbody">checkroom</mat-icon>
-        <!-- <img *ngIf="item.category == 1" src="" alt="asd" matTooltip="Pants" /> -->
-      </div>
-
-      <div class="genre item-icon item-center">
-        <mat-icon *ngIf="item.genre == 0" matTooltip="Female">female</mat-icon>
-        <mat-icon *ngIf="item.genre == 1" matTooltip="Male">male</mat-icon>
-        <mat-icon *ngIf="item.genre == 2" matTooltip="Transgender">transgender</mat-icon>
-      </div>
-    </div>
+    <span *ngIf="item?.type == 3">{{ item?.title }}</span>
   </div>
 
+  <div class="body">
+    <h3> {{ item?.title }} </h3>
+
+    <div class="row-price">
+      <p><small>Binance Smart Chain</small></p>
+
+      <div class="price">
+        <img src="/assets/img/logos/icon-total-white.svg" />
+        5,578
+      </div>
+    </div>
+
+    <div class="footer">
+      <div *ngIf="true" class="tag tag-location">
+        <mat-icon>location_on</mat-icon> {{ item?.coordinates }}
+      </div>
+
+      <div *ngIf="false" class="tag tag-location">
+        6 PARCELS
+      </div>
+
+      <div *ngIf="item?.type == 0 || item?.type == 1" class="proximities">
+        <div *ngIf="true" class="tag proximity" matTooltip="Plaza - 2 parcels away"><img src="/assets/img/icons/map-icons/icon-plaza.png"></div>
+        <div *ngIf="true" class="tag proximity" matTooltip="Road - 5 parcels away"><img src="/assets/img/icons/map-icons/icon-road.png"></div>
+        <div *ngIf="true" class="tag proximity" matTooltip="Distric - Adjacent"><img src="/assets/img/icons/map-icons/icon-distric.png"></div>
+      </div>
+    </div>
+
+  </div>
 </a>

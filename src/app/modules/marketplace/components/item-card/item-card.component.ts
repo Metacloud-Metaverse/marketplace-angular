@@ -10,9 +10,6 @@ export class ItemCardComponent implements OnInit {
 
   @Input() item?: any;
 
-  rarity = 1;
-  genre = 1;
-
   constructor() { }
 
   ngOnInit(): void {

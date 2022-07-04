@@ -1,0 +1,108 @@
+@import "/src/assets/styles/vars";
+
+mat-action-list{
+  background-color: rgba($color: #59129F, $alpha: 0.12);
+  margin-bottom: 1em;
+  border-radius: 1em;
+
+  p{
+    margin: 0;
+    font-size: 0.8em;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+    padding-bottom: 0.5em;
+    text-align: center;
+  }
+
+  &::ng-deep .mat-line{
+    &:nth-of-type(1){
+      font-weight: 600;
+    }
+  }
+
+  .active{
+    background-color: rgba($color: #59129F, $alpha: 0.12);
+  }
+}
+
+mat-icon{
+  margin-right: 8px;
+}
+
+a{
+  width: 100%;
+  text-decoration: none;
+  color: rgb(53, 53, 53);
+  display: block;
+  padding: 0.5em 0.8em;
+  border-radius: 0.3em;
+  box-sizing: border-box;
+  display: flex;
+  cursor: pointer;
+  &:hover{
+    background-color: rgba($color: #59129F, $alpha: 0.12);
+  }
+}
+
+.link-disable{
+  pointer-events: none;
+  color: rgb(85, 85, 85) !important;
+}
+
+.active{
+  font-weight: 600;
+  color: $color_primary_500;
+}
+
+mat-expansion-panel{
+  background-color: transparent;
+  box-shadow: none !important;
+  box-sizing: border-box;
+
+  mat-expansion-panel-header{
+    height: initial;
+    border-radius: 0.3em;
+    padding: 0.5em 0.8em;
+    padding-right: 1em;
+    box-sizing: border-box;
+    display: flex;
+    &:hover{
+      background-color: rgba($color: #59129F, $alpha: 0.12);
+    }
+  }
+
+  &::ng-deep .mat-expansion-panel-body{
+    padding-left: 1em;
+    padding-right: 0;
+  }
+}
+
+mat-expansion-panel.mat-expanded{
+  mat-expansion-panel-header{
+    font-weight: 600 !important;
+  }
+  mat-expansion-panel{
+    mat-expansion-panel-header{
+      font-weight: 400 !important;
+    }
+  }
+  mat-expansion-panel.mat-expanded{
+    mat-expansion-panel-header{
+      font-weight: 600 !important;
+    }
+    mat-expansion-panel{
+      mat-expansion-panel-header{
+        font-weight: 400 !important;
+      }
+    }
+    mat-expansion-panel.mat-expanded{
+      mat-expansion-panel-header{
+        font-weight: 600 !important;
+      }
+      mat-expansion-panel{
+        mat-expansion-panel-header{
+          font-weight: 400 !important;
+        }
+      }
+    }
+  }
+}

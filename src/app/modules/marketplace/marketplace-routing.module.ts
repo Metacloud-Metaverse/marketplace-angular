@@ -12,14 +12,14 @@ import { MySettingsPageComponent } from './pages/my-settings-page/my-settings-pa
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 const routes: Routes = [
-  { path: '', component: MarketplacePageComponent },
+  /* { path: '', component: MarketplacePageComponent }, */
+  { path: '', component: LandPageComponent },
   {
     path: 'main',
     component: MainLayoutComponent,
     children: [
-      { path: 'item-detail', component: ItemDetailPageComponent },
       { path: 'search', component: SearchPageComponent },
-      { path: 'land', component: LandPageComponent },
+      { path: 'item-detail', component: ItemDetailPageComponent },
       {
         path: 'my-store',
         component: MyStoreLayoutComponent,
